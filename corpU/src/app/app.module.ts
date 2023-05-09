@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { NavComponent } from './components/permenent_staff/shared/nav/nav.component';
+import { NavSharedomponent } from './components/shared/nav/nav.component';
+import { NavApplicantComponent } from './components/applicant/shared/nav/nav.component';
+import { NavPermanentComponent } from './components/permenent_staff/shared/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent
+    NavSharedomponent,
+    NavApplicantComponent,
+    NavPermanentComponent
   ],
   imports: [
     BrowserModule,
