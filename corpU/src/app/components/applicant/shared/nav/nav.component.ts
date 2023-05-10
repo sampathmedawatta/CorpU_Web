@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-applicant-nav',
+  selector: 'applicant-nav-shared',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
