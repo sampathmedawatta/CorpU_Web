@@ -12,7 +12,8 @@ import { ApplicantHeaderComponent} from './components/applicant/shared/header/he
 import {ApplicantFooterComponent} from './components/applicant/shared/footer/footer.component'
 import { PermanentHeaderComponent} from './components/permenent_staff/shared/header/header.component'
 import {PermanentFooterComponent} from './components/permenent_staff/shared/footer/footer.component';
-import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component'
+import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
+import { RegistrationComponent } from './components/shared/registration/registration.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
     PermanentFooterComponent,
     PermanentHeaderComponent,
     VacancyDetailComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
