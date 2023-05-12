@@ -1,0 +1,69 @@
+<applicant-header></applicant-header>
+<applicant-nav-shared></applicant-nav-shared>
+<head>
+    <title>Applicant Academic Details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/ApplicantPersonalDetails">Personal Details</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ApplicantAcademicDetails">Academic Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Class Preferences</a>
+                </li>
+            </ul>
+        </nav>
+        <form>
+            <h3>Academic Details</h3>
+            <div class="form-group">
+                <label for="institute">Institution Name:</label>
+                <input type="text" class="form-control" id="institute" name="institute" required>
+            </div>
+            <div class="form-group">
+                <label for="qualification">Qualification Type:</label>
+                <input type="text" class="form-control" id="qualification" name="qualification" required>
+            </div>
+            <div class="form-group">
+                <label for="awardedyear">Year of Award:</label>
+                <input type="text" class="form-control" id="awardedyear" name="awardedyear" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Add</button>
+        </form>
+        <h3>Academic Details Table</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Institution Name</th>
+                    <th>Qualification Type</th>
+                    <th>Year of Award</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ABC Institute</td>
+                    <td>Master of Science</td>
+                    <td>2022</td>
+                    <td><button class="btn btn-secondary">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>XYZ University</td>
+                    <td>Bachelor of Technology</td>
+                    <td>2018</td>
+                    <td><button class="btn btn-secondary">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
