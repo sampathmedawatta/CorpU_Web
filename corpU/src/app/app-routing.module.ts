@@ -8,6 +8,7 @@ import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/
 import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
 import { ManageUnitsComponent } from './manage-units/manage-units.component';
 import { ViewApplicationsComponent } from './view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
 
 const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent}, 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent},
   {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent},
   {path: 'ManageUnits', component:ManageUnitsComponent},
-  {path: 'ViewApplications', component:ViewApplicationsComponent}
+  {path: 'ViewApplications', component:ViewApplicationsComponent},
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent}
 ];
 
 @NgModule({
