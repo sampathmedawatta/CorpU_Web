@@ -6,6 +6,7 @@ import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applican
 import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
 import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
+import { ManageUnitsComponent } from './manage-units/manage-units.component';
 
 const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent}, 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent},
   {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent},
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent},
-  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent}
+  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent},
+  {path: 'ManageUnits', component:ManageUnitsComponent}
 ];
 
 @NgModule({
