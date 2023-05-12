@@ -7,6 +7,9 @@ import { ApplicantProfileDetailsComponent } from './applicant-profile-details/ap
 import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
 import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
 import { ManageUnitsComponent } from './manage-units/manage-units.component';
+import { ViewApplicationsComponent } from './view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
 
 const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent}, 
@@ -15,7 +18,10 @@ const routes: Routes = [
   {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent},
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent},
   {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent},
-  {path: 'ManageUnits', component:ManageUnitsComponent}
+  {path: 'ManageUnits', component:ManageUnitsComponent},
+  {path: 'ViewApplications', component:ViewApplicationsComponent},
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent},
+  {path: 'pricacyStatement',component:PrivacyStatementComponent}
 ];
 
 @NgModule({

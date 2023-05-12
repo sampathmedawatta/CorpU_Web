@@ -18,7 +18,10 @@ import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applican
 import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
 import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
-import { ManageUnitsComponent } from './manage-units/manage-units.component'
+import { ManageUnitsComponent } from './manage-units/manage-units.component';
+import { ViewApplicationsComponent } from './view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component'
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { ManageUnitsComponent } from './manage-units/manage-units.component'
     ApplicantAcademicDetailsComponent,
     ApplicantClassPreferencesComponent,
     ManageUnitsComponent,
+    ViewApplicationsComponent,
+    ReviewApplicationsComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule,
