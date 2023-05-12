@@ -16,7 +16,8 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
 import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component';
 import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
-import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component'
+import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
+import { ManageUnitsComponent } from './manage-units/manage-units.component'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ApplicantClassPreferencesComponent } from './applicant-class-preference
     ApplicantProfileDetailsComponent,
     ApplicantAcademicDetailsComponent,
     ApplicantClassPreferencesComponent,
+    ManageUnitsComponent,
   ],
   imports: [
     BrowserModule,
