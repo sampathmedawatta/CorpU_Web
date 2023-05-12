@@ -12,7 +12,12 @@ import { ApplicantHeaderComponent} from './components/applicant/shared/header/he
 import {ApplicantFooterComponent} from './components/applicant/shared/footer/footer.component'
 import { PermanentHeaderComponent} from './components/permenent_staff/shared/header/header.component'
 import {PermanentFooterComponent} from './components/permenent_staff/shared/footer/footer.component';
-import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component'
+import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
+import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component';
+import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
+import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
+import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
+import { ManageUnitsComponent } from './manage-units/manage-units.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +33,11 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
     PermanentFooterComponent,
     PermanentHeaderComponent,
     VacancyDetailComponent,
+    ApplicantUnitHistoryComponent,
+    ApplicantProfileDetailsComponent,
+    ApplicantAcademicDetailsComponent,
+    ApplicantClassPreferencesComponent,
+    ManageUnitsComponent,
   ],
   imports: [
     BrowserModule,
