@@ -1,15 +1,15 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicantComponent } from './components/applicant/applicant.component';
-import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
-import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component';
-import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
-import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
-import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
-import { ManageUnitsComponent } from './manage-units/manage-units.component';
-import { ViewApplicationsComponent } from './view-applications/view-applications.component';
-import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
-import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
+import { VacancyDetailComponent } from './components/applicant/vacancy-detail/vacancy-detail.component';
+import { ApplicantUnitHistoryComponent } from './components/applicant/applicant-unit-history/applicant-unit-history.component';
+import { ApplicantProfileDetailsComponent } from './components/applicant/applicant-profile-details/applicant-profile-details.component';
+import { ApplicantAcademicDetailsComponent } from './components/applicant/applicant-academic-details/applicant-academic-details.component';
+import { ApplicantClassPreferencesComponent } from './components/applicant-class-preferences/applicant-class-preferences.component';
+import { ManageUnitsComponent } from './components/permenent_staff/manage-units/manage-units.component';
+import { ViewApplicationsComponent } from './components/permenent_staff/view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
+import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 
 const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent}, 

@@ -1,5 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+.top-header{
+    position: inherit!important
+}
+
 .header-align
 {
-    justify-content:right;
+        justify-content:right;
 }
