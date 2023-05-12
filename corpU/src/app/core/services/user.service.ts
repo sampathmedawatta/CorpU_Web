@@ -18,7 +18,6 @@ export class UserService {
     }
   
     geAllUsers(): Observable<user[]> {
-      console.log("geAllUsers");
       return this.api
         .get<user[]>('user')
         .pipe(map((response) => response));
