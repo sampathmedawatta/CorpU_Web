@@ -15,7 +15,8 @@ import {PermanentFooterComponent} from './components/permenent_staff/shared/foot
 import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
 import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component';
 import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component';
-import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component'
+import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/applicant-academic-details.component';
+import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/
     ApplicantUnitHistoryComponent,
     ApplicantProfileDetailsComponent,
     ApplicantAcademicDetailsComponent,
+    ApplicantClassPreferencesComponent,
   ],
   imports: [
     BrowserModule,
