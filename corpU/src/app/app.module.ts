@@ -13,7 +13,8 @@ import {ApplicantFooterComponent} from './components/applicant/shared/footer/foo
 import { PermanentHeaderComponent} from './components/permenent_staff/shared/header/header.component'
 import {PermanentFooterComponent} from './components/permenent_staff/shared/footer/footer.component';
 import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
-import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component'
+import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applicant-unit-history.component';
+import { ApplicantProfileDetailsComponent } from './applicant-profile-details/applicant-profile-details.component'
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ApplicantUnitHistoryComponent } from './applicant-unit-history/applican
     PermanentHeaderComponent,
     VacancyDetailComponent,
     ApplicantUnitHistoryComponent,
+    ApplicantProfileDetailsComponent,
   ],
   imports: [
     BrowserModule,
