@@ -1,5 +1,146 @@
 {
-  "user": [
+  "aplicants": [
+    {
+      "applicantId": 1,
+      "name": "Applicant 1",
+      "email":"test@test.com",
+      "userId": 1,
+      "resume_url":"test url",
+      "status": true
+    },
+    {
+      "applicantId": 2,
+      "name": "Applicant 12",
+      "email":"test@test.com",
+      "userId": 2,
+      "resume_url":"test url",
+      "status": true
+    },
+    {
+      "applicantId": 3,
+      "name": "Applicant 3",
+      "email":"test@test.com",
+      "userId": 3,
+      "resume_url":"test url",
+      "status": true
+    }
+  ],
+  "applicantQualification": [
+    {
+      "appQualificationId": 1,
+      "applicantId": 1,
+      "qualificationTypeId":1,
+      "description": "BSc in IT",
+      "awarded_date":"20/04/2014",
+      "institute": "Deakin Unicersity"
+    },
+    {
+      "appQualificationId": 2,
+      "applicantId": 1,
+      "qualificationTypeId":2,
+      "description": "MSc",
+      "awarded_date":"20/04/2014",
+      "institute": "Swinburne University"
+    },
+    {
+      "appQualificationId": 3,
+      "applicantId": 3,
+      "qualificationTypeId":3,
+      "description": "Phd in IT",
+      "awarded_date":"20/04/2014",
+      "institute": "RMIT"
+    }    
+  ],
+  "applicantContactDetail": [
+    {
+      "appContactId": 1,
+      "applicantId": 1,
+      "phone":"112121221",
+      "address_line1": "Add line 1",
+      "address_line2":"Add line 2",
+      "state": "NSW",
+      "postcode": 3012
+    },
+    {
+      "appContactId": 2,
+      "applicantId": 2,
+      "phone":"745445454",
+      "address_line1": "Add line 1",
+      "address_line2":"Add line 2",
+      "state": "VIC",
+      "postcode": 2413
+    },
+    {
+      "appContactId": 3,
+      "applicantId": 3,
+      "phone":"856565565",
+      "address_line1": "Add line 1",
+      "address_line2":"Add line 2",
+      "state": "WA",
+      "postcode": 2013
+    }    
+  ],
+  "applicantClassPreferance": [
+    {
+      "classPreferanceId": 1,
+      "applicantId": 1,
+      "classTypeId":1
+    },
+    {
+      "classPreferanceId": 2,
+      "applicantId": 1,
+      "classTypeId":3
+    },
+    {
+      "classPreferanceId": 13,
+      "applicantId": 2,
+      "classTypeId":1
+    }    
+  ],
+  "applicantAvailability": [
+    {
+      "appAvailabilityId": 1,
+      "applicantId": 1,
+      "startDate": "24/05/2023",
+      "endDate":"24/07/2023"
+    },
+    {
+      "appAvailabilityId": 1,
+      "applicantId": 2,
+      "startDate": "24/05/2023",
+      "endDate":"24/07/2023"
+    },
+    {
+      "appAvailabilityId": 1,
+      "applicantId": 3,
+      "startDate": "24/05/2023",
+      "endDate":"24/07/2023"
+    }    
+  ],
+  "application": [
+    {
+      "ApplicationId": 1,
+      "applicantId": 1,
+      "vacancyId": 1,
+      "resumeUrl":"test url",
+      "status": true
+    },
+    {
+      "ApplicationId": 2,
+      "applicantId": 2,
+      "vacancyId": 1,
+      "resumeUrl":"test url",
+      "status": true
+    },
+    {
+      "ApplicationId": 3,
+      "applicantId": 3,
+      "vacancyId": 1,
+      "resumeUrl":"test url",
+      "status": true
+    }
+  ],
+  "users": [
   {
     "userId": 1,
     "email": "user 1",
@@ -45,21 +186,152 @@
     }
   }
 ],
-  "posts": [
+  "userRoles": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "userRoleId": 1,
+      "roleName": "Appicant",
+      "status": true
+    },
+    {
+      "userRoleId": 2,
+      "roleName": "Permenent Staff",
+      "status": true
     }
   ],
-  "comments": [
+  "units": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "unitId": 1,
+      "unitName": "Software Development",
+      "unitCode": "SE00001",
+      "status": true
+    },
+    {
+      "unitId": 2,
+      "unitName": "Software Quality Assuarance",
+      "unitCode": "SEQ0001",
+      "status": true
+    },
+    {
+      "unitId": 3,
+      "unitName": "Ui and UX design",
+      "unitCode": "UIX0001",
+      "status": true
     }
   ],
-  "userRoles": {
-    "name": "typicode"
-  }
+  "Vacancy":[
+    {
+      "vacancyId": 1,
+      "vacancyTypeId":1,
+      "classTypeId":1,
+      "empId":1,
+      "unitId":1,
+      "title": "Software Quality and Testing - Tutor",
+      "description": "Software Quality and Testing - Tutor",
+      "publishDate": "May 30, 2023",
+      "closingDate": "May 30, 2023",
+      "status": true
+    },
+    {
+      "vacancyId": 2,
+      "vacancyTypeId":1,
+      "classTypeId":1,
+      "empId":1,
+      "unitId":1,
+      "title": "User Centered Design - Lab Assistant",
+      "description": "User Centered Design - Lab Assistant",
+      "publishDate": "June 20, 2023",
+      "closingDate": "June 20, 2023",
+      "status": true
+    },
+    {
+      "vacancyId": 3,
+      "vacancyTypeId":1,
+      "classTypeId":1,
+      "empId":1,
+      "unitId":1,
+      "title": "Technology Inquiry Project - Tutor",
+      "description": "Technology Inquiry Project - Tutor",
+      "publishDate": "April 20, 2023",
+      "closingDate": "April 20, 2023",
+      "status": true
+    }
+  ],
+  "vacancyTypes": [
+    {
+      "vacancyTypeId": 1,
+      "vacancyName": "Fultime",
+      "status": true
+    },
+    {
+      "vacancyTypeId": 2,
+      "vacancyName": "PartTime",
+      "status": true
+    },
+    {
+      "vacancyTypeId": 3,
+      "vacancyName": "Mixed",
+      "status": true
+    }
+  ],
+  "classTypes": [
+    {
+      "classTypeId": 1,
+      "classDescription": "Online",
+      "status": true
+    },
+    {
+      "classTypeId": 2,
+      "classDescription": "Lab",
+      "status": true
+    },
+    {
+      "classTypeId": 3,
+      "classDescription": "Theory",
+      "status": true
+    },
+    {
+      "classTypeId": 3,
+      "classDescription": "Workshop",
+      "status": true
+    },
+    {
+      "classTypeId": 3,
+      "classDescription": "Tute",
+      "status": true
+    }
+  ],
+  "QualificationTypes": [
+    {
+      "qualificationTypeId": 1,
+      "classDescription": "BSc",
+      "status": true
+    },
+    {
+      "qualificationTypeId": 2,
+      "classDescription": "MSc",
+      "status": true
+    },
+    {
+      "qualificationTypeId": 3,
+      "classDescription": "Phd",
+      "status": true
+    }
+  ],
+  "faculty": [
+    {
+      "qualificationTypeId": 1,
+      "facultyName": "Human Resource",
+      "status": true
+    },
+    {
+      "qualificationTypeId": 2,
+      "facultyName": "Information Technology",
+      "status": true
+    },
+    {
+      "qualificationTypeId": 3,
+      "facultyName": "Civil Engineering",
+      "status": true
+    }
+  ]
 }
