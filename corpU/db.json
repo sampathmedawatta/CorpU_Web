@@ -1,0 +1,65 @@
+{
+  "user": [
+  {
+    "userId": 1,
+    "email": "user 1",
+    "password":"",
+    "userRoleId": 1,
+    "userRole": {
+      "userRoleId": 1,
+      "roleName": "Appicant",
+      "status": true
+    }
+  },
+  {
+    "userId": 2,
+    "email": "user 2",
+    "password":"",
+    "userRoleId": 1,
+    "userRole": {
+      "userRoleId": 1,
+      "roleName": "Appicant",
+      "status": true
+    }
+  },
+  {
+    "userId": 3,
+    "email": "user 3",
+    "password":"",
+    "userRoleId": 2,
+    "userRole": { 
+      "userRoleId": 2,
+      "roleName": "Permenent Staff",
+      "status": true
+    }
+  },
+  {
+    "userId": 4,
+    "email": "user 4",
+    "password":"",
+    "userRoleId": 2,
+    "userRole": {
+      "userRoleId": 2,
+      "roleName": "Permenent Staff",
+      "status": true
+    }
+  }
+],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "userRoles": {
+    "name": "typicode"
+  }
+}
