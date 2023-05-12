@@ -1,4 +1,4 @@
-import { employeeRole } from "./EmployeeRole";
+import { employeeRole } from "./employeeRole";
 import { faculty } from "./faculty";
 import { user } from "./user";
 
