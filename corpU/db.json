@@ -1,11 +1,11 @@
 {
-  "aplicants": [
+  "aplicant": [
     {
       "applicantId": 1,
       "name": "Applicant 1",
       "email":"test@test.com",
       "userId": 1,
-      "resume_url":"test url",
+      "resumeUrl":"test url",
       "status": true
     },
     {
@@ -13,7 +13,7 @@
       "name": "Applicant 12",
       "email":"test@test.com",
       "userId": 2,
-      "resume_url":"test url",
+      "resumeUrl":"test url",
       "status": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "Applicant 3",
       "email":"test@test.com",
       "userId": 3,
-      "resume_url":"test url",
+      "resumeUrl":"test url",
       "status": true
     }
   ],
@@ -140,7 +140,7 @@
       "status": true
     }
   ],
-  "users": [
+  "user": [
   {
     "userId": 1,
     "email": "user 1",
@@ -186,7 +186,36 @@
     }
   }
 ],
-  "userRoles": [
+"employee": [
+  {
+  "empId": 1,
+  "empRoleId": 1,
+  "userId":2,
+  "empName": "Emp 1",
+  "phone": "112121221",
+  "facultyId": 1,
+  "status": true
+},
+{
+  "empId": 2,
+  "empRoleId": 2,
+  "userId":3,
+  "empName": "Emp 2",
+  "phone": "112121221",
+  "facultyId": 2,
+  "status": true
+},
+{
+  "empId": 3,
+  "empRoleId": 2,
+  "userId":3,
+  "empName": "Emp 3",
+  "phone": "112121221",
+  "facultyId": 3,
+  "status": true
+}
+],
+  "userRole": [
     {
       "userRoleId": 1,
       "roleName": "Appicant",
@@ -198,7 +227,7 @@
       "status": true
     }
   ],
-  "units": [
+  "unit": [
     {
       "unitId": 1,
       "unitName": "Software Development",
@@ -218,7 +247,7 @@
       "status": true
     }
   ],
-  "Vacancy":[
+  "vacancy":[
     {
       "vacancyId": 1,
       "vacancyTypeId":1,
@@ -300,20 +329,20 @@
       "status": true
     }
   ],
-  "QualificationTypes": [
+  "qualificationTypes": [
     {
       "qualificationTypeId": 1,
-      "classDescription": "BSc",
+      "description": "BSc",
       "status": true
     },
     {
       "qualificationTypeId": 2,
-      "classDescription": "MSc",
+      "description": "MSc",
       "status": true
     },
     {
       "qualificationTypeId": 3,
-      "classDescription": "Phd",
+      "description": "Phd",
       "status": true
     }
   ],

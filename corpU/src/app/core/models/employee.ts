@@ -14,7 +14,6 @@ export class employee {
     employeeRole: employeeRole;
     facultyId: number;
     faculty: faculty;
-
     status: boolean;
   
     constructor(emp: any) {
