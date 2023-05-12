@@ -9,6 +9,7 @@ import { ApplicantClassPreferencesComponent } from './applicant-class-preference
 import { ManageUnitsComponent } from './manage-units/manage-units.component';
 import { ViewApplicationsComponent } from './view-applications/view-applications.component';
 import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component';
 
 const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent}, 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent},
   {path: 'ManageUnits', component:ManageUnitsComponent},
   {path: 'ViewApplications', component:ViewApplicationsComponent},
-  {path: 'ReviewApplications', component:ReviewApplicationsComponent}
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent},
+  {path: 'pricacyStatement',component:PrivacyStatementComponent}
 ];
 
 @NgModule({

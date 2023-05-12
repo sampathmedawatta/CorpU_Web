@@ -19,7 +19,8 @@ import { ApplicantAcademicDetailsComponent } from './applicant-academic-details/
 import { ApplicantClassPreferencesComponent } from './applicant-class-preferences/applicant-class-preferences.component';
 import { ManageUnitsComponent } from './manage-units/manage-units.component';
 import { ViewApplicationsComponent } from './view-applications/view-applications.component';
-import { ReviewApplicationsComponent } from './review-applications/review-applications.component'
+import { ReviewApplicationsComponent } from './review-applications/review-applications.component';
+import { PrivacyStatementComponent } from './privacy-statement/privacy-statement.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ReviewApplicationsComponent } from './review-applications/review-applic
     ManageUnitsComponent,
     ViewApplicationsComponent,
     ReviewApplicationsComponent,
+    PrivacyStatementComponent,
   ],
   imports: [
     BrowserModule,
