@@ -2,10 +2,12 @@ export class applicantClassPreferance{
     classPreferanceId: number;
     applicantId: number;
     classTypeId: number;
+    selectedclassPreferance:string[];
 
-    constructor(appClassPreferance: any) {
-        this.classPreferanceId = appClassPreferance.classPreferanceId;
-        this.applicantId = appClassPreferance.applicantId;
-        this.classTypeId = appClassPreferance.classTypeId;       
+    constructor() {
+        this.classPreferanceId = this.classPreferanceId;
+        this.applicantId = this.applicantId;
+        this.classTypeId = this.classTypeId;     
+        this.selectedclassPreferance = [];  
       }
 }
