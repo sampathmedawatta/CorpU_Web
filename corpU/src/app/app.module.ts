@@ -18,7 +18,7 @@ import { VacancyDetailComponent } from './components/applicant/vacancy-detail/va
 import { ApplicantUnitHistoryComponent } from './components/applicant/applicant-unit-history/applicant-unit-history.component';
 import { ApplicantProfileDetailsComponent } from './components/applicant/applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './components/applicant/applicant-academic-details/applicant-academic-details.component';
-import { ApplicantClassPreferencesComponent } from './components/applicant-class-preferences/applicant-class-preferences.component';
+import { ApplicantClassPreferencesComponent } from './components/applicant/applicant-class-preferences/applicant-class-preferences.component';
 import { ManageUnitsComponent } from './components/permenent_staff/manage-units/manage-units.component';
 import { ViewApplicationsComponent } from './components/permenent_staff/view-applications/view-applications.component';
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
