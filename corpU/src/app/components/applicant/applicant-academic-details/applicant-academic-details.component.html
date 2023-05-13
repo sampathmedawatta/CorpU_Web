@@ -24,19 +24,19 @@
                 </li>
             </ul>
         </nav>
-        <form>
+        <form (ngSubmit)="onSubmit()" *ngIf="applicantAcademic">
             <h3>Academic Details</h3>
             <div class="form-group">
                 <label for="institute">Institution Name:</label>
-                <input type="text" class="form-control" id="institute" name="institute" required>
+                <input type="text" class="form-control" id="institute" name="institute" required [(ngModel)]="applicantAcademic.institute">
             </div>
             <div class="form-group">
                 <label for="qualification">Qualification Type:</label>
-                <input type="text" class="form-control" id="qualification" name="qualification" required>
+                <input type="text" class="form-control" id="qualification" name="qualification" required [(ngModel)]="applicantAcademic.qualificationType">
             </div>
             <div class="form-group">
                 <label for="awardedyear">Year of Award:</label>
-                <input type="text" class="form-control" id="awardedyear" name="awardedyear" required>
+                <input type="text" class="form-control" id="awardedyear" name="awardedyear" required [(ngModel)]="applicantAcademic.awarded_year">
             </div>
             <button type="submit" class="btn btn-primary mb-3">Add</button>
         </form>

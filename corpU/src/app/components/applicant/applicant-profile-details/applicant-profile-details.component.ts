@@ -8,8 +8,6 @@ import { applicantContactDetail } from 'src/app/core/models/applicantContactDeta
   styleUrls: ['./applicant-profile-details.component.css']
 })
 export class ApplicantProfileDetailsComponent {
-
-  // Assuming you have an instance of applicantContactDetail and applicant objects
   applicantContact: applicantContactDetail = new applicantContactDetail();
   applicantDetails: applicant = new applicant();
 

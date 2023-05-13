@@ -3,16 +3,18 @@ export class applicantQualification{
     applicantId: number;
     qualificationTypeId: number;
     description: string
-    awarded_date: Date;
+    awarded_year: number;
     institute:string;
+    qualificationType:string;
 
 
-    constructor(appQualification: any) {
-        this.appQualificationId = appQualification.appQualificationId;
-        this.applicantId = appQualification.applicantId;
-        this.qualificationTypeId = appQualification.qualificationTypeId;
-        this.description = appQualification.description;
-        this.awarded_date = appQualification.awarded_date;
-        this.institute = appQualification.institute;
+    constructor() {
+        this.appQualificationId = this.appQualificationId;
+        this.applicantId = this.applicantId;
+        this.qualificationTypeId = this.qualificationTypeId;
+        this.description = this.description;
+        this.awarded_year = this.awarded_year;
+        this.institute = this.institute;
+        this.qualificationType= this.qualificationType;
       }
 }
