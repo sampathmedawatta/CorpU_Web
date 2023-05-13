@@ -5,13 +5,13 @@ export class user {
     email: string;
     password: string;
     userRoleId : number;
-    userRole : userRole;
+    userRole? : userRole;
 
-    constructor(user: any) {
-        this.userId = user.userId;
-        this.email = user.email;
-        this.password = user.password;
-        this.userRoleId = user.userRoleId;
-        this.userRole = user.userRole;
+    constructor() {
+
+        this.email = '';
+        this.password = '';
+        this.userRoleId = 1;
+
     }
 }

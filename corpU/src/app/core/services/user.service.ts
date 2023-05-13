@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { user } from '../models';
+import { auth, user } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,16 @@ export class UserService {
 
   constructor(private api:ApiService) { }
 
-    getUser(): Observable<user> {
+    loginUser(auth : auth): Observable<user> {
       return this.api
-        .get<user>('user')
+        .post<user>('user', auth)
+        .pipe(map((response) => response));
+    }
+    getUser(): Observable<user> {
+      
+      //TODO set parameter
+      return this.api
+        .get<user>('user',)
         .pipe(map((response) => response));
     }
   

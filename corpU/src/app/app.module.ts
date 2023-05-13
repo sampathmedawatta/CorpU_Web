@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +22,8 @@ import { ApplicantClassPreferencesComponent } from './components/applicant-class
 import { ManageUnitsComponent } from './components/permenent_staff/manage-units/manage-units.component';
 import { ViewApplicationsComponent } from './components/permenent_staff/view-applications/view-applications.component';
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
-import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component'
+import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
+import { LoginComponent } from './components/shared/login/login.component'
 
 @NgModule({
   declarations: [
@@ -45,10 +47,14 @@ import { PrivacyStatementComponent } from './components/shared/privacy-statement
     ViewApplicationsComponent,
     ReviewApplicationsComponent,
     PrivacyStatementComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
