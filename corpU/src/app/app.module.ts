@@ -23,7 +23,8 @@ import { ManageUnitsComponent } from './components/permenent_staff/manage-units/
 import { ViewApplicationsComponent } from './components/permenent_staff/view-applications/view-applications.component';
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
-import { LoginComponent } from './components/shared/login/login.component'
+import { LoginComponent } from './components/shared/login/login.component';
+import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component'
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { LoginComponent } from './components/shared/login/login.component'
     ReviewApplicationsComponent,
     PrivacyStatementComponent,
     LoginComponent,
+    TermsAndConditionsComponent,
   ],
   imports: [
     BrowserModule,
