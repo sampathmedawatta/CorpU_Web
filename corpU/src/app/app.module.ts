@@ -24,7 +24,8 @@ import { ViewApplicationsComponent } from './components/permenent_staff/view-app
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { LoginComponent } from './components/shared/login/login.component';
-import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component'
+import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
+import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component'
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TermsAndConditionsComponent } from './components/shared/terms-and-condi
     PrivacyStatementComponent,
     LoginComponent,
     TermsAndConditionsComponent,
+    ProtectYourselfOnlineComponent,
   ],
   imports: [
     BrowserModule,
