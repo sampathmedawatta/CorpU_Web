@@ -25,35 +25,37 @@
                 </ul>
             </div>
         </nav>
-        <form>
+        <form (ngSubmit)="onSubmit()" *ngIf="applicantDetails">
             <h3>Personal Details</h3>
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email">
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" class="form-control" id="phone" name="phone" required>
+              <label for="phone">Phone Number:</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="applicantContact.phone">
             </div>
             <div class="form-group">
-                <label for="address1">Address Line 1:</label>
-                <input type="text" class="form-control" id="address1" name="address1" required>
+              <label for="address1">Address Line 1:</label>
+              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.address_line1">
             </div>
             <div class="form-group">
-                <label for="state">State:</label>
-                <input type="text" class="form-control" id="state" name="state" required>
+              <label for="address1">Address Line 2:</label>
+              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.address_line2">
             </div>
             <div class="form-group">
-                <label for="postcode">Postcode:</label>
-                <input type="text" class="form-control" id="postcode" name="postcode" required>
+              <label for="state">State:</label>
+              <input type="text" class="form-control" id="state" name="state" required [(ngModel)]="applicantContact.state">
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-        </form>
+            <div class="form-group">
+              <label for="postcode">Postcode:</label>
+              <input type="text" class="form-control" id="postcode" name="postcode" required [(ngModel)]="applicantContact.postcode">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+          </form>          
     </div>
 </body>
-
-
