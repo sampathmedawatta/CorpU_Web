@@ -22,7 +22,15 @@ export class VacancyDetailComponent {
   getVacancyById(id : number) {
     this.vacancyService.getVacancy(id).subscribe({
       next: (result: any) => {
-      this.vacancy = result[0];     
-      }});
+      this.vacancy = result[0];   
+      },
+      error: (error) => {
+        if (error.status == 400) {
+          console.error('Incorrect details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      }
+    });
     }
 }

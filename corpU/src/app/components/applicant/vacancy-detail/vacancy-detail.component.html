@@ -14,18 +14,16 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">Requirements:</h5>
-          <ul>
-            <li>Qualifications and/or experience which meet the recognised occupational competency standards relevant to their field/area and to the level of instruction.</li>
-            <li>Several years industry experience in SoftwareQualify Assurance and testing support.</li>
-            <li>TAE Delivery and/or Assessment skill set (Desirable).</li>
-          </ul>
+          <div [innerHTML]="vacancy.description"></div>
+
+          <p>Application cloasing date: {{ vacancy.closingDate }} </p>
+
           <h5 class="card-title">Job Type:</h5>
-          <p class="card-text">Full-time</p>
-          <h5 class="card-title">Time of Class:</h5>
+          <p class="card-text">{{ vacancy.vacancyType.vacancyName }} </p>
+          <h5 class="card-title">Class Type:</h5>
           <p class="card-text">
-          
-            
-            Monday to Friday, 9:00 AM to 5:00 PM</p>
+            {{ vacancy.classType.classDescription }}
+           </p>
           <form>
             <div class="mb-3">
               <label for="resumeInput" class="form-label">Upload Resume: PDF,.docx,.doc</label>

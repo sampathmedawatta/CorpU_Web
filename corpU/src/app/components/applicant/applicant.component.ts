@@ -19,7 +19,15 @@ getVacancyList() {
   this.vacancyService.geAllVacancyList().subscribe({
     next: (result: any) => {
     this.vacancies = result;
-    }});
+    },
+    error: (error) => {
+      if (error.status == 400) {
+        console.error('Incorrect details');
+      } else {
+        console.error('There was an error!', error);
+      }
+    }
+  });
 }
 
 }
