@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { VacancyService, vacancy } from 'src/app/core';
 
 @Component({
   selector: 'app-vacancy-detail',
@@ -7,4 +9,28 @@ import { Component } from '@angular/core';
 })
 export class VacancyDetailComponent {
   
+  vacancyId? : number;
+  vacancy: vacancy;
+  
+  constructor(private vacancyService:VacancyService,private route: ActivatedRoute){}
+  ngOnInit(): void {
+
+    this.vacancyId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
+    this.getVacancyById(this.vacancyId);
+  }
+
+  getVacancyById(id : number) {
+    this.vacancyService.getVacancy(id).subscribe({
+      next: (result: any) => {
+      this.vacancy = result[0];   
+      },
+      error: (error) => {
+        if (error.status == 400) {
+          console.error('Incorrect details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      }
+    });
+    }
 }

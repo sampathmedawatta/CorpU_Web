@@ -1,5 +1,5 @@
 {
-  "aplicant": [
+  "aplicants": [
     {
       "applicantId": 1,
       "name": "Applicant 1",
@@ -117,7 +117,7 @@
       "endDate":"24/07/2023"
     }    
   ],
-  "application": [
+  "applications": [
     {
       "ApplicationId": 1,
       "applicantId": 1,
@@ -140,7 +140,7 @@
       "status": true
     }
   ],
-  "user": [
+  "users": [
   {
     "userId": 1,
     "email": "user 1",
@@ -186,7 +186,7 @@
     }
   }
 ],
-"employee": [
+"employees": [
   {
   "empId": 1,
   "empRoleId": 1,
@@ -215,7 +215,7 @@
   "status": true
 }
 ],
-  "userRole": [
+  "userRoles": [
     {
       "userRoleId": 1,
       "roleName": "Appicant",
@@ -227,7 +227,7 @@
       "status": true
     }
   ],
-  "unit": [
+  "units": [
     {
       "unitId": 1,
       "unitName": "Software Development",
@@ -247,15 +247,32 @@
       "status": true
     }
   ],
-  "vacancy":[
+  "vacancies":[
     {
       "vacancyId": 1,
       "vacancyTypeId":1,
+      "vacancyType": {
+        "vacancyTypeId": 1,
+        "vacancyName": "Fultime",
+        "status": true
+      },
       "classTypeId":1,
+      "classType": 
+        {
+          "classTypeId": 1,
+          "classDescription": "Online",
+          "status": true
+        },
       "empId":1,
       "unitId":1,
+      "unit":{
+        "unitId": 1,
+        "unitName": "Software Development",
+        "unitCode": "SE00001",
+        "status": true
+      },
       "title": "Software Quality and Testing - Tutor",
-      "description": "Software Quality and Testing - Tutor",
+      "description": "<ul _ngcontent-afa-c5=''><li _ngcontent-afa-c5=''>Qualifications and/or experience which meet the recognised occupational competency standards relevant to their field/area and to the level of instruction.</li><li _ngcontent-afa-c5=''>Several years industry experience in SoftwareQualify Assurance and testing support.</li><li _ngcontent-afa-c5=''>TAE Delivery and/or Assessment skill set (Desirable).</li></ul>",
       "publishDate": "May 30, 2023",
       "closingDate": "May 30, 2023",
       "status": true
@@ -263,11 +280,28 @@
     {
       "vacancyId": 2,
       "vacancyTypeId":1,
+      "vacancyType": {
+        "vacancyTypeId": 1,
+        "vacancyName": "Fultime",
+        "status": true
+      },
       "classTypeId":1,
+      "classType": 
+        {
+          "classTypeId": 1,
+          "classDescription": "Online",
+          "status": true
+        },
       "empId":1,
       "unitId":1,
+      "unit":{
+        "unitId": 1,
+        "unitName": "Software Development",
+        "unitCode": "SE00001",
+        "status": true
+      },
       "title": "User Centered Design - Lab Assistant",
-      "description": "User Centered Design - Lab Assistant",
+      "description": "<ul _ngcontent-afa-c5=''><li _ngcontent-afa-c5=''>Qualifications and/or experience which meet the recognised occupational competency standards relevant to their field/area and to the level of instruction.</li><li _ngcontent-afa-c5=''>Several years industry experience in SoftwareQualify Assurance and testing support.</li><li _ngcontent-afa-c5=''>TAE Delivery and/or Assessment skill set (Desirable).</li></ul>",
       "publishDate": "June 20, 2023",
       "closingDate": "June 20, 2023",
       "status": true
@@ -275,12 +309,29 @@
     {
       "vacancyId": 3,
       "vacancyTypeId":1,
+      "vacancyType": {
+        "vacancyTypeId": 1,
+        "vacancyName": "Fultime",
+        "status": true
+      },
       "classTypeId":1,
+      "classType": 
+        {
+          "classTypeId": 1,
+          "classDescription": "Online",
+          "status": true
+        },
       "empId":1,
       "unitId":1,
+      "unit":{
+        "unitId": 1,
+        "unitName": "Software Development",
+        "unitCode": "SE00001",
+        "status": true
+      },
       "title": "Technology Inquiry Project - Tutor",
-      "description": "Technology Inquiry Project - Tutor",
-      "publishDate": "April 20, 2023",
+      "description": "<ul _ngcontent-afa-c5=''><li _ngcontent-afa-c5=''>Qualifications and/or experience which meet the recognised occupational competency standards relevant to their field/area and to the level of instruction.</li><li _ngcontent-afa-c5=''>Several years industry experience in SoftwareQualify Assurance and testing support.</li><li _ngcontent-afa-c5=''>TAE Delivery and/or Assessment skill set (Desirable).</li></ul>",
+     "publishDate": "April 20, 2023",
       "closingDate": "April 20, 2023",
       "status": true
     }
@@ -346,7 +397,7 @@
       "status": true
     }
   ],
-  "faculty": [
+  "faculties": [
     {
       "qualificationTypeId": 1,
       "facultyName": "Human Resource",
