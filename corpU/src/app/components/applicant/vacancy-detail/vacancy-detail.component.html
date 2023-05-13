@@ -7,9 +7,10 @@
   </head>
   <body>
     <div class="container mt-4">
+      <ng-container *ngIf="vacancy">
       <div class="card">
         <div class="card-header">
-          <h4>Software Quality and Testing - Tutor</h4>
+          <h4>{{ vacancy.title }}</h4>
         </div>
         <div class="card-body">
           <h5 class="card-title">Requirements:</h5>
@@ -21,7 +22,10 @@
           <h5 class="card-title">Job Type:</h5>
           <p class="card-text">Full-time</p>
           <h5 class="card-title">Time of Class:</h5>
-          <p class="card-text">Monday to Friday, 9:00 AM to 5:00 PM</p>
+          <p class="card-text">
+          
+            
+            Monday to Friday, 9:00 AM to 5:00 PM</p>
           <form>
             <div class="mb-3">
               <label for="resumeInput" class="form-label">Upload Resume: PDF,.docx,.doc</label>
@@ -37,6 +41,10 @@
           </form>
         </div>
       </div>
+    </ng-container>
+    <ng-container *ngIf="!vacancy">
+      <p>No data</p>
+    </ng-container>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-VShb8WgLLVjLbMzcltVrTt8WofKjCvBdEJiYDZlL/yR9XITf/hnhSySD7ggCz11wK2q3xvZdOo+t5H0m1A2qDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -6,8 +6,8 @@ export class vacancy{
     unitId: number;
     title: string;
     description: string;
-    publishDate: Date;
-    closingDate: Date;
+    publishDate: string;
+    closingDate: string;
     status: boolean;
 
     constructor(vacancy: any) {

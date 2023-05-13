@@ -17,7 +17,7 @@ import { ProtectYourselfOnlineComponent } from './components/shared/protect-your
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
   {path: 'Applicant',component: ApplicantComponent}, 
-  {path: 'ViewVacancy/:vacancyId',component:VacancyDetailComponent},
+  {path: 'ViewVacancy/:id',component:VacancyDetailComponent},
   {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent},
   {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent},
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent},
