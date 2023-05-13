@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/shared/login/login.component';
 import { ApplicantComponent } from './components/applicant/applicant.component';
 import { VacancyDetailComponent } from './components/applicant/vacancy-detail/vacancy-detail.component';
 import { ApplicantUnitHistoryComponent } from './components/applicant/applicant-unit-history/applicant-unit-history.component';
@@ -12,6 +13,7 @@ import { ReviewApplicationsComponent } from './components/permenent_staff/review
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 
 const routes: Routes = [
+  {path: 'Login',component: LoginComponent}, 
   {path: 'Applicant',component: ApplicantComponent}, 
   {path: 'ViewVacancy',component:VacancyDetailComponent},
   {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent},

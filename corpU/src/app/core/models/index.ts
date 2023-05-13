@@ -12,6 +12,7 @@ export * from "./faculty";
 export * from "./qualificationType";
 export * from "./unit";
 export * from "./user";
+export * from './auth';
 export * from "./userRole";
 export * from "./vacancy";
 export * from "./vacancyType";
