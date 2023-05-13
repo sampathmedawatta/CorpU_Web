@@ -8,14 +8,14 @@ export class applicantContactDetail{
     postcode:string;
 
 
-    constructor(appContactDetail: any) {
-        this.appContactId = appContactDetail.appContactId;
-        this.applicantId = appContactDetail.applicantId;
-        this.phone = appContactDetail.phone;
-        this.address_line1 = appContactDetail.address_line1;
-        this.address_line2 = appContactDetail.address_line2;
-        this.state = appContactDetail.state;
-        this.postcode = appContactDetail.postcode;
+    constructor() {
+        this.appContactId = this.appContactId;
+        this.applicantId = this.applicantId;
+        this.phone = this.phone;
+        this.address_line1 = this.address_line1;
+        this.address_line2 = this.address_line2;
+        this.state = this.state;
+        this.postcode = this.postcode;
         
       }
 }

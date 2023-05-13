@@ -9,13 +9,14 @@ export class applicant{
     resumeUrl:string;
     status: boolean;
 
-    constructor(app: any) {
-        this.applicantId = app.applicantId;
-        this.email = app.email;
-        this.name = app.name;
-        this.userId = app.userId;
-        this.user = app.user;
-        this.resumeUrl = app.resumeUrl;
-        this.status = app.status;
+    constructor() {
+        this.applicantId = this.applicantId;
+        this.email = this.email;
+        this.name = this.name;
+        this.userId = this.userId;
+        this.user =this.user;
+        this.resumeUrl = this.resumeUrl;
+        this.status = this.status;
+        this.name= this.name;
       }
 }
