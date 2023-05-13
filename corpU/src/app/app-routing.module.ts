@@ -11,6 +11,7 @@ import { ManageUnitsComponent } from './components/permenent_staff/manage-units/
 import { ViewApplicationsComponent } from './components/permenent_staff/view-applications/view-applications.component';
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
+import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'ManageUnits', component:ManageUnitsComponent},
   {path: 'ViewApplications', component:ViewApplicationsComponent},
   {path: 'ReviewApplications', component:ReviewApplicationsComponent},
-  {path: 'pricacyStatement',component:PrivacyStatementComponent}
+  {path: 'pricacyStatement',component:PrivacyStatementComponent},
+  {path: 'TermsAndConditions', component:TermsAndConditionsComponent}
 ];
 
 @NgModule({
