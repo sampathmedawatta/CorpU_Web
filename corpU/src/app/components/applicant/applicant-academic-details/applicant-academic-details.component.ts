@@ -8,6 +8,7 @@ import { applicantQualification } from 'src/app/core';
 })
 export class ApplicantAcademicDetailsComponent {
     applicantAcademic: applicantQualification = new applicantQualification();
+    currentYear = new Date().getFullYear();
   
     // Function to get Institution Name, Qualification Type, and Year of Award
     getContactDetails(): any {
