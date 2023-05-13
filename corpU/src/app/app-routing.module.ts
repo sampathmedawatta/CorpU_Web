@@ -12,6 +12,7 @@ import { ViewApplicationsComponent } from './components/permenent_staff/view-app
 import { ReviewApplicationsComponent } from './components/permenent_staff/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
+import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'ViewApplications', component:ViewApplicationsComponent},
   {path: 'ReviewApplications', component:ReviewApplicationsComponent},
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
-  {path: 'TermsAndConditions', component:TermsAndConditionsComponent}
+  {path: 'TermsAndConditions', component:TermsAndConditionsComponent},
+  {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent}
 ];
 
 @NgModule({
