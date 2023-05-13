@@ -42,7 +42,7 @@ export class ApplicantProfileDetailsComponent {
       state: this.applicantContact.state,
       postcode: this.applicantContact.postcode
     };
-    console.log(data)
+    console.log(data);
 
 }
 
