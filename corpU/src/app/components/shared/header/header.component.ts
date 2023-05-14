@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core';
+import { AuthService, MessengerService } from 'src/app/core';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +10,21 @@ import { AuthService } from 'src/app/core';
 export class HeaderComponent {
 
   isloggedIn :boolean;
-  constructor(private authService : AuthService,private router: Router){
+  constructor(private authService : AuthService,private messengerService: MessengerService, private router: Router){
   }
 
   ngOnInit(): void {
     this.isloggedIn = this.authService.isLoggedIn();
+    this.handleSubscription();
+  }
+
+  handleSubscription() {
+    this.messengerService.getMsgUserLogin().subscribe(() => {
+      this.isloggedIn = this.authService.isLoggedIn();
+    });
+    this.messengerService.getMsgUserLogout().subscribe(() => {
+      this.isloggedIn = this.authService.isLoggedIn();
+    });
   }
 
   logout() {
