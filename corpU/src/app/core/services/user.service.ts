@@ -12,27 +12,28 @@ export class UserService {
   constructor(private api:ApiService) { }
 
     loginUser(auth : auth): Observable<user> {
+
       return this.api
-        .post<user>('user', auth)
+        .post<user>('users', auth)
         .pipe(map((response) => response));
     }
     getUser(): Observable<user> {
       
       //TODO set parameter
       return this.api
-        .get<user>('user',)
+        .get<user>('users',)
         .pipe(map((response) => response));
     }
   
     geAllUsers(): Observable<user[]> {
       return this.api
-        .get<user[]>('user')
+        .get<user[]>('users')
         .pipe(map((response) => response));
     }
 
     postUser(user : user): Observable<any> {
       return this.api
-        .post<any>('user',user)
+        .post<any>('users',user)
         .pipe(map((response) => response));
     }
 }

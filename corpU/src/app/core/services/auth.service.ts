@@ -8,7 +8,11 @@ export class AuthService {
   constructor() { }
 
   isLoggedIn(){
-    return false;
+    if (localStorage.getItem('token') != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 
