@@ -15,11 +15,13 @@ import { TermsAndConditionsComponent } from './components/shared/terms-and-condi
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
 import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { RegisterComponent } from './components/shared/register/register.component';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
+  {path: 'Register',component: RegisterComponent}, 
   {path: 'Applicant',component: ApplicantComponent, canActivate: [AuthGuard]}, 
-  {path: 'ViewVacancy/:id',component:VacancyDetailComponent},
+  {path: 'ViewVacancy/:id',component:VacancyDetailComponent, canActivate: [AuthGuard]},
   {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, canActivate: [AuthGuard]}, 
   {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, canActivate: [AuthGuard]}, 
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, canActivate: [AuthGuard]}, 
