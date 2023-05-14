@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService, user } from 'src/app/core';
+import { AuthService, MessengerService, UserService, user } from 'src/app/core';
 
 @Component({
   selector: 'app-login',
@@ -19,21 +19,42 @@ export class LoginComponent {
   
   constructor(
     private router: Router,
-    private userService : UserService
+    private userService : UserService,
+    private messengerService : MessengerService,
+    private authService : AuthService
   ) {
    
   }
 
   ngOnInit(): void {
     if (localStorage.getItem('token') != null) {
-      this.router.navigateByUrl('/home');
+      this.checkUserRole();
     }
+  }
+
+  checkUserRole(){
+
+    if(this.authService.isUserApplicant()){
+      this.router.navigateByUrl('/Applicant');
+    }
+    else if(this.authService.isUserPermanentStaff()){
+      this.router.navigateByUrl('/Dashboard');
+    }
+    else{
+      this.authService.logout();
+      this.router.navigateByUrl('/Login');
+    }
+   
   }
 
   login() {
 
     localStorage.setItem('token', "testToken");
-    this.router.navigateByUrl('/Applicant');
+    localStorage.setItem('userRole', "Applicant");
+
+    this.messengerService.sendMsgUserLogin();
+    this.checkUserRole();
+
     // TODO : implement this after api configuration
 
     // this.userService.loginUser(this.formModel).subscribe({

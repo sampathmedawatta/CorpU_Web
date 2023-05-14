@@ -16,3 +16,4 @@ export * from './unit.Service';
 export * from './user.service';
 export * from './vacancy-type.service';
 export * from './vacancy.service';
+export * from './messenger.service';
