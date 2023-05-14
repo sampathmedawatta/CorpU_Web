@@ -29,31 +29,49 @@
             <h3>Personal Details</h3>
             <div class="form-group">
               <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name">
+              <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name" #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors">Applicant Name is required.</div>
+                </div>
             </div>
-            <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email">
+              <div class="form-group">
+                <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email" #email="ngModel">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                      <div *ngIf="email.errors">Email ID is required.</div>
+                  </div>
             </div>
-            <div class="form-group">
               <label for="phone">Phone Number:</label>
-              <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="applicantContact.phone">
+              <div class="form-group">
+              <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="applicantContact.phone" #phone="ngModel">
+                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                  <div *ngIf="phone.errors">Phone number is required.</div>
+                </div>
             </div>
             <div class="form-group">
               <label for="address1">Address Line 1:</label>
-              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.address_line1">
+              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.address_line1" #address_line1="ngModel">
+              <div *ngIf="address_line1.invalid && (address_line1.dirty || address_line1.touched)" class="alert alert-danger">
+                <div *ngIf="address_line1.errors">Address Line 1 is required.</div>
+                </div>
             </div>
             <div class="form-group">
               <label for="address1">Address Line 2:</label>
-              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.address_line2">
+              <input type="text" class="form-control" id="address2" name="address2" required [(ngModel)]="applicantContact.address_line2">
             </div>
             <div class="form-group">
               <label for="state">State:</label>
-              <input type="text" class="form-control" id="state" name="state" required [(ngModel)]="applicantContact.state">
+              <input type="text" class="form-control" id="state" name="state" required [(ngModel)]="applicantContact.state" #state="ngModel">
+              <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                <div *ngIf="state.errors">State is required.</div>
+                </div>
             </div>
             <div class="form-group">
               <label for="postcode">Postcode:</label>
-              <input type="text" class="form-control" id="postcode" name="postcode" required [(ngModel)]="applicantContact.postcode">
+              <input type="text" class="form-control" id="postcode" name="postcode" required [(ngModel)]="applicantContact.postcode" #postcode="ngModel">
+              <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger">
+                <div *ngIf="postcode.errors">Postcode is required.</div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
           </form>          
