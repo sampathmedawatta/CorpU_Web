@@ -35,9 +35,11 @@ export class LoginComponent {
   checkUserRole(){
 
     if(this.authService.isUserApplicant()){
+      console.log('Applicant');
       this.router.navigateByUrl('/Applicant');
     }
     else if(this.authService.isUserPermanentStaff()){
+      console.log('Dashboard');
       this.router.navigateByUrl('/Dashboard');
     }
     else{
@@ -50,7 +52,7 @@ export class LoginComponent {
   login() {
 
     localStorage.setItem('token', "testToken");
-    localStorage.setItem('userRole', "Applicant");
+    localStorage.setItem('userRole', "PermanentStaff");
 
     this.messengerService.sendMsgUserLogin();
     this.checkUserRole();

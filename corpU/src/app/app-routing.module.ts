@@ -16,19 +16,46 @@ import { ProtectYourselfOnlineComponent } from './components/shared/protect-your
 import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
+import { RoleGuardGuard } from './core/guards/role-guard.guard';
+import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
   {path: 'Register',component: RegisterComponent}, 
-  {path: 'Applicant',component: ApplicantComponent, canActivate: [AuthGuard]}, 
-  {path: 'ViewVacancy/:id',component:VacancyDetailComponent, canActivate: [AuthGuard]},
-  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, canActivate: [AuthGuard]}, 
-  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, canActivate: [AuthGuard]}, 
-  {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, canActivate: [AuthGuard]}, 
-  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent, canActivate: [AuthGuard]}, 
-  {path: 'ManageUnits', component:ManageUnitsComponent, canActivate: [AuthGuard]}, 
-  {path: 'ViewApplications', component:ViewApplicationsComponent, canActivate: [AuthGuard]}, 
-  {path: 'ReviewApplications', component:ReviewApplicationsComponent, canActivate: [AuthGuard]}, 
+
+  {path: 'Applicant',component: ApplicantComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+  {path: 'ViewVacancy/:id',component:VacancyDetailComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}},  
+  {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'Dashboard', component:DashboardComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','PermanentStaff']}},  
+  {path: 'ManageUnits', component:ManageUnitsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','PermanentStaff']}},  
+  {path: 'ViewApplications', component:ViewApplicationsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','PermanentStaff']}},
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','PermanentStaff']}},
+
+
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
   {path: 'TermsAndConditions', component:TermsAndConditionsComponent},
   {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent},
