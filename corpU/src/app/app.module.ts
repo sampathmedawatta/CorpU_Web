@@ -27,6 +27,7 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
 import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component'
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { ApplicantAvailabilityDetailsComponent } from './components/applicant/ap
     FormsModule, 
     ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

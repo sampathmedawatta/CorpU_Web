@@ -31,22 +31,24 @@ export class LoginComponent {
   }
 
   login() {
-    this.userService.loginUser(this.formModel).subscribe({
-      next: (result: any) => {
-      //  this.authToken = result.data; //TODO save auth
 
-        localStorage.setItem('token', this.authToken.jwtToken);
-        localStorage.setItem('refreshToken', this.authToken.refreshToken);
+    localStorage.setItem('token', "testToken");
+    this.router.navigateByUrl('/Applicant');
+    // TODO : implement this after api configuration
 
-        this.router.navigateByUrl('/home'); //TODO redirect user Applicant or Permenent staff
-      },
-      error: (error) => {
-        if (error.status == 400) {
-          console.error('Incorrect login details');
-        } else {
-          console.error('There was an error!', error);
-        }
-      },
-    });
+    // this.userService.loginUser(this.formModel).subscribe({
+    //   next: (result: any) => {
+    //   // this.authToken = result.data; //TODO save auth
+    //     localStorage.setItem('token', "testToken"); // this.authToken.jwtToken
+    //     this.router.navigateByUrl('/Applicant'); // TODO redirect user Applicant or Permenent staff
+    //   },
+    //   error: (error) => {
+    //     if (error.status == 400) {
+    //       console.error('Incorrect login details');
+    //     } else {
+    //       console.error('There was an error!', error);
+    //     }
+    //   },
+    // });
   }
 }

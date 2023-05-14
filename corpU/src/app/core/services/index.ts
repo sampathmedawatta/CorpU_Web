@@ -1,4 +1,5 @@
 export * from './api.service';
+export * from './auth.service';
 export * from './applicant-availability.service';
 export * from './applicant-class-preferance.service';
 export * from './applicant-contact-detail.service';
