@@ -25,7 +25,8 @@ import { ReviewApplicationsComponent } from './components/permenent_staff/review
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
-import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component'
+import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
+import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component'
 import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
@@ -53,6 +54,7 @@ import { AuthGuard } from './core/guards/auth.guard';
     LoginComponent,
     TermsAndConditionsComponent,
     ProtectYourselfOnlineComponent,
+    ApplicantAvailabilityDetailsComponent,
   ],
   imports: [
     BrowserModule,

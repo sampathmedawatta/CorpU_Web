@@ -13,6 +13,7 @@ import { ReviewApplicationsComponent } from './components/permenent_staff/review
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
+import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'ReviewApplications', component:ReviewApplicationsComponent, canActivate: [AuthGuard]}, 
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
   {path: 'TermsAndConditions', component:TermsAndConditionsComponent},
-  {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent}
+  {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent},
+  {path: 'ApplicantAvailabilityDetails', component:ApplicantAvailabilityDetailsComponent}
 ];
 
 @NgModule({
