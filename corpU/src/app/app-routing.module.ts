@@ -13,18 +13,19 @@ import { ReviewApplicationsComponent } from './components/permenent_staff/review
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
-  {path: 'Applicant',component: ApplicantComponent}, 
+  {path: 'Applicant',component: ApplicantComponent, canActivate: [AuthGuard]}, 
   {path: 'ViewVacancy/:id',component:VacancyDetailComponent},
-  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent},
-  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent},
-  {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent},
-  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent},
-  {path: 'ManageUnits', component:ManageUnitsComponent},
-  {path: 'ViewApplications', component:ViewApplicationsComponent},
-  {path: 'ReviewApplications', component:ReviewApplicationsComponent},
+  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, canActivate: [AuthGuard]}, 
+  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, canActivate: [AuthGuard]}, 
+  {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, canActivate: [AuthGuard]}, 
+  {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent, canActivate: [AuthGuard]}, 
+  {path: 'ManageUnits', component:ManageUnitsComponent, canActivate: [AuthGuard]}, 
+  {path: 'ViewApplications', component:ViewApplicationsComponent, canActivate: [AuthGuard]}, 
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent, canActivate: [AuthGuard]}, 
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
   {path: 'TermsAndConditions', component:TermsAndConditionsComponent},
   {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent}

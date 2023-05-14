@@ -26,6 +26,7 @@ import { PrivacyStatementComponent } from './components/shared/privacy-statement
 import { LoginComponent } from './components/shared/login/login.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component'
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { ProtectYourselfOnlineComponent } from './components/shared/protect-your
     FormsModule, 
     ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
