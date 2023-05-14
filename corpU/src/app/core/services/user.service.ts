@@ -21,7 +21,7 @@ export class UserService {
       
       //TODO set parameter
       return this.api
-        .get<user>('users',)
+        .get<user>('users')
         .pipe(map((response) => response));
     }
   

@@ -28,6 +28,7 @@ import { TermsAndConditionsComponent } from './components/shared/terms-and-condi
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';
 import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component'
 import { AuthGuard } from './core/guards/auth.guard';
+import { RegisterComponent } from './components/shared/register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AuthGuard } from './core/guards/auth.guard';
     TermsAndConditionsComponent,
     ProtectYourselfOnlineComponent,
     ApplicantAvailabilityDetailsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
