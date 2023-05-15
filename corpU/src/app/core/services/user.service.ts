@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { operationResult, auth, user } from '../models';
+import { operationResult, auth, user, register } from '../models';
 import { HttpParams } from '@angular/common/http';
 
 @Injectable({
@@ -45,9 +45,9 @@ export class UserService {
         .pipe(map((response) => response));
     }
 
-    postUser(user : user): Observable<operationResult> {
+    postUser(user : register): Observable<operationResult> {
       return this.api
-        .post<operationResult>('User',user)
+        .post<operationResult>('User/Register', user)
         .pipe(map((response) => response));
     }
 }
