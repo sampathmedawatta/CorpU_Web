@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { auth, user } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,16 @@ export class UserService {
     loginUser(auth : auth): Observable<user> {
 
       return this.api
-        .post<user>('users', auth)
+        .post<user>('User', auth)
         .pipe(map((response) => response));
     }
-    getUser(): Observable<user> {
+    getUser(id: number): Observable<user> {
       
-      //TODO set parameter
+      const params = new HttpParams()
+      .set('Id', id);
+
       return this.api
-        .get<user>('users')
+        .get<user>('User/GetById',params)
         .pipe(map((response) => response));
     }
   

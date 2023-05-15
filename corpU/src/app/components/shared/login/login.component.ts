@@ -27,6 +27,13 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+
+    this.userService.getUser(34).subscribe({
+      next: (result: any) => {
+        this.userProfile = result.data;
+      console.log(' user result : '+ this.userProfile);
+      }});
+
     if (localStorage.getItem('token') != null) {
       this.checkUserRole();
     }
