@@ -34,25 +34,10 @@ export class LoginComponent {
     //   }});
 
     if (localStorage.getItem('token') != null) {
-      this.checkUserRole();
+      this.authService.checkUserRole();
     }
   }
 
-  checkUserRole(){
-
-    if(this.authService.isUserApplicant()){
-      this.router.navigateByUrl('/Applicant');
-    }
-    else if(this.authService.isUserPermanentStaff()){
-     
-      this.router.navigateByUrl('/Dashboard');
-    }
-    else{
-      this.authService.logout();
-      this.router.navigateByUrl('/Login');
-    }
-   
-  }
 
   login() {
 
@@ -64,7 +49,7 @@ export class LoginComponent {
       localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
         
       this.messengerService.sendMsgUserLogin();
-      this.checkUserRole();
+      this.authService.checkUserRole();
        
       },
       error: (error) => {
