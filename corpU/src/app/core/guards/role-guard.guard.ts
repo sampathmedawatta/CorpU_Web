@@ -10,21 +10,16 @@ export class RoleGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-     console.log (this.isAuthorized(route));
-
     return this.isAuthorized(route);
   }
 
   private isAuthorized(route: ActivatedRouteSnapshot) : boolean {
 
-    const roles = ['Admin','PermanentStaff', 'Applicant']; // TODO get role list form API
+    const role = localStorage.getItem('userRole'); 
     const expectedRoles = route.data['expectedRoles'];
-    const roleMatches = roles.findIndex(role => expectedRoles.indexOf(role) !== -1);
+    const roleMatches = expectedRoles.find((r: any) => r === role); 
 
-    console.log(expectedRoles);
-    console.log("roleMatches - "+ roleMatches);
-
-    return (roleMatches <= 0 ) ? false : true;
+    return (roleMatches == undefined) ? false : true;
   }
   
 }

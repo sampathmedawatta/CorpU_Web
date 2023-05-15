@@ -52,7 +52,7 @@ export class LoginComponent {
   login() {
 
     localStorage.setItem('token', "testToken");
-    localStorage.setItem('userRole', "PermanentStaff");
+    localStorage.setItem('userRole', "Applicant");
 
     this.messengerService.sendMsgUserLogin();
     this.checkUserRole();
