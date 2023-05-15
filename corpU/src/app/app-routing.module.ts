@@ -18,6 +18,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
 import { RoleGuardGuard } from './core/guards/role-guard.guard';
 import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
+import { AboutUniversityComponent } from './components/about-university/about-university.component';
 
 const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
@@ -55,7 +56,7 @@ const routes: Routes = [
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','PermanentStaff']}},
 
-
+  {path: 'aboutUniversity',component:AboutUniversityComponent},
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
   {path: 'TermsAndConditions', component:TermsAndConditionsComponent},
   {path: 'ProtectYourselfOnline', component:ProtectYourselfOnlineComponent},
