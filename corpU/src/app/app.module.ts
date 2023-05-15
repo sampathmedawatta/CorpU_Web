@@ -29,6 +29,7 @@ import { ProtectYourselfOnlineComponent } from './components/shared/protect-your
 import { ApplicantAvailabilityDetailsComponent } from './components/applicant/applicant-availability-details/applicant-availability-details.component'
 import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
+import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { RegisterComponent } from './components/shared/register/register.compone
     ProtectYourselfOnlineComponent,
     ApplicantAvailabilityDetailsComponent,
     RegisterComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,9 +35,11 @@ export class LoginComponent {
   checkUserRole(){
 
     if(this.authService.isUserApplicant()){
+      console.log('Applicant');
       this.router.navigateByUrl('/Applicant');
     }
     else if(this.authService.isUserPermanentStaff()){
+      console.log('Dashboard');
       this.router.navigateByUrl('/Dashboard');
     }
     else{

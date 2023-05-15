@@ -21,7 +21,7 @@ export class AuthService {
     this.messengerService.sendMsgUserLogout();
   }
 
-  userRole(){
+  getUserRole(){
     return localStorage.getItem('userRole');  
   }
 
