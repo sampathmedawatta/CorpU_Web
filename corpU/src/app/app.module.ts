@@ -30,6 +30,7 @@ import { ApplicantAvailabilityDetailsComponent } from './components/applicant/ap
 import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
 import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
+import { AboutUniversityComponent } from './components/about-university/about-university.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { DashboardComponent } from './components/permenent_staff/dashboard/dashb
     ApplicantAvailabilityDetailsComponent,
     RegisterComponent,
     DashboardComponent,
+    AboutUniversityComponent,
   ],
   imports: [
     BrowserModule,
