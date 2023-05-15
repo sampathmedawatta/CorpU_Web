@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, MessengerService, UserService, user } from 'src/app/core';
+import { AuthService, MessengerService, operationResult, UserService, user } from 'src/app/core';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,7 @@ export class LoginComponent {
     password: '',
   };
 
-  userProfile : user
-  authToken : any;
+  userProfile : user;
   
   constructor(
     private router: Router,
@@ -27,6 +26,13 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+
+    // this.userService.getUserById(34).subscribe({
+    //   next: (result: operationResult) => {
+    //     this.userProfile = result.data;
+    //   console.log(' user result : '+ this.userProfile);
+    //   }});
+
     if (localStorage.getItem('token') != null) {
       this.checkUserRole();
     }
@@ -35,11 +41,10 @@ export class LoginComponent {
   checkUserRole(){
 
     if(this.authService.isUserApplicant()){
-      console.log('Applicant');
       this.router.navigateByUrl('/Applicant');
     }
     else if(this.authService.isUserPermanentStaff()){
-      console.log('Dashboard');
+     
       this.router.navigateByUrl('/Dashboard');
     }
     else{
@@ -51,27 +56,24 @@ export class LoginComponent {
 
   login() {
 
-    localStorage.setItem('token', "testToken");
-    localStorage.setItem('userRole', "Applicant");
+    this.userService.loginUser(this.formModel).subscribe({
+      next: (result: operationResult) => {
 
-    this.messengerService.sendMsgUserLogin();
-    this.checkUserRole();
-
-    // TODO : implement this after api configuration
-
-    // this.userService.loginUser(this.formModel).subscribe({
-    //   next: (result: any) => {
-    //   // this.authToken = result.data; //TODO save auth
-    //     localStorage.setItem('token', "testToken"); // this.authToken.jwtToken
-    //     this.router.navigateByUrl('/Applicant'); // TODO redirect user Applicant or Permenent staff
-    //   },
-    //   error: (error) => {
-    //     if (error.status == 400) {
-    //       console.error('Incorrect login details');
-    //     } else {
-    //       console.error('There was an error!', error);
-    //     }
-    //   },
-    // });
+      this.userProfile = result.data.user;
+      localStorage.setItem('token', result.data.jwtToken);
+      localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
+        
+      this.messengerService.sendMsgUserLogin();
+      this.checkUserRole();
+       
+      },
+      error: (error) => {
+        if (error.status == 400) {
+          console.error('Incorrect login details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      },
+    });
   }
 }

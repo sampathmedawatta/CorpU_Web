@@ -17,19 +17,19 @@ export class VacancyService {
       .set('vacancyId', id);
 
     return this.api
-      .get<vacancy>('vacancies',params)
+      .get<vacancy>('vacancy',params)
       .pipe(map((response) => response));
   }
 
   geAllVacancyList(): Observable<vacancy[]> {
     return this.api
-      .get<vacancy[]>('vacancies')
+      .get<vacancy[]>('vacancy')
       .pipe(map((response) => response));
   }
 
   postVacancy(vacancy : vacancy): Observable<any> {
     return this.api
-      .post<any>('vacancies',vacancy)
+      .post<any>('vacancy',vacancy)
       .pipe(map((response) => response));
   }
 }
