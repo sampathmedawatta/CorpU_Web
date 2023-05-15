@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
   <title>Footer with Navbar</title>
   <meta charset="utf-8">
@@ -9,19 +11,27 @@
   <style>
     .navbar {
       background-color: #f8f9fa;
+      padding: 10px;
     }
     .navbar-brand {
       font-weight: bold;
+      color: #6c757d;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+    .navbar-brand:hover {
+      color: #212529;
     }
     .navbar-nav {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
-    .nav-link {
+    .navbar-nav .nav-link {
       color: #6c757d;
       font-weight: bold;
+      margin-right: 15px;
+      font-size: 14px;
     }
-    .nav-link:hover {
+    .navbar-nav .nav-link:hover {
       color: #212529;
     }
   </style>
@@ -29,8 +39,13 @@
 <body>
   
   <nav class="navbar fixed-bottom">
-    <a class="navbar-brand" href="/pricacyStatement">Privacy Statement</a>
-    <a class="navbar-brand" href="/TermsAndConditions">Terms &amp; Conditions</a>
-    <a class="navbar-brand" href="/ProtectYourselfOnline">Protect Yourself Online</a>
-    <a class="navbar-brand" href="#">© CorpU. All rights reserved</a>
+    <div class="container">
+      <a class="navbar-brand" href="/pricacyStatement">Privacy Statement</a>
+      <a class="navbar-brand" href="/TermsAndConditions">Terms &amp; Conditions</a>
+      <a class="navbar-brand" href="/ProtectYourselfOnline">Protect Yourself Online</a>
+      <a class="navbar-brand" href="#">© CorpU. All rights reserved</a>
+    </div>
   </nav>
+  
+</body>
+</html>
