@@ -11,6 +11,7 @@ export * from "./employeeRole";
 export * from "./faculty";
 export * from "./qualificationType";
 export * from "./unit";
+export * from "./register";
 export * from "./user";
 export * from './auth';
 export * from "./userRole";

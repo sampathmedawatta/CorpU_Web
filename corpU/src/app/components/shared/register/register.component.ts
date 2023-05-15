@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService, user } from 'src/app/core';
+import { AuthService, UserService, operationResult, register } from 'src/app/core';
 
 
 
@@ -35,20 +35,21 @@ function passwordMatchValidator(form: any) {
 export class RegisterComponent {
 
   registerForm: FormGroup;
-  userData: user = new user();
+  userData: register = new register();
   isUserRegistered: boolean = false;
   
   constructor(
     private builder: FormBuilder,
     private router: Router,
-    private userService : UserService
+    private userService : UserService,
+    private authService : AuthService
   ) {}
   
 
   ngOnInit(): void {
-    // if (localStorage.getItem('token') != null) {
-    //   this.router.navigateByUrl('/Applicant');
-    // }
+    if (localStorage.getItem('token') != null) {
+      this.authService.checkUserRole();
+    }
     this.buildForm();
   }
 
@@ -73,20 +74,23 @@ export class RegisterComponent {
     this.userData.email = this.registerForm.value.email;
     this.userData.password = this.registerForm.value.password;
     this.userData.userRoleId = 1;
-    
-    this.isUserRegistered = true;
-    this.registerForm.reset();
 
-    // this.userData.userRole =  {
-    //   userRoleId: 2,
-    //   roleName: 'Permenent Staff',
-    //   status: true
-    // }
-    // this.userService.postUser(this.userData).subscribe((data) =>{
-    //   this.isUserRegistered = true;
-    //   this.registerForm.reset();
-    // });
- 
+    this.userService.postUser(this.userData).subscribe({
+      next: (result: operationResult) => {
+
+        this.isUserRegistered = true;
+        this.registerForm.reset();
+
+      },
+      error: (error) => {
+        if (error.status == 400) {
+          console.error('Incorrect registrtion details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      },
+    });
+
   }
 
   handlerCloseAllert() {

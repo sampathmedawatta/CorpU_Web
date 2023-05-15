@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { MessengerService } from './messenger.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private messengerService: MessengerService) { }
+  constructor( private router: Router,private messengerService: MessengerService) { }
 
   isLoggedIn(){
     if (localStorage.getItem('token') != null) {
@@ -38,5 +39,21 @@ export class AuthService {
     } 
       return false;
 
+  }
+
+  checkUserRole(){
+
+    if(this.isUserApplicant()){
+      this.router.navigateByUrl('/Applicant');
+    }
+    else if(this.isUserPermanentStaff()){
+     
+      this.router.navigateByUrl('/Dashboard');
+    }
+    else{
+      this.logout();
+      this.router.navigateByUrl('/Login');
+    }
+   
   }
 }
