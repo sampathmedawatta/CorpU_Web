@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { auth, user } from '../models';
+import { operationResult, auth, user } from '../models';
 import { HttpParams } from '@angular/common/http';
 
 @Injectable({
@@ -12,31 +12,42 @@ export class UserService {
 
   constructor(private api:ApiService) { }
 
-    loginUser(auth : auth): Observable<user> {
+    loginUser(auth : auth): Observable<operationResult> {
 
+      const params = new HttpParams()
+      .set('email', auth.email)
+      .set('password', auth.password);
       return this.api
-        .post<user>('User', auth)
+        .get<operationResult>('User/Login', params)
         .pipe(map((response) => response));
     }
-    getUser(id: number): Observable<user> {
+
+    getUserById(id: number): Observable<operationResult> {
       
       const params = new HttpParams()
-      .set('Id', id);
-
+      .set('id', id);
       return this.api
-        .get<user>('User/GetById',params)
-        .pipe(map((response) => response));
-    }
-  
-    geAllUsers(): Observable<user[]> {
-      return this.api
-        .get<user[]>('users')
+        .get<operationResult>('User/GetById',params)
         .pipe(map((response) => response));
     }
 
-    postUser(user : user): Observable<any> {
+    getUserByEmail(email: string): Observable<operationResult> {
+      
+      const params = new HttpParams()
+      .set('email', email);
       return this.api
-        .post<any>('users',user)
+        .get<operationResult>('User/GetByEmail',params)
+        .pipe(map((response) => response));
+    }
+    geAllUsers(): Observable<operationResult> {
+      return this.api
+        .get<operationResult>('User/All')
+        .pipe(map((response) => response));
+    }
+
+    postUser(user : user): Observable<operationResult> {
+      return this.api
+        .post<operationResult>('User',user)
         .pipe(map((response) => response));
     }
 }
