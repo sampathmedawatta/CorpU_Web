@@ -41,24 +41,29 @@ export class LoginComponent {
 
   login() {
 
-    this.userService.loginUser(this.formModel).subscribe({
-      next: (result: operationResult) => {
+    localStorage.setItem('token', "sample token");
 
-      this.userProfile = result.data.user;
-      localStorage.setItem('token', result.data.jwtToken);
-      localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
+    localStorage.setItem('userRole',"Applicant" );
+    
+
+    // this.userService.loginUser(this.formModel).subscribe({
+    //   next: (result: operationResult) => {
+
+    //   this.userProfile = result.data.user;
+    //   localStorage.setItem('token', result.data.jwtToken);
+    //   localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
         
       this.messengerService.sendMsgUserLogin();
       this.authService.checkUserRole();
        
-      },
-      error: (error) => {
-        if (error.status == 400) {
-          console.error('Incorrect login details');
-        } else {
-          console.error('There was an error!', error);
-        }
-      },
-    });
+    //   },
+    //   error: (error) => {
+    //     if (error.status == 400) {
+    //       console.error('Incorrect login details');
+    //     } else {
+    //       console.error('There was an error!', error);
+    //     }
+    //   },
+    // });
   }
 }

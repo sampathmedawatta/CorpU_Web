@@ -1,26 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100 top-header">
- 
-  <div class="collapse navbar-collapse header-align" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">About University <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="Register">Regsiter<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="Login" *ngIf="!isloggedIn">Login<span class="sr-only"></span></a>
-        <a class="nav-link" (click)="logout()" *ngIf="isloggedIn">Logout<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Contact Us<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/Applicant">Applicant<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/ManageUnits">Permanent Staff<span class="sr-only"></span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University Website</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">CorpU</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div cxlass="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">About University</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="Register">Register</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="Login" *ngIf="!isloggedIn">Login</a>
+            <a class="nav-link" (click)="logout()" *ngIf="isloggedIn">Logout</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Applicant">Applicant</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/ManageUnits">Permanent Staff</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
