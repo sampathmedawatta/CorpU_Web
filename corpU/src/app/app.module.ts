@@ -19,9 +19,9 @@ import { ApplicantUnitHistoryComponent } from './components/applicant/applicant-
 import { ApplicantProfileDetailsComponent } from './components/applicant/applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './components/applicant/applicant-academic-details/applicant-academic-details.component';
 import { ApplicantClassPreferencesComponent } from './components/applicant/applicant-class-preferences/applicant-class-preferences.component';
-import { ManageUnitsComponent } from './components/permanent_staff/manage-units/manage-units.component';
-import { ViewApplicationsComponent } from './components/permanent_staff/view-applications/view-applications.component';
-import { ReviewApplicationsComponent } from './components/permanent_staff/review-applications/review-applications.component';
+import { ManageUnitsComponent } from './components/permanent_staff/unit/manage-units/manage-units.component';
+import { ViewApplicationsComponent } from './components/permanent_staff/application/view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './components/permanent_staff/application/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
@@ -31,6 +31,13 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
 import { DashboardComponent } from './components/permanent_staff/dashboard/dashboard.component';
 import { AboutUniversityComponent } from './components/about-university/about-university.component';
+import { UserListComponent } from './components/permanent_staff/user/user-list/user-list.component';
+import { UserDetailsComponent } from './components/permanent_staff/user/user-details/user-details.component';
+import { EmployeeListComponent } from './components/permanent_staff/employee/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './components/permanent_staff/employee/employee-details/employee-details.component';
+import { EmployeeAddComponent } from './components/permanent_staff/employee/employee-add/employee-add.component';
+import { UnitListComponent } from './components/permanent_staff/unit/unit-list/unit-list.component';
+import { UnitAddComponent } from './components/permanent_staff/unit/unit-add/unit-add.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +68,13 @@ import { AboutUniversityComponent } from './components/about-university/about-un
     RegisterComponent,
     DashboardComponent,
     AboutUniversityComponent,
+    UserListComponent,
+    UserDetailsComponent,
+    EmployeeListComponent,
+    EmployeeDetailsComponent,
+    EmployeeAddComponent,
+    UnitListComponent,
+    UnitAddComponent,
   ],
   imports: [
     BrowserModule,

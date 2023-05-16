@@ -7,9 +7,9 @@ import { ApplicantUnitHistoryComponent } from './components/applicant/applicant-
 import { ApplicantProfileDetailsComponent } from './components/applicant/applicant-profile-details/applicant-profile-details.component';
 import { ApplicantAcademicDetailsComponent } from './components/applicant/applicant-academic-details/applicant-academic-details.component';
 import { ApplicantClassPreferencesComponent } from './components/applicant/applicant-class-preferences/applicant-class-preferences.component';
-import { ManageUnitsComponent } from './components/permanent_staff/manage-units/manage-units.component';
-import { ViewApplicationsComponent } from './components/permanent_staff/view-applications/view-applications.component';
-import { ReviewApplicationsComponent } from './components/permanent_staff/review-applications/review-applications.component';
+import { ManageUnitsComponent } from './components/permanent_staff/unit/manage-units/manage-units.component';
+import { ViewApplicationsComponent } from './components/permanent_staff/application/view-applications/view-applications.component';
+import { ReviewApplicationsComponent } from './components/permanent_staff/application/review-applications/review-applications.component';
 import { PrivacyStatementComponent } from './components/shared/privacy-statement/privacy-statement.component';
 import { TermsAndConditionsComponent } from './components/shared/terms-and-conditions/terms-and-conditions.component';
 import { ProtectYourselfOnlineComponent } from './components/shared/protect-yourself-online/protect-yourself-online.component';

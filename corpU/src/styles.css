@@ -6,3 +6,8 @@
 {
         justify-content:right;
 }
+
+.permanent-staff-nav-bar{
+    background-color: #e8e9e9;
+    justify-content: left !important;
+}
