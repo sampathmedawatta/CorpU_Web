@@ -6,3 +6,8 @@
 {
         justify-content:right;
 }
+
+.search-bar{
+    padding-top: 20px;
+    background-color: rgb(227 229 229);
+}
