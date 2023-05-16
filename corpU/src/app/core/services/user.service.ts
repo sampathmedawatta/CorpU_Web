@@ -18,7 +18,7 @@ export class UserService {
       .set('email', auth.email)
       .set('password', auth.password);
       return this.api
-        .get<operationResult>('User/Login', params)
+        .post<operationResult>('User/Login', auth)
         .pipe(map((response) => response));
     }
 
