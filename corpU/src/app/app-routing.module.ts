@@ -20,6 +20,8 @@ import { RoleGuardGuard } from './core/guards/role-guard.guard';
 import { DashboardComponent } from './components/permanent_staff/dashboard/dashboard.component';
 import { AboutUniversityComponent } from './components/about-university/about-university.component';
 import { HomePageComponent } from './components/shared/home-page/home-page.component';
+import { UserListComponent } from './components/permanent_staff/user/user-list/user-list.component';
+import { EmployeeListComponent } from './components/permanent_staff/employee/employee-list/employee-list.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -48,6 +50,13 @@ const routes: Routes = [
   {path: 'Dashboard', component:DashboardComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Employee']}},  
+  {path: 'Users', component:UserListComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Employee']}},  
+  {path: 'Employees', component:EmployeeListComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Employee']}},  
+ 
   {path: 'ManageUnits', component:ManageUnitsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Employee']}},  

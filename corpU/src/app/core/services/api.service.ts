@@ -23,13 +23,13 @@ export class ApiService {
 
   get<T>(path: string, params: HttpParams = new HttpParams()): Observable<T> {
     return this.http
-      .get<T>(`${environment.api_url}${path}`, { params })
+      .get<T>(`${environment.api_url}${path}`, { params, headers: this.httpOptions.headers })
       .pipe(catchError(this.formatErrors));
   }
 
   put<T>(path: string, body: Object = {}): Observable<T> {
     return this.http
-      .put<T>(`${environment.api_url}${path}`, JSON.stringify(body))
+      .put<T>(`${environment.api_url}${path}`, JSON.stringify(body),this.httpOptions)
       .pipe(catchError(this.formatErrors));
   }
 
