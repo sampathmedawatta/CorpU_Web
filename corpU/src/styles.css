@@ -7,6 +7,10 @@
         justify-content:right;
 }
 
+.permanent-staff-nav-bar{
+    background-color: #e8e9e9;
+    justify-content: left !important;
+}
 .search-bar{
     padding-top: 20px;
     background-color: rgb(227 229 229);
