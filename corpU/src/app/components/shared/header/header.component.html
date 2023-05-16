@@ -21,10 +21,10 @@
             <a class="nav-link" href="#">Contact Us</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/Applicant">Applicant</a>
+            <a class="nav-link" href="/Applicant" *ngIf="isApplicant">Applicant</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/ManageUnits">Permanent Staff</a>
+            <a class="nav-link" href="/ManageUnits" *ngIf="isEmployee">Permanent Staff</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="Register" *ngIf="!isloggedIn">Register</a>
