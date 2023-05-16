@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   isUserPermanentStaff(){
-    if (localStorage.getItem('userRole') == 'PermanentStaff') {
+    if (localStorage.getItem('userRole') == 'Employee') {
       return true;
     } 
       return false;

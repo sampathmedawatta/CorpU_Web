@@ -18,20 +18,20 @@
             <a class="nav-link" href="aboutUniversity">About University</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="Register">Register</a>
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Applicant" *ngIf="isApplicant">Applicant</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/ManageUnits" *ngIf="isEmployee">Permanent Staff</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="Register" *ngIf="!isloggedIn">Register</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="Login" *ngIf="!isloggedIn">Login</a>
             <a class="nav-link" (click)="logout()" *ngIf="isloggedIn">Logout</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/Applicant">Applicant</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/ManageUnits">Permanent Staff</a>
           </li>
         </ul>
       </div>
