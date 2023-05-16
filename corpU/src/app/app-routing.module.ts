@@ -19,8 +19,10 @@ import { RegisterComponent } from './components/shared/register/register.compone
 import { RoleGuardGuard } from './core/guards/role-guard.guard';
 import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
 import { AboutUniversityComponent } from './components/about-university/about-university.component';
+import { HomePageComponent } from './components/shared/home-page/home-page.component';
 
 const routes: Routes = [
+{path: '',component: HomePageComponent},
   {path: 'Login',component: LoginComponent}, 
   {path: 'Register',component: RegisterComponent}, 
 

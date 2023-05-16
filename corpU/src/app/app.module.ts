@@ -31,6 +31,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
 import { DashboardComponent } from './components/permenent_staff/dashboard/dashboard.component';
 import { AboutUniversityComponent } from './components/about-university/about-university.component';
+import { HomePageComponent } from './components/shared/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AboutUniversityComponent } from './components/about-university/about-un
     RegisterComponent,
     DashboardComponent,
     AboutUniversityComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
