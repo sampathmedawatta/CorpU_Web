@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="container">
+    <app-permanent-nav *ngIf="isEmployee"></app-permanent-nav>
     <router-outlet></router-outlet>
     <div class="sub_div"><app-footer></app-footer></div>
 </div>

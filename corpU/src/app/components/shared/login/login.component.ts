@@ -41,34 +41,34 @@ export class LoginComponent {
 
   login() {
 
-    localStorage.setItem('token', "sample token");
+    // localStorage.setItem('token', "sample token");
 
-    localStorage.setItem('userRole',"Applicant" );
+    // localStorage.setItem('userRole',"Applicant" );
     
 
-    // this.userService.loginUser(this.formModel).subscribe({
-    //   next: (result: operationResult) => {
-    //     if(result.data != null){
-    //       this.userProfile = result.data.user;
-    //       localStorage.setItem('token', result.data.jwtToken);
-    //       localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
+    this.userService.loginUser(this.formModel).subscribe({
+      next: (result: operationResult) => {
+        if(result.data != null){
+          this.userProfile = result.data.user;
+          localStorage.setItem('token', result.data.jwtToken);
+          localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
             
           this.messengerService.sendMsgUserLogin();
           this.authService.checkUserRole();
-    //     }
-    //     else{
-    //       this.isUserLoggedIn = true;
-    //     }
+        }
+        else{
+          this.isUserLoggedIn = true;
+        }
        
-    //   },
-    //   error: (error) => {
-    //     if (error.status == 400) {
-    //       console.error('Incorrect login details');
-    //     } else {
-    //       console.error('There was an error!', error);
-    //     }
-    //   },
-    // });
+      },
+      error: (error) => {
+        if (error.status == 400) {
+          console.error('Incorrect login details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      },
+    });
   }
 
   handlerCloseAllert() {

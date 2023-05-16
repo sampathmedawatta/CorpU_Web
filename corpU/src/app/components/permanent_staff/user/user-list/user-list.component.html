@@ -1,1 +1,24 @@
-<p>user-list works!</p>
+<div>
+    <div class="container">
+        <h2>User List</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.email }}</td>
+              <td>{{ user.userRole?.roleName }}</td>
+              <td>
+                <a routerLink="/UserManage/{{ user.userId }}">Manage User</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+</div>

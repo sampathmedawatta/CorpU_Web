@@ -13,10 +13,6 @@ export class UserService {
   constructor(private api:ApiService) { }
 
     loginUser(auth : auth): Observable<operationResult> {
-
-      const params = new HttpParams()
-      .set('email', auth.email)
-      .set('password', auth.password);
       return this.api
         .post<operationResult>('User/Login', auth)
         .pipe(map((response) => response));
@@ -39,6 +35,7 @@ export class UserService {
         .get<operationResult>('User/GetByEmail',params)
         .pipe(map((response) => response));
     }
+    
     geAllUsers(): Observable<operationResult> {
       return this.api
         .get<operationResult>('User/All')
