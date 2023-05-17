@@ -23,6 +23,7 @@ import { HomePageComponent } from './components/shared/home-page/home-page.compo
 import { UserListComponent } from './components/permanent_staff/user/user-list/user-list.component';
 import { EmployeeListComponent } from './components/permanent_staff/employee/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './components/permanent_staff/employee/employee-add/employee-add.component';
+import { UnitListComponent } from './components/permanent_staff/unit/unit-list/unit-list.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -50,28 +51,31 @@ const routes: Routes = [
 
   {path: 'Dashboard', component:DashboardComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},  
+  data:{expectedRoles:['Admin','Manager', 'Staff']}},  
   {path: 'Users', component:UserListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}}, 
+  data:{expectedRoles:['Admin']}}, 
 
   {path: 'Employees', component:EmployeeListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},  
+  data:{expectedRoles:['Admin']}},  
   {path: 'Employee/Add', component:EmployeeAddComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},  
+  data:{expectedRoles:['Admin']}},  
 
- 
-  {path: 'ManageUnits', component:ManageUnitsComponent, 
+  {path: 'Vacancies', component:UnitListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},  
-  {path: 'ViewApplications', component:ViewApplicationsComponent, 
+  data:{expectedRoles:['Admin','Manager', 'Staff']}},  
+  {path: 'Applications', component:ViewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},
+  data:{expectedRoles:['Admin','Manager', 'Staff']}},
   {path: 'ReviewApplications', component:ReviewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Employee']}},
+  data:{expectedRoles:['Admin','Manager', 'Staff']}},
+
+  {path: 'ReviewApplications', component:ReviewApplicationsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Manager', 'Staff']}},
 
   {path: 'aboutUniversity',component:AboutUniversityComponent},
   {path: 'pricacyStatement',component:PrivacyStatementComponent},
