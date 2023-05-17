@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService, employee, employeeRole, faculty, operationResult, user } from 'src/app/core';
 
 @Component({
@@ -45,22 +45,41 @@ export class EmployeeEditComponent {
   submitted: boolean = false;
   isUserRegistered: boolean = false;
 
-  constructor(private employeeService:EmployeeService,  private router: Router, private builder: FormBuilder){
-    
+  empId : number = 0;
+ 
+  constructor(private employeeService:EmployeeService,  private activatedRoute: ActivatedRoute, private router: Router, private builder: FormBuilder){
+    this.empId  = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '0');
   }
 
   ngOnInit(): void {
-        this.buildForm();
+      this. getEmployeeById();
     }
   
+    getEmployeeById(){
+      this.employeeService.getEmployeeById(this.empId).subscribe({
+        next: (result: operationResult) => {
+        this.employeeDetails = result.data;
+        this.buildForm();
+        },
+        error: (error) => {
+          if (error.status == 400) {
+            console.error('Incorrect details');
+          } else {
+            console.error('There was an error!', error);
+          }
+        }
+      });
+    }
+
+
     buildForm() {
       this.employeeForm = this.builder.group(
         {
-          empName: ['', [Validators.required, Validators.maxLength(50)]],
-          email: ['', [Validators.required, Validators.email,  Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$")]],
-          phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(14)]],
-          empRoleId : ['0', Validators.required],
-          facultyId : ['0', Validators.required],
+          empName: [this.employeeDetails.empName, [Validators.required, Validators.maxLength(50)]],
+          email: [this.employeeDetails.email, [Validators.required, Validators.email,  Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$")]],
+          phone: [this.employeeDetails.phone, [Validators.required, Validators.minLength(10), Validators.maxLength(14)]],
+          empRoleId : [this.employeeDetails.empRoleId, Validators.required],
+          facultyId : [this.employeeDetails.facultyId, Validators.required],
         }
       );
     }
