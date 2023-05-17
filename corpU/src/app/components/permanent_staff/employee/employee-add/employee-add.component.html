@@ -1,1 +1,47 @@
-<p>employee-add works!</p>
+<div class="row">
+    <div class="container">
+      <div class="row header-bar">
+        <div class="col-10"><h2>Employee - Add</h2></div>
+        </div>
+    <div class="row">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="employeeDetails.empName" #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors">Employee Name is required.</div>
+                </div>
+            </div>
+              <label for="email">Email:</label>
+              <div class="form-group">
+                <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="employeeDetails.email" #email="ngModel">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                      <div *ngIf="email.errors">Email ID is required.</div>
+                  </div>
+            </div>
+              <label for="phone">Phone Number:</label>
+            <div class="form-group">
+              <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="employeeDetails.phone" #phone="ngModel">
+                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                  <div *ngIf="phone.errors">Phone number is required.</div>
+                </div>
+            </div>
+
+            <label for="employeeRole">Empolyee Role </label>
+            <div class="form-group">
+            <select class="form-select" id="employeeRole" [(ngModel)]="empSelected">
+                <option value="0" disabled>---- Select Empolyee Role ----</option>
+                <option *ngFor="let employeeRole of employeeRoleList" value="{{employeeRole.empRoleId}}">{{employeeRole.roleName}}</option>
+              </select>
+            </div>
+            <label for="faculty">Faculty </label>
+            <div class="form-group">
+                <select class="form-select" id="faculty" name="faculty" [(ngModel)]="facultySelected">
+                    <option value="0" disabled >---- Select Faculty -----</option>
+                    <option *ngFor="let faculty of facultyList" value="{{faculty.facultyId}}">{{faculty.facultyName}}</option>
+                  </select>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+  
+    </div>
+    </div>
+</div>
