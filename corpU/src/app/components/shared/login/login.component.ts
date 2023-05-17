@@ -50,7 +50,9 @@ export class LoginComponent {
       next: (result: operationResult) => {
         if(result.data != null){
           this.userProfile = result.data.user;
+
           localStorage.setItem('token', result.data.jwtToken);
+          localStorage.setItem('user', JSON.stringify(this.userProfile));
           localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
             
           this.messengerService.sendMsgUserLogin();

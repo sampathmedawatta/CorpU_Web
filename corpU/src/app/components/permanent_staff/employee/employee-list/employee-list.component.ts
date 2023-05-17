@@ -20,8 +20,6 @@ export class EmployeeListComponent {
     this.employeeService.geAllEmployeeList().subscribe({
       next: (result: any) => {
       this.employees = result.data;
-  
-      console.log( result.data);
       },
       error: (error) => {
         if (error.status == 400) {
