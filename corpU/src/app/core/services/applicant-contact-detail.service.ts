@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable, map } from 'rxjs';
-import { applicantContactDetail } from '../models';
+import { applicantContactDetail, operationResult } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,21 +12,24 @@ export class ApplicantContactDetailService {
 
   constructor(private api:ApiService) { }
 
-  getApplicantContactDetail(): Observable<applicantContactDetail> {
+  getApplicantContactDetailByApplicantId(id: number): Observable<operationResult> {
+
+    const params = new HttpParams()
+      .set('id', id);
     return this.api
-      .get<applicantContactDetail>('applicantContactDetail')
+      .get<operationResult>('ApplicantContact/GetById',params)
       .pipe(map((response) => response));
   }
 
-  geAllApplicantContactDetailList(): Observable<applicantContactDetail[]> {
+  geAllApplicantContactDetailList(): Observable<operationResult> {
     return this.api
-      .get<applicantContactDetail[]>('applicantContactDetail')
+      .get<operationResult>('ApplicantContact/All')
       .pipe(map((response) => response));
   }
 
-  postApplicantContactDetail(applicantContactDetail : applicantContactDetail): Observable<any> {
+  postApplicantContactDetail(applicantContactDetail : applicantContactDetail): Observable<operationResult> {
     return this.api
-      .post<any>('applicantContactDetail',applicantContactDetail)
+      .post<operationResult>('ApplicantContact/Add',applicantContactDetail)
       .pipe(map((response) => response));
   }
 }

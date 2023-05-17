@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable, map } from 'rxjs';
-import { applicant } from '../models';
+import { applicant, operationResult } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,23 @@ export class ApplicantService {
 
   constructor(private api:ApiService) { }
 
-  getApplicant(): Observable<applicant> {
+  getApplicant(id: number): Observable<operationResult> {
+    const params = new HttpParams()
+    .set('id', id);
     return this.api
-      .get<applicant>('applicant')
+      .get<operationResult>('applicant',params)
       .pipe(map((response) => response));
   }
 
-  geAllApplicantList(): Observable<applicant[]> {
+  geAllApplicantList(): Observable<operationResult> {
     return this.api
-      .get<applicant[]>('applicant')
+      .get<operationResult>('applicant')
       .pipe(map((response) => response));
   }
 
-  postApplicant(applicant : applicant): Observable<any> {
+  postApplicant(applicant : applicant): Observable<operationResult> {
     return this.api
-      .post<any>('applicant',applicant)
+      .post<operationResult>('applicant',applicant)
       .pipe(map((response) => response));
   }
 }
