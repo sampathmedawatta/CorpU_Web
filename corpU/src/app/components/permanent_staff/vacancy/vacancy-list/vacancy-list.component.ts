@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {VacancyService, operationResult, user, vacancy } from 'src/app/core';
+import { VacancyService, operationResult, vacancy } from 'src/app/core';
 
 @Component({
-  selector: 'app-applicant',
-  templateUrl: './applicant.component.html',
-  styleUrls: ['./applicant.component.css']
+  selector: 'app-vacancy-list',
+  templateUrl: './vacancy-list.component.html',
+  styleUrls: ['./vacancy-list.component.css']
 })
-export class ApplicantComponent {
+export class VacancyListComponent {
 
   vacancies: vacancy[] = [];
   constructor(private vacancyService:VacancyService){}

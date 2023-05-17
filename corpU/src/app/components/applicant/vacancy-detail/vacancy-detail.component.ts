@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { VacancyService, vacancy } from 'src/app/core';
+import { VacancyService, operationResult, vacancy } from 'src/app/core';
 
 @Component({
   selector: 'app-vacancy-detail',
@@ -20,9 +20,9 @@ export class VacancyDetailComponent {
   }
 
   getVacancyById(id : number) {
-    this.vacancyService.getVacancy(id).subscribe({
-      next: (result: any) => {
-      this.vacancy = result[0];   
+    this.vacancyService.getVacancyById(id).subscribe({
+      next: (result: operationResult) => {
+      this.vacancy = result.data;   
       },
       error: (error) => {
         if (error.status == 400) {

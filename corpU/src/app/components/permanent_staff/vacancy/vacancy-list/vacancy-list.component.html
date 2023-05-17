@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row header-bar">
+    <div class="col-10"><h2>Vacancy List</h2></div>
+    <div class="col-2">
+      <a routerLink="/Vacancy/Add" class="btn btn-sm btn-outline-primary">Add New Vacancy</a>
+    </div>
+  </div>
+   
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Unit Name</th>
+          <th>Closing Date</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vacancy of vacancies">
+          <td>{{ vacancy.title }}</td>
+          <td>{{ vacancy.closingDate | date }}</td>
+          <td>
+            <a routerLink="/Vacancy/View/{{ vacancy.vacancyId }}">View Application</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+  
