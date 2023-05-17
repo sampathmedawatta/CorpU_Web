@@ -27,6 +27,7 @@ import { UnitListComponent } from './components/permanent_staff/unit/unit-list/u
 import { VacancyListComponent } from './components/permanent_staff/vacancy/vacancy-list/vacancy-list.component';
 import { VacancyAddComponent } from './components/permanent_staff/vacancy/vacancy-add/vacancy-add.component';
 import { VacancyViewComponent } from './components/permanent_staff/vacancy/vacancy-view/vacancy-view.component';
+import { EmployeeEditComponent } from './components/permanent_staff/employee/employee-edit/employee-edit.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -65,6 +66,10 @@ const routes: Routes = [
   {path: 'Employee/Add', component:EmployeeAddComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin']}},  
+  {path: 'Employee/View/:id', component:EmployeeEditComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin']}},  
+
 
   {path: 'Vacancy', component:VacancyListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
