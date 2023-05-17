@@ -56,6 +56,7 @@ export class RegisterComponent {
   buildForm() {
     this.registerForm = this.builder.group(
       {
+        name: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: [
           '',
@@ -71,6 +72,7 @@ export class RegisterComponent {
 
   register() {
 
+    this.userData.name = this.registerForm.value.name;
     this.userData.email = this.registerForm.value.email;
     this.userData.password = this.registerForm.value.password;
     this.userData.userRoleId = 1;
