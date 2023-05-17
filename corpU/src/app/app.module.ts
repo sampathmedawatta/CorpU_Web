@@ -39,6 +39,7 @@ import { EmployeeDetailsComponent } from './components/permanent_staff/employee/
 import { EmployeeAddComponent } from './components/permanent_staff/employee/employee-add/employee-add.component';
 import { UnitListComponent } from './components/permanent_staff/unit/unit-list/unit-list.component';
 import { UnitAddComponent } from './components/permanent_staff/unit/unit-add/unit-add.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { UnitAddComponent } from './components/permanent_staff/unit/unit-add/uni
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    NgxSpinnerModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

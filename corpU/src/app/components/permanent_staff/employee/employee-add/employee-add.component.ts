@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService, employee, employeeRole, faculty, operationResult, user } from 'src/app/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-employee-add',
@@ -46,7 +47,10 @@ export class EmployeeAddComponent {
   submitted: boolean = false;
   isUserRegistered: boolean = false;
 
-  constructor(private employeeService:EmployeeService,  private router: Router, private builder: FormBuilder){
+  constructor(private employeeService:EmployeeService,  
+    private router: Router, 
+    private builder: FormBuilder,
+    private spinner: NgxSpinnerService){
     
   }
 
@@ -75,6 +79,15 @@ export class EmployeeAddComponent {
       return;
     }
 
+     /** spinner starts on init */
+     this.spinner.show();
+
+     setTimeout(() => {
+       /** spinner ends after 5 seconds */
+       this.spinner.hide();
+     }, 7000);
+
+     
     if(!this.submitted){
       this.submitted = true;
     this.employeeDetails = this.employeeForm.value;
