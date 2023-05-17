@@ -20,8 +20,6 @@ getUserList() {
   this.userService.geAllUsers().subscribe({
     next: (result: any) => {
     this.users = result.data;
-
-    console.log( result.data);
     },
     error: (error) => {
       if (error.status == 400) {

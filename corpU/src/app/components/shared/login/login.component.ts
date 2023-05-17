@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, MessengerService, operationResult, UserService, user } from 'src/app/core';
+import { AuthService, MessengerService, operationResult, UserService, user, EmployeeService } from 'src/app/core';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,8 @@ export class LoginComponent {
     private router: Router,
     private userService : UserService,
     private messengerService : MessengerService,
-    private authService : AuthService
+    private authService : AuthService,
+    private employeeService : EmployeeService
   ) {
    
   }
@@ -53,10 +54,11 @@ export class LoginComponent {
 
           localStorage.setItem('token', result.data.jwtToken);
           localStorage.setItem('user', JSON.stringify(this.userProfile));
-          localStorage.setItem('userRole', (this.userProfile.userRole?.roleName) ? this.userProfile.userRole?.roleName : '');
-            
-          this.messengerService.sendMsgUserLogin();
-          this.authService.checkUserRole();
+          
+          let role = this.userProfile.userRole?.roleName ? this.userProfile.userRole?.roleName : '';
+          let userEmail = this.userProfile.email ? this.userProfile.email : '';
+
+          this.setUserRole(userEmail,role);
         }
         else{
           this.isUserLoggedIn = true;
@@ -73,8 +75,25 @@ export class LoginComponent {
     });
   }
 
+  setUserRole(userEmail :string,  role :string){
+    this.employeeService.getEmployeeByEmail(userEmail).subscribe({
+      next: (result: operationResult) => {
+        var emp = result.data;
+        if(emp){
+          localStorage.setItem('userRole', (emp.employeeRole.roleName));
+        }
+        else{
+          localStorage.setItem('userRole', role);
+        }
+
+        this.messengerService.sendMsgUserLogin();
+        this.authService.checkUserRole();
+      }
+    });
+  }
+  
   handlerCloseAllert() {
     this.isUserLoggedIn = false;
-    //this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login');
   }
 }
