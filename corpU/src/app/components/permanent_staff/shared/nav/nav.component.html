@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary permanent-staff-nav-bar">
   <div class="container-fluid permanent-staff-nav-bar">
     <a class="navbar-brand" href="/Dashboard">Dashboard</a>
-    <a class="navbar-brand" href="/Users">Users</a>
-    <a class="navbar-brand" href="/Employees">Employees</a>
+    <a class="navbar-brand" href="/Users" *ngIf="isAdmin">Users</a>
+    <a class="navbar-brand" href="/Employees" *ngIf="isAdmin">Employees</a>
     <a class="navbar-brand" href="/Vacancies">Vacancies</a>
     <a class="navbar-brand" href="/Applications">Applications</a>
     <a class="navbar-brand" href="/Applicants">Applicants</a>
