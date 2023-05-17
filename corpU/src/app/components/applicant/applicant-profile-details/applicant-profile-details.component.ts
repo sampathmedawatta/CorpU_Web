@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApplicantContactDetailService, ApplicantService, operationResult } from 'src/app/core';
 import { applicant } from 'src/app/core/models/applicant';
 import { applicantContactDetail } from 'src/app/core/models/applicantContactDetail';
 
@@ -11,38 +12,39 @@ export class ApplicantProfileDetailsComponent {
   applicantContact: applicantContactDetail = new applicantContactDetail();
   applicantDetails: applicant = new applicant();
 
-  // Function to get appContactId, applicantId, phone, address_line1, address_line2, state, and postcode
-  getContactDetails(): any {
-    const details = {
-      appContactId: this.applicantContact.appContactId,
-      applicantId: this.applicantContact.applicantId,
-      phone: this.applicantContact.phone,
-      address_line1: this.applicantContact.address_line1,
-      address_line2: this.applicantContact.address_line2,
-      state: this.applicantContact.state,
-      postcode: this.applicantContact.postcode
-    };
-    return details;
+  constructor(private applicantContactDetailService: ApplicantContactDetailService,
+    private applicantService: ApplicantService){
+
   }
 
-  // Function to get applicant details
-  getApplicantDetails(): number {
-    return this.applicantDetails.applicantId;
-  }
+  ngOnInit(): void {
+    this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+      next: (result: operationResult) => {
+       
+        this.applicantContact = result.data;
+       console.log('applicant - '+ this.applicantContact)
 
+      },
+    });
+   
+  }
   onSubmit() {
-    const data = {
-      name: this.applicantDetails.name,
-      appID: this.applicantDetails.applicantId,
-      appContactId: this.applicantContact.appContactId,
-      applicantId: this.applicantContact.applicantId,
-      phone: this.applicantContact.phone,
-      address_line1: this.applicantContact.address_line1,
-      address_line2: this.applicantContact.address_line2,
-      state: this.applicantContact.state,
-      postcode: this.applicantContact.postcode
-    };
-    console.log(data);
+   
+    this.applicantContact.applicant_id = 3;
+    this.applicantContactDetailService.postApplicantContactDetail(this.applicantContact).subscribe({
+      next: (result: operationResult) => {
+       
+
+      },
+      error: (error) => {
+       
+        if (error.status == 400) {
+          console.error('Incorrect contact details');
+        } else {
+          console.error('There was an error!', error);
+        }
+      }
+    });
 
 }
 
