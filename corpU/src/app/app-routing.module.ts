@@ -28,6 +28,7 @@ import { VacancyListComponent } from './components/permanent_staff/vacancy/vacan
 import { VacancyAddComponent } from './components/permanent_staff/vacancy/vacancy-add/vacancy-add.component';
 import { VacancyViewComponent } from './components/permanent_staff/vacancy/vacancy-view/vacancy-view.component';
 import { EmployeeEditComponent } from './components/permanent_staff/employee/employee-edit/employee-edit.component';
+import { ApplyComponent } from './components/applicant/jobs/apply/apply.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -37,21 +38,25 @@ const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-  {path: 'ViewVacancy/:id',component:VacancyDetailComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}}, 
-  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}}, 
-  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}},  
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
   {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'Job/Apply/:id',component:ApplyComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}},  
+  
 
   {path: 'Dashboard', component:DashboardComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],

@@ -43,6 +43,9 @@ import { VacancyListComponent } from './components/permanent_staff/vacancy/vacan
 import { VacancyAddComponent } from './components/permanent_staff/vacancy/vacancy-add/vacancy-add.component';
 import { VacancyViewComponent } from './components/permanent_staff/vacancy/vacancy-view/vacancy-view.component';
 import { EmployeeEditComponent } from './components/permanent_staff/employee/employee-edit/employee-edit.component';
+import { SearchJobsComponent } from './components/applicant/jobs/search-jobs/search-jobs.component';
+import { JobListComponent } from './components/applicant/jobs/job-list/job-list.component';
+import { ApplyComponent } from './components/applicant/jobs/apply/apply.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { EmployeeEditComponent } from './components/permanent_staff/employee/emp
     VacancyAddComponent,
     VacancyViewComponent,
     EmployeeEditComponent,
+    SearchJobsComponent,
+    JobListComponent,
+    ApplyComponent,
   ],
   imports: [
     BrowserModule,

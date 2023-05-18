@@ -1,0 +1,23 @@
+
+<div class="container my-4">
+    <h1 class="mb-4">Available Jobs</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Unit Name</th>
+            <th>Closing Date</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vacancy of vacancies">
+            <td>{{ vacancy.title }}</td>
+            <td>{{ vacancy.closingDate | date }}</td>
+            <td>
+              <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View Application</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
