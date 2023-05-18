@@ -1,5 +1,4 @@
-<applicant-header></applicant-header>
-<applicant-nav-shared></applicant-nav-shared>
+
 <div class="container">
   <h2>Available Units</h2>
   <table class="table">
@@ -15,16 +14,10 @@
         <td>{{ vacancy.title }}</td>
         <td>{{ vacancy.closingDate | date }}</td>
         <td>
-          <a routerLink="/ViewVacancy/{{ vacancy.vacancyId }}">View Application</a>
+          <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View Application</a>
         </td>
       </tr>
     </tbody>
   </table>
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
+  
 </div>

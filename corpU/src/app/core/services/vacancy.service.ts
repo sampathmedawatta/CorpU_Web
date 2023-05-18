@@ -13,9 +13,9 @@ export class VacancyService {
 
 
   getVacancyById(id : number): Observable<operationResult> {
-
+    console.log( id);
     const params = new HttpParams()
-      .set('vacancyId', id);
+      .set('id', id);
 
     return this.api
       .get<operationResult>('vacancy/GetById',params)

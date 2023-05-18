@@ -95,9 +95,12 @@ export class EmployeeEditComponent {
 
     if(!this.submitted){
       this.submitted = true;
-    this.employeeDetails = this.employeeForm.value;
 
-    this.employeeService.postEmployee(this.employeeDetails).subscribe({
+   
+    this.employeeDetails = this.employeeForm.value;
+    this.employeeDetails.empId = this.empId;
+    
+    this.employeeService.updateEmployee(this.employeeDetails).subscribe({
       next: (result: operationResult) => {
 
         console.log(result.data);
