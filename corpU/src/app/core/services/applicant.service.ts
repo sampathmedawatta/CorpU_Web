@@ -15,19 +15,33 @@ export class ApplicantService {
     const params = new HttpParams()
     .set('id', id);
     return this.api
-      .get<operationResult>('applicant',params)
+      .get<operationResult>('Applicant/GetById',params)
+      .pipe(map((response) => response));
+  }
+
+  getApplicantByUserId(id: number): Observable<operationResult> {
+    const params = new HttpParams()
+    .set('id', id);
+    return this.api
+      .get<operationResult>('Applicant/GetByUserId',params)
       .pipe(map((response) => response));
   }
 
   geAllApplicantList(): Observable<operationResult> {
     return this.api
-      .get<operationResult>('applicant')
+      .get<operationResult>('Applicant/All')
       .pipe(map((response) => response));
   }
 
   postApplicant(applicant : applicant): Observable<operationResult> {
     return this.api
-      .post<operationResult>('applicant',applicant)
+      .post<operationResult>('Applicant/Add',applicant)
+      .pipe(map((response) => response));
+  }
+
+  updateApplicant(applicant : applicant): Observable<operationResult> {
+    return this.api
+      .put<operationResult>('Applicant',applicant)
       .pipe(map((response) => response));
   }
 }
