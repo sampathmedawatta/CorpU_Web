@@ -67,7 +67,7 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     this.applicantContactDetailService.updateApplicantContactDetail(this.applicantContact).subscribe({
       next: (result: operationResult) => {
         // Handle success
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;
@@ -97,7 +97,7 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     this.applicantContactDetailService.postApplicantContactDetail(this.applicantContact).subscribe({
       next: (result: operationResult) => {
         // Handle success
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;
