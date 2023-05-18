@@ -32,4 +32,10 @@ export class ApplicantContactDetailService {
       .post<operationResult>('ApplicantContact/Add',applicantContactDetail)
       .pipe(map((response) => response));
   }
+
+  updateApplicantContactDetail(applicantContactDetail : applicantContactDetail): Observable<operationResult> {
+    return this.api
+      .put<operationResult>('ApplicantContact/Update',applicantContactDetail)
+      .pipe(map((response) => response));
+  }
 }
