@@ -3,9 +3,9 @@ export class applicantQualification{
     applicantId: number;
     qualificationTypeId: number;
     description: string
-    awarded_year: number;
+    awarded_year: Date;
     institute:string;
-    qualificationType:string;
+    qualificationType:number;
 
 
     constructor() {
