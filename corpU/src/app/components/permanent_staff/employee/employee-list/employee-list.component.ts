@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeeService, employee } from 'src/app/core';
+import { EmployeeService, employee, operationResult } from 'src/app/core';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,7 +18,7 @@ export class EmployeeListComponent {
   
   getUserList() {
     this.employeeService.geAllEmployeeList().subscribe({
-      next: (result: any) => {
+      next: (result: operationResult) => {
       this.employees = result.data;
       },
       error: (error) => {

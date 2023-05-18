@@ -39,6 +39,10 @@ import { EmployeeDetailsComponent } from './components/permanent_staff/employee/
 import { EmployeeAddComponent } from './components/permanent_staff/employee/employee-add/employee-add.component';
 import { UnitListComponent } from './components/permanent_staff/unit/unit-list/unit-list.component';
 import { UnitAddComponent } from './components/permanent_staff/unit/unit-add/unit-add.component';
+import { VacancyListComponent } from './components/permanent_staff/vacancy/vacancy-list/vacancy-list.component';
+import { VacancyAddComponent } from './components/permanent_staff/vacancy/vacancy-add/vacancy-add.component';
+import { VacancyViewComponent } from './components/permanent_staff/vacancy/vacancy-view/vacancy-view.component';
+import { EmployeeEditComponent } from './components/permanent_staff/employee/employee-edit/employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +81,10 @@ import { UnitAddComponent } from './components/permanent_staff/unit/unit-add/uni
     EmployeeAddComponent,
     UnitListComponent,
     UnitAddComponent,
+    VacancyListComponent,
+    VacancyAddComponent,
+    VacancyViewComponent,
+    EmployeeEditComponent,
   ],
   imports: [
     BrowserModule,
