@@ -1,1 +1,132 @@
-<p>vacancy-add works!</p>
+<div class="row">
+    <div class="container">
+      <div class="row header-bar">
+        <div class="col-10"><h2>Vacancy - Add</h2></div>
+        </div>
+
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+          *ngIf="isAdded"
+        >
+         Vacancy has been createdsuccesfully.
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            (click)="handlerCloseAllert()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="row">
+            <form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()">
+
+                  <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="title" 
+                    name="title" 
+                    formControlName="title"
+                    required
+                    [ngClass]="{ 'is-invalid': f['title'].touched && f['title'].invalid }"
+                    >
+                    <div *ngIf="f['title'].errors" class="invalid-feedback">
+                        <div *ngIf="f['title'].errors['required']">Vacancy title is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" 
+                    class="form-control" 
+                    id="description" 
+                    name="description" 
+                    formControlName="description"
+                    required 
+                    [ngClass]="{ 'is-invalid':  f['description'].touched &&  f['description'].invalid }" >
+                      
+                    <div *ngIf="f['description'].errors" class="invalid-feedback">
+                        <div *ngIf="f['description'].errors['required']">Description is required</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                <label for="publishDate">Publish Date:</label>
+                  <input type="tel" 
+                  class="form-control" 
+                  id="publishDate" 
+                  name="publishDate" 
+                  formControlName="publishDate"
+                  required 
+                  [ngClass]="{ 'is-invalid': f['publishDate'].touched && f['publishDate'].invalid}" />
+                   
+                  <div *ngIf="f['publishDate'].errors" class="invalid-feedback">
+                    <div *ngIf="f['publishDate'].errors['required']">Publish Date is required</div>
+                    <div *ngIf="f['publishDate'].errors['pattern']">Please provide a valid Publish Date</div>
+                </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="closingDate">Closing Date:</label>
+                      <input type="tel" 
+                      class="form-control" 
+                      id="closingDate" 
+                      name="closingDate" 
+                      formControlName="closingDate"
+                      required 
+                      [ngClass]="{ 'is-invalid': f['closingDate'].touched && f['closingDate'].invalid}" />
+                       
+                      <div *ngIf="f['closingDate'].errors" class="invalid-feedback">
+                        <div *ngIf="f['closingDate'].errors['required']">Closing Date is required</div>
+                        <div *ngIf="f['closingDate'].errors['pattern']">Please provide a valid Closing Date</div>
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="unit">Unit Type </label>
+                      <select class="form-select" id="unit" formControlName="unitId">
+                          <option value="0" disabled selected>---- Select Unit Type ----</option>
+                          <option *ngFor="let unit of unitList" value="{{unit.unitId}}">{{unit.unitName}}</option>
+                        </select>
+                        <div *ngIf="f['unitId'].errors" class="invalid-feedback">
+                            <div *ngIf="f['unitId'].errors['required']">Unit is required</div>
+                        </div>
+                      </div>
+
+                <div class="form-group">
+                <label for="classType">Class Type </label>
+                  <select class="form-select" id="classType" formControlName="classTypeId">
+                      <option value="0" disabled selected>---- Select Class Type ----</option>
+                      <option *ngFor="let classType of classTypeList" value="{{classType.classTypeId}}">{{classType.classDescription}}</option>
+                    </select>
+                    <div *ngIf="f['classTypeId'].errors" class="invalid-feedback">
+                        <div *ngIf="f['classTypeId'].errors['required']">Class type is required</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="vacancyType">Vacancy Type </label>
+                      <select class="form-select" id="vacancyType" formControlName="vacancyTypeId">
+                          <option value="0" disabled selected>---- Select Vacancy Type -----</option>
+                          <option *ngFor="let vacancyType of vacancyTypeList" value="{{vacancyType.vacancyTypeId}}">{{vacancyType.vacancyName}}</option>
+                        </select>
+
+                        <div *ngIf="f['vacancyTypeId'].errors" class="invalid-feedback">
+                            <div *ngIf="f['vacancyTypeId'].errors['required']">Vacancy Type is required</div>
+                        </div>
+                  </div>   
+                  <button
+                  class="btn btn-sm btn-outline-primary btn-block"
+                  [disabled]="vacancyForm.invalid" >
+                  Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
