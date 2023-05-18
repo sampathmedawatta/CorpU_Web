@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable, map } from 'rxjs';
-import { applicantQualification } from '../models';
+import { applicantQualification, operationResult } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,25 @@ export class ApplicantQualificationService {
 
   constructor(private api:ApiService) { }
 
-  getApplicantQualification(): Observable<applicantQualification> {
+  getApplicantQualificationByApplicantId(id : number): Observable<operationResult> {
+
+    const params = new HttpParams()
+    .set('id', id);
+   
     return this.api
-      .get<applicantQualification>('applicantQualification')
+      .get<operationResult>('ApplicantQualification/GetById', params)
       .pipe(map((response) => response));
   }
 
-  geAllApplicantQualificationList(): Observable<applicantQualification[]> {
+  geAllApplicantQualificationList(): Observable<operationResult> {
     return this.api
-      .get<applicantQualification[]>('applicantQualification')
+      .get<operationResult>('ApplicantQualification/All')
       .pipe(map((response) => response));
   }
 
-  postApplicantQualification(applicantQualification : applicantQualification): Observable<any> {
+  postApplicantQualification(applicantQualification : applicantQualification): Observable<operationResult> {
     return this.api
-      .post<any>('applicantQualification',applicantQualification)
+      .post<operationResult>('ApplicantQualification/Add',applicantQualification)
       .pipe(map((response) => response));
   }
 }

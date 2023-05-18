@@ -3,7 +3,7 @@ export class applicantQualification{
     applicantId: number;
     qualificationTypeId: number;
     description: string
-    awarded_year: Date;
+    awarded_year: string;
     institute:string;
     qualificationType:number;
 
@@ -17,4 +17,5 @@ export class applicantQualification{
         this.institute = this.institute;
         this.qualificationType= this.qualificationType;
       }
+      
 }
