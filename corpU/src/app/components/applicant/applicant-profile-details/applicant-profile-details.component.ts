@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplicantContactDetailService, ApplicantService, operationResult, user } from 'src/app/core';
 import { applicant } from 'src/app/core/models/applicant';
 import { applicantContactDetail } from 'src/app/core/models/applicantContactDetail';
@@ -13,15 +14,16 @@ export class ApplicantProfileDetailsComponent implements OnInit {
   applicantDetails: applicant = new applicant();
   hasFilledForm: boolean = false;
   user : user;
+  isSaved : boolean = false;
+
   constructor(private applicantContactDetailService: ApplicantContactDetailService,
-    private applicantService: ApplicantService){
+    private applicantService: ApplicantService, private router: Router){
 
   }
 
   ngOnInit(): void {
 
     let _user = localStorage.getItem('user');
-    console.log(_user);
     if (_user) {
       this.user = JSON.parse(_user);
       if(this.user.userId){
@@ -30,18 +32,15 @@ export class ApplicantProfileDetailsComponent implements OnInit {
             if (result.data) {
 
               this.applicantDetails = result.data;
-              console.log(this.applicantDetails);
-
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
-          next: (result: operationResult) => {
-            if (result.data) {
-              this.applicantContact = result.data;
               this.hasFilledForm = true;
-            }
-          },
-        });
-
-            }
+            this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
+              next: (result: operationResult) => {
+                if (result.data) {
+                  this.applicantContact = result.data;
+                }
+              },
+            });
+          }
           },
           error: (error) => {
             console.error('There was an error fetching applicant details!', error);
@@ -57,9 +56,11 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     this.applicantContact.applicant_id = this.applicantDetails.applicantId;
     if(this.applicantContact.appContactId > 0){
       this.updateContactDetails();
+      this.isSaved = true;
     }
     else{
       this.saveContactDetails();
+      this.isSaved = true;
     }
   }
   
@@ -67,7 +68,7 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     this.applicantContactDetailService.updateApplicantContactDetail(this.applicantContact).subscribe({
       next: (result: operationResult) => {
         // Handle success
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantContact.applicant_id).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;
@@ -89,8 +90,6 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     });
 
   }
-
-
 
   saveContactDetails(){
 
@@ -119,4 +118,6 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     });
 
   }
+
+
 }

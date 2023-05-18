@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { applicant, ApplicantContactDetailService, applicantQualification, ApplicantQualificationService, ApplicantService, operationResult, user } from 'src/app/core';
+import { applicant, ApplicantContactDetailService, applicantQualification, ApplicantQualificationService, ApplicantService, operationResult, qualificationType, user } from 'src/app/core';
 
 @Component({
   selector: 'app-applicant-academic-details',
@@ -9,8 +9,27 @@ import { applicant, ApplicantContactDetailService, applicantQualification, Appli
 export class ApplicantAcademicDetailsComponent{
   applicantAcademic: applicantQualification = new applicantQualification();
   currentYear = new Date().getFullYear();
-applicantQualificationList: any;
+
+applicantQualificationList: applicantQualification[] =[];
 applicantDetails: applicant = new applicant();
+isSaved : boolean = false;
+
+qualificationTypeList : qualificationType [] = [{
+  qualificationTypeId : 1,
+  description : 'BSc',
+    status : true,
+},
+{
+  qualificationTypeId : 2,
+  description : 'MSc',
+    status : true,
+},
+{
+  qualificationTypeId : 3,
+  description : 'Phd',
+    status : true,
+}];
+
 
 user : user;
   constructor(private applicantQualificationService: ApplicantQualificationService,
@@ -35,6 +54,14 @@ user : user;
         this.applicantQualificationService.getApplicantQualificationByApplicantId(this.applicantDetails.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
+              this.applicantAcademic = result.data;
+            }
+          },
+        });
+
+        this.applicantQualificationService.geAllApplicantQualificationList().subscribe({
+          next: (result: operationResult) => {
+            if (result.data) {
               this.applicantQualificationList = result.data;
             }
           },
@@ -53,18 +80,14 @@ user : user;
     }  
 
   onSubmit() {
-    this.applicantAcademic.applicantId = 3; // Replace with the actual applicant ID
-    this.applicantAcademic.description = '';
+    this.applicantAcademic.applicantId = this.applicantDetails.applicantId; 
     this.applicantAcademic.qualificationTypeId = 1;
-    this.applicantAcademic.awarded_year= '2023-05-18T05:35:26.316Z';
     
     this.applicantQualificationService.postApplicantQualification(this.applicantAcademic).subscribe({
       next: (result: operationResult) => {
         if (result.data) {
-          console.log('Applicant academic details saved successfully!');
-        } else {
-          console.error('There was an error saving applicant academic details:', result.message);
-        }
+          this.isSaved = true;
+        } 
       },
       error: (error) => {
         console.error('There was an error saving applicant academic details:', error);
