@@ -11,7 +11,7 @@ export class EmployeeService {
 
   constructor(private api:ApiService) { }
 
-  getEmployeeBuId(id : number): Observable<operationResult> {
+  getEmployeeById(id : number): Observable<operationResult> {
     const params = new HttpParams()
       .set('id', id);
     return this.api

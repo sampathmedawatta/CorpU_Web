@@ -3,12 +3,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { VacancyService, operationResult, vacancy } from 'src/app/core';
 
 @Component({
-  selector: 'app-vacancy-detail',
-  templateUrl: './vacancy-detail.component.html',
-  styleUrls: ['./vacancy-detail.component.css']
+  selector: 'app-apply',
+  templateUrl: './apply.component.html',
+  styleUrls: ['./apply.component.css']
 })
-export class VacancyDetailComponent {
-  
+export class ApplyComponent {
   vacancyId? : number;
   vacancy: vacancy;
   
@@ -16,13 +15,18 @@ export class VacancyDetailComponent {
   ngOnInit(): void {
 
     this.vacancyId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
+
+    console.log( this.vacancyId);
     this.getVacancyById(this.vacancyId);
   }
 
   getVacancyById(id : number) {
+    console.log( id);
     this.vacancyService.getVacancyById(id).subscribe({
+      
       next: (result: operationResult) => {
       this.vacancy = result.data;   
+      console.log( this.vacancy);
       },
       error: (error) => {
         if (error.status == 400) {
@@ -34,3 +38,4 @@ export class VacancyDetailComponent {
     });
     }
 }
+

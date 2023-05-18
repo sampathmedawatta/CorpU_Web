@@ -24,6 +24,11 @@ import { UserListComponent } from './components/permanent_staff/user/user-list/u
 import { EmployeeListComponent } from './components/permanent_staff/employee/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './components/permanent_staff/employee/employee-add/employee-add.component';
 import { UnitListComponent } from './components/permanent_staff/unit/unit-list/unit-list.component';
+import { VacancyListComponent } from './components/permanent_staff/vacancy/vacancy-list/vacancy-list.component';
+import { VacancyAddComponent } from './components/permanent_staff/vacancy/vacancy-add/vacancy-add.component';
+import { VacancyViewComponent } from './components/permanent_staff/vacancy/vacancy-view/vacancy-view.component';
+import { EmployeeEditComponent } from './components/permanent_staff/employee/employee-edit/employee-edit.component';
+import { ApplyComponent } from './components/applicant/jobs/apply/apply.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -33,21 +38,25 @@ const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-  {path: 'ViewVacancy/:id',component:VacancyDetailComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}}, 
-  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}}, 
-  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}},  
   {path: 'ApplicantAcademicDetails', component:ApplicantAcademicDetailsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
   {path: 'ApplicantClassPreferences', component:ApplicantClassPreferencesComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'Job/Apply/:id',component:ApplyComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'ApplicationHistory', component:ApplicantUnitHistoryComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
+
+  {path: 'ApplicantPersonalDetails', component:ApplicantProfileDetailsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}},  
+  
 
   {path: 'Dashboard', component:DashboardComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
@@ -62,10 +71,22 @@ const routes: Routes = [
   {path: 'Employee/Add', component:EmployeeAddComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin']}},  
+  {path: 'Employee/View/:id', component:EmployeeEditComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin']}},  
 
-  {path: 'Vacancies', component:UnitListComponent, 
+
+  {path: 'Vacancy', component:VacancyListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},  
+  {path: 'Vacancy/Add', component:VacancyAddComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Manager', 'Staff']}}, 
+  {path: 'Vacancy/View/:id', component:VacancyViewComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Manager', 'Staff']}}, 
+
+
   {path: 'Applications', component:ViewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},

@@ -1,14 +1,4 @@
-<applicant-header></applicant-header>
-<applicant-nav-shared></applicant-nav-shared>
-<head>
-    <meta charset="UTF-8">
-    <title>Applicant Personal Details</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-<body>
+
     <div class="container">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -32,14 +22,14 @@
             <h3>Personal Details</h3>
             <div class="form-group">
               <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name" #name="ngModel">
+              <input type="text" readonly class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name" #name="ngModel">
               <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
                 <div *ngIf="name.errors">Applicant Name is required.</div>
               </div>
             </div>
             <label for="email">Email:</label>
             <div class="form-group">
-              <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email" #email="ngModel">
+              <input type="text" readonly class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email" #email="ngModel">
               <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                 <div *ngIf="email.errors">Email ID is required.</div>
               </div>

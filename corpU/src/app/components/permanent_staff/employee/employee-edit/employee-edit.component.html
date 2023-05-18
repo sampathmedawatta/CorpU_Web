@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="container">
+      <div class="row header-bar">
+        <div class="col-10"><h2>Employee - Manage</h2></div>
+        </div>
+
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+          *ngIf="isUserRegistered"
+        >
+          <strong>Welcome!!</strong> Employee account has been createdsuccesfully.
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            (click)="handlerCloseAllert()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="row">
+            <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+                  <div class="form-group">
+                    <label for="empName">Name:</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="empName" 
+                    name="empName" 
+                    formControlName="empName"
+                    required
+                    [ngClass]="{ 'is-invalid': f['empName'].touched && f['empName'].invalid }"
+                    >
+                    <div *ngIf="f['empName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['empName'].errors['required']">Employee Name is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" 
+                    class="form-control" 
+                    id="email" 
+                    name="email" 
+                    formControlName="email"
+                    required 
+                    [ngClass]="{ 'is-invalid':  f['email'].touched &&  f['email'].invalid }" >
+                      
+                    <div *ngIf="f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['pattern']">Please provide a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                  <input type="tel" 
+                  class="form-control" 
+                  id="phone" 
+                  name="phone" 
+                  formControlName="phone"
+                  required 
+                  [ngClass]="{ 'is-invalid': f['phone'].touched && f['phone'].invalid}" />
+                   
+                  <div *ngIf="f['phone'].errors" class="invalid-feedback">
+                    <div *ngIf="f['phone'].errors['required']">Phone Number is required</div>
+                    <div *ngIf="f['phone'].errors['pattern']">Please provide a valid Phone Number</div>
+                </div>
+                </div>
+
+                  <div class="form-group">
+                <label for="empRoleId">Empolyee Role </label>
+                  <select class="form-select" id="empRoleId" formControlName="empRoleId">
+                      <option value="0" disabled selected>---- Select Empolyee Role ----</option>
+                      <option *ngFor="let employeeRole of employeeRoleList" value="{{employeeRole.empRoleId}}">{{employeeRole.roleName}}</option>
+                    </select>
+                    <div *ngIf="f['empRoleId'].errors" class="invalid-feedback">
+                        <div *ngIf="f['empRoleId'].errors['required']">Empolyee Role is required</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="faculty">Faculty </label>
+                      <select class="form-select" id="faculty" formControlName="facultyId">
+                          <option value="0" disabled selected>---- Select Faculty -----</option>
+                          <option *ngFor="let faculty of facultyList" value="{{faculty.facultyId}}">{{faculty.facultyName}}</option>
+                        </select>
+
+                        <div *ngIf="f['facultyId'].errors" class="invalid-feedback">
+                            <div *ngIf="f['facultyId'].errors['required']">Empolyee Role is required</div>
+                        </div>
+                  </div>   
+                  <button
+                  class="btn btn-sm btn-outline-primary btn-block"
+                  [disabled]="employeeForm.invalid" >
+                  Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
