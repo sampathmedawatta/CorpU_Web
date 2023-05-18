@@ -32,8 +32,7 @@ export class ApplicantProfileDetailsComponent implements OnInit {
               this.applicantDetails = result.data;
               console.log(this.applicantDetails);
 
-              
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;
