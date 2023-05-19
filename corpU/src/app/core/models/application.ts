@@ -5,7 +5,7 @@ export class application{
     applicantId: number;
     vacancyId: number;
     resumeUrl: string;
-    status: boolean;
+    status: string;
     applicant : applicant;
 
 }
