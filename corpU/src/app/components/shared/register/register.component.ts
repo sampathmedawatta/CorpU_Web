@@ -70,6 +70,9 @@ export class RegisterComponent {
     );
   }
 
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
+
   register() {
 
     this.userData.name = this.registerForm.value.name;

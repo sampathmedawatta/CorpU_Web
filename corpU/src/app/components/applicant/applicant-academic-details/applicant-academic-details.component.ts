@@ -51,13 +51,13 @@ user : user;
               this.applicantDetails = result.data;
               console.log(this.applicantDetails);
 
-        this.applicantQualificationService.getApplicantQualificationByApplicantId(this.applicantDetails.applicantId).subscribe({
-          next: (result: operationResult) => {
-            if (result.data) {
-              this.applicantAcademic = result.data;
-            }
-          },
-        });
+        // this.applicantQualificationService.getApplicantQualificationByApplicantId(this.applicantDetails.applicantId).subscribe({
+        //   next: (result: operationResult) => {
+        //     if (result.data) {
+        //       this.applicantAcademic = result.data;
+        //     }
+        //   },
+        // });
 
         this.applicantQualificationService.geAllApplicantQualificationList().subscribe({
           next: (result: operationResult) => {
