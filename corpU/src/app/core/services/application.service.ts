@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable, map } from 'rxjs';
-import { application } from '../models';
+import { application, operationResult } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,38 @@ export class ApplicationService {
 
   constructor(private api:ApiService) { }
 
-  getApplication(): Observable<application> {
+  getApplicationByApplicantId(id: number): Observable<operationResult> {
+
+    const params = new HttpParams()
+    .set('id', id);
     return this.api
-      .get<application>('application')
+      .get<operationResult>('Application/GetByApplicantId',params)
       .pipe(map((response) => response));
   }
 
-  geAllApplicationList(): Observable<application[]> {
+  getApplicationByApplicationId(id: number): Observable<operationResult> {
+
+    const params = new HttpParams()
+    .set('id', id);
     return this.api
-      .get<application[]>('application')
+      .get<operationResult>('Application/GetByApplicationId',params)
       .pipe(map((response) => response));
   }
 
-  postApplication(application : application): Observable<any> {
+  geAllApplicationList(): Observable<operationResult> {
     return this.api
-      .post<any>('application',application)
+      .get<operationResult>('Application/All')
+      .pipe(map((response) => response));
+  }
+
+  postApplication(application : application): Observable<operationResult> {
+    return this.api
+      .post<operationResult>('Application/Add',application)
+      .pipe(map((response) => response));
+  }
+  updateApplication(application : application): Observable<operationResult> {
+    return this.api
+      .put<operationResult>('Application/Update',application)
       .pipe(map((response) => response));
   }
 }
