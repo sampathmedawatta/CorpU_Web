@@ -1,4 +1,5 @@
 import { applicant } from "./applicant";
+import { vacancy } from "./vacancy";
 
 export class application{
     applicationId: number;
@@ -7,5 +8,5 @@ export class application{
     resumeUrl: string;
     status: boolean;
     applicant : applicant;
-
+    vacancy: vacancy;
 }

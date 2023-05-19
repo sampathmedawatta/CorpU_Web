@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable, map } from 'rxjs';
-import { vacancyType } from '../models';
+import { operationResult, vacancyType } from '../models';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,23 @@ export class VacancyTypeService {
 
   constructor(private api:ApiService) { }
 
-  getVacancyType(): Observable<vacancyType> {
+  getVacancyTypeById(id: number): Observable<operationResult> {
+    const params = new HttpParams()
+    .set('id', id);
     return this.api
-      .get<vacancyType>('vacancyType')
+      .get<operationResult>('VacancyType/GetById',params)
       .pipe(map((response) => response));
   }
 
-  geAllVacancyTypeList(): Observable<vacancyType[]> {
+  geAllVacancyTypeList(): Observable<operationResult> {
     return this.api
-      .get<vacancyType[]>('vacancyType')
+      .get<operationResult>('VacancyType/All')
       .pipe(map((response) => response));
   }
 
-  postVacancyType(vacancyType : vacancyType): Observable<any> {
+  postVacancyType(vacancyType : vacancyType): Observable<operationResult> {
     return this.api
-      .post<any>('vacancyType',vacancyType)
+      .post<operationResult>('VacancyType/Add',vacancyType)
       .pipe(map((response) => response));
   }
 }
