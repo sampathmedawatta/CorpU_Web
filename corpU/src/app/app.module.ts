@@ -46,6 +46,8 @@ import { EmployeeEditComponent } from './components/permanent_staff/employee/emp
 import { SearchJobsComponent } from './components/applicant/jobs/search-jobs/search-jobs.component';
 import { JobListComponent } from './components/applicant/jobs/job-list/job-list.component';
 import { ApplyComponent } from './components/applicant/jobs/apply/apply.component';
+import { ApplicantListComponent } from './components/permanent_staff/applicant/applicant-list/applicant-list.component';
+import { ApplicantViewComponent } from './components/permanent_staff/applicant/applicant-view/applicant-view.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { ApplyComponent } from './components/applicant/jobs/apply/apply.componen
     SearchJobsComponent,
     JobListComponent,
     ApplyComponent,
+    ApplicantListComponent,
+    ApplicantViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -59,13 +59,7 @@ user : user;
         //   },
         // });
 
-        this.applicantQualificationService.geAllApplicantQualificationList().subscribe({
-          next: (result: operationResult) => {
-            if (result.data) {
-              this.applicantQualificationList = result.data;
-            }
-          },
-        });
+        this.getQualificationList();
 
             }
           },
@@ -79,6 +73,16 @@ user : user;
     
     }  
 
+    getQualificationList(){
+      this.applicantQualificationService.geAllApplicantQualificationList(this.applicantDetails.applicantId).subscribe({
+        next: (result: operationResult) => {
+          if (result.data) {
+            this.applicantQualificationList = result.data;
+          }
+        },
+      });
+    }
+
   onSubmit() {
     this.applicantAcademic.applicantId = this.applicantDetails.applicantId; 
     this.applicantAcademic.qualificationTypeId = 1;
@@ -86,6 +90,7 @@ user : user;
     this.applicantQualificationService.postApplicantQualification(this.applicantAcademic).subscribe({
       next: (result: operationResult) => {
         if (result.data) {
+          this.getQualificationList();
           this.isSaved = true;
         } 
       },
