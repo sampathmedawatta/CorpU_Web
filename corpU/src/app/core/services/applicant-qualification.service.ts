@@ -21,9 +21,12 @@ export class ApplicantQualificationService {
       .pipe(map((response) => response));
   }
 
-  geAllApplicantQualificationList(): Observable<operationResult> {
+  geAllApplicantQualificationList(id : number): Observable<operationResult> {
+    const params = new HttpParams()
+    .set('id', id);
+
     return this.api
-      .get<operationResult>('ApplicantQualification/All')
+      .get<operationResult>('ApplicantQualification/GetAllById',params)
       .pipe(map((response) => response));
   }
 
