@@ -1,6 +1,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#">CorpU</a>
+      <a class="navbar-brand" *ngIf="isEmployee" href="/Dashboard">CorpU</a>
+      <a class="navbar-brand" *ngIf="isApplicant" href="/Home">CorpU</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
