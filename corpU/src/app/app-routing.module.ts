@@ -93,15 +93,10 @@ const routes: Routes = [
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}}, 
 
-
   {path: 'Applications', component:ViewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},
-  {path: 'ReviewApplications', component:ReviewApplicationsComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Admin','Manager', 'Staff']}},
-
-  {path: 'ReviewApplications', component:ReviewApplicationsComponent, 
+  {path: 'Application/ReView/:id', component:ReviewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},
 

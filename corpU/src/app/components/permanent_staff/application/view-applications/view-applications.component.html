@@ -12,15 +12,17 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Vacancy</th>
+          <th>Closing Date</th>
           <th>Options</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let application of applications">
           <td>{{ application.applicant.name }}</td>
           <td>{{ application.applicant.email }}</td>
-          <td>{{ application.vacancyId }}</td>
+          <td>{{ application.vacancy.title }}</td>
+          <td>{{ application.vacancy.closingDate | date }}</td>
           <td>
             <a routerLink="/Application/ReView/{{ application.applicationId }}">View</a>
           </td>
