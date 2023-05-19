@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { VacancyService, operationResult, vacancy } from 'src/app/core';
+import { ApplicationService, VacancyService, applicant, application, operationResult, vacancy } from 'src/app/core';
 
 @Component({
   selector: 'app-apply',
@@ -10,18 +10,19 @@ import { VacancyService, operationResult, vacancy } from 'src/app/core';
 export class ApplyComponent {
   vacancyId? : number;
   vacancy: vacancy;
-  
-  constructor(private vacancyService:VacancyService,private route: ActivatedRoute){}
+  application : application = new application();
+  applicantDetails: applicant = new applicant();
+  agreeCheckbox : boolean = false;
+  constructor(private vacancyService:VacancyService,private route: ActivatedRoute, private applicationService:ApplicationService){}
   ngOnInit(): void {
 
     this.vacancyId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
 
-    console.log( this.vacancyId);
     this.getVacancyById(this.vacancyId);
   }
 
+    
   getVacancyById(id : number) {
-    console.log( id);
     this.vacancyService.getVacancyById(id).subscribe({
       
       next: (result: operationResult) => {
@@ -36,6 +37,45 @@ export class ApplyComponent {
         }
       }
     });
+    }
+    
+    saveApplication(){
+     
+      if(this.agreeCheckbox){
+        console.log('Agreed');
+      
+      let _applicant = localStorage.getItem('applicant');
+          if (_applicant) {
+            this.applicantDetails = JSON.parse(_applicant);
+
+            this.application.applicantId = this.applicantDetails.applicantId;
+            this.application.resumeUrl = '';
+            this.application.vacancyId =this.vacancyId ? this.vacancyId : 0;
+            this.application.status = 'Pending';
+      }
+
+     
+      if(this.application){
+        this.applicationService.postApplication(this.application).subscribe({
+
+          next: (result: operationResult) => {
+            this.application = result.data;   
+            console.log( this.application);
+            },
+            error: (error) => {
+              if (error.status == 400) {
+                console.error('Incorrect details');
+              } else {
+                console.error('There was an error!', error);
+              }
+            }
+        });
+      }
+    }
+    else{
+      console.log('asasaasa');
+    }
+     
     }
 }
 

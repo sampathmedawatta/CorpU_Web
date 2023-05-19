@@ -17,13 +17,13 @@
           <p class="card-text">
             {{ vacancy.classType.classDescription }}
            </p>
-          <form>
+          <form (ngSubmit)="saveApplication()" >
             <div class="mb-3">
               <label for="resumeInput" class="form-label">Upload Resume: PDF,.docx,.doc</label>
               <input type="file" class="form-control" id="resumeInput">
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="agree-checkbox">
+                <input class="form-check-input" type="checkbox" id="agree-checkbox" name="agree-checkbox" [(ngModel)]="agreeCheckbox" required>
                 <label class="form-check-label" for="agree-checkbox">
                   I agree to the terms and conditions
                 </label>
