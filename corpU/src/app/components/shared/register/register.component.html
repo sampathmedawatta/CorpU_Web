@@ -1,4 +1,10 @@
 <div class="row">
+  <div class="row header-bar login-card-header col-md-4 offset-md-4 text-center">
+    <div class="col-10"></div>
+    <div class="col-2">
+    </div>
+  </div>
+
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-header text-center">
@@ -33,13 +39,12 @@
                 placeholder=""
                 formControlName="name"
                 required
-              />
-              <small class="text-muted"
-                >Please enter a valid name.</small
-              >
-              <div class="invalid-feedback">
-                Please enter a valid name.
-              </div>
+                [ngClass]="{ 'is-invalid': f['name'].touched && f['name'].invalid }"
+                />
+                 <div *ngIf="f['name'].errors" class="invalid-feedback">
+                    <div *ngIf="f['name'].errors['required']">Please enter a valid name.</div>
+                </div> 
+            
             </div>
             <div class="mb-3">
               <label for="email">Email </label>
@@ -50,14 +55,13 @@
                 placeholder="you@example.com"
                 formControlName="email"
                 required
-              />
-              <small class="text-muted"
-                >Please enter a valid email address.</small
-              >
-              <div class="invalid-feedback">
-                Please enter a valid email address.
-              </div>
+                [ngClass]="{ 'is-invalid': f['email'].touched && f['email'].invalid }"
+                />
+                <div *ngIf="f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">Please enter a valid email.</div>
+                </div> 
             </div>
+           
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="password">Password</label>
@@ -72,20 +76,11 @@
                       registerForm.get('password')!.invalid
                   }"
                 />
-                <span class="invalid-feedback">
-                  <span *ngIf="registerForm.get('password')!.hasError('required')"
-                    >Password can't be blank.</span
-                  >
-                  <span *ngIf="registerForm.get('password')!.hasError('symbol')"
-                    >Password must contain @</span
-                  >
-                  <span *ngIf="registerForm.get('password')!.hasError('minlength')"
-                    >Password must contain minimum 6 characters</span
-                  >
-                </span>
-  
-                <div class="invalid-feedback">
-                  Password is required
+                <div *ngIf="f['password'].errors" class="invalid-feedback">
+                  <div *ngIf="f['password'].errors['required']">Please enter a valid email.</div>
+                  <div *ngIf="registerForm.get('password')!.hasError('required')">Password can't be blank.</div>
+                  <div *ngIf="registerForm.get('password')!.hasError('symbol')">Password must contain @</div>
+                  <div *ngIf="registerForm.get('password')!.hasError('minlength')">Password must contain minimum 6 characters</div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
@@ -101,9 +96,12 @@
                       registerForm.get('confirmPassword')!.invalid
                   }"
                 />
-                <span class="invalid-feedback">Password must match.</span>
-                <div class="invalid-feedback">
-                  Confirm Password is required
+
+                <div *ngIf="f['password'].errors" class="invalid-feedback">
+                  <span class="invalid-feedback">Password must match.</span>
+                  <div class="invalid-feedback">
+                    Confirm Password is required
+                  </div>
                 </div>
               </div>
             </div>
