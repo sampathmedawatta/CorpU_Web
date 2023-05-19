@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, MessengerService, operationResult, UserService, user, EmployeeService } from 'src/app/core';
+import { AuthService, MessengerService, operationResult, UserService, user, EmployeeService, ApplicantService } from 'src/app/core';
 
 @Component({
   selector: 'app-login',
@@ -21,18 +21,13 @@ export class LoginComponent {
     private userService : UserService,
     private messengerService : MessengerService,
     private authService : AuthService,
-    private employeeService : EmployeeService
+    private employeeService : EmployeeService,
+    private applicantService : ApplicantService
   ) {
    
   }
 
   ngOnInit(): void {
-
-    // this.userService.getUserById(34).subscribe({
-    //   next: (result: operationResult) => {
-    //     this.userProfile = result.data;
-    //   console.log(' user result : '+ this.userProfile);
-    //   }});
 
     if (localStorage.getItem('token') != null) {
       this.authService.checkUserRole();
@@ -41,12 +36,6 @@ export class LoginComponent {
 
 
   login() {
-
-    // localStorage.setItem('token', "sample token");
-
-    // localStorage.setItem('userRole',"Applicant" );
-    
-
     this.userService.loginUser(this.formModel).subscribe({
       next: (result: operationResult) => {
         if(result.data != null){
@@ -57,11 +46,13 @@ export class LoginComponent {
           
           let role = this.userProfile.userRole?.roleName ? this.userProfile.userRole?.roleName : '';
           let userEmail = this.userProfile.email ? this.userProfile.email : '';
+          let userid = this.userProfile.userId ? this.userProfile.userId : 0;
 
-          this.setUserRole(userEmail,role);
+          this.isUserLoggedIn = true;
+          this.setUserRole(userEmail, userid, role);
         }
         else{
-          this.isUserLoggedIn = true;
+          this.isUserLoggedIn = false;
         }
        
       },
@@ -75,15 +66,24 @@ export class LoginComponent {
     });
   }
 
-  setUserRole(userEmail :string,  role :string){
+  setUserRole(userEmail :string, userid: number, role :string){
     this.employeeService.getEmployeeByEmail(userEmail).subscribe({
       next: (result: operationResult) => {
         var emp = result.data;
         if(emp){
           localStorage.setItem('userRole', (emp.employeeRole.roleName));
+          localStorage.setItem('employee', (JSON.stringify(emp)));
         }
         else{
           localStorage.setItem('userRole', role);
+          this.applicantService.getApplicantByUserId(userid).subscribe({
+            next: (result: operationResult) => {
+              var app = result.data;
+              if(app){
+                localStorage.setItem('applicant', (JSON.stringify(app)));
+              }
+            }
+          });
         }
 
         this.messengerService.sendMsgUserLogin();

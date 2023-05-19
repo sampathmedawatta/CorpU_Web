@@ -27,25 +27,19 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     if (_user) {
       this.user = JSON.parse(_user);
       if(this.user.userId){
-        this.applicantService.getApplicantByUserId(this.user.userId).subscribe({
+
+        let _applicant = localStorage.getItem('applicant');
+        if (_applicant) {
+          this.applicantDetails = JSON.parse(_applicant);
+        this.hasFilledForm = true;
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
-
-              this.applicantDetails = result.data;
-              this.hasFilledForm = true;
-            this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantDetails.applicantId).subscribe({
-              next: (result: operationResult) => {
-                if (result.data) {
-                  this.applicantContact = result.data;
-                }
-              },
-            });
-          }
+              this.applicantContact = result.data;
+            }
           },
-          error: (error) => {
-            console.error('There was an error fetching applicant details!', error);
-          }
         });
+    }
       }
     }
 

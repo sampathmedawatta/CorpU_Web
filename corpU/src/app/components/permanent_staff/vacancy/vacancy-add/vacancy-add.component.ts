@@ -12,7 +12,7 @@ export class VacancyAddComponent {
 
   vacancyForm: FormGroup;
   empSelected = 0;
-  employeeList : employee[] = [];
+  employee : employee = new employee();
   vacancyTypeSelected = 0;
 
   vacancyTypeList : vacancyType[] = [{
@@ -82,7 +82,12 @@ unitList : unit[] = [{
   }
 
   ngOnInit(): void {
-        this.buildForm();
+
+    let _employee = localStorage.getItem('employee');
+        if (_employee) {
+          this.employee = JSON.parse(_employee);
+    }
+     this.buildForm();
     }
   
     buildForm() {
@@ -109,9 +114,10 @@ unitList : unit[] = [{
     }
 
     if(!this.submitted){
+
       this.submitted = true;
     this.vacancy = this.vacancyForm.value;
-    this.vacancy.empId = 16;
+    this.vacancy.empId = this.employee.empId;
     this.vacancy.status = true;
     this.vacancy.publishDate = '2023-05-18T05:39:38.553Z';
     this.vacancy.closingDate = '2023-05-18T05:39:38.553Z';

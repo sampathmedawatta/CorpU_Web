@@ -25,6 +25,8 @@ export class AuthService {
     localStorage.removeItem('token');  
     localStorage.removeItem('userRole');  
     localStorage.removeItem('user');  
+    localStorage.removeItem('employee');
+    localStorage.removeItem('applicant');
     this.messengerService.sendMsgUserLogout();
   }
 
