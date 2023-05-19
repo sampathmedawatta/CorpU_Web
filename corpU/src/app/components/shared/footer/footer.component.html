@@ -1,50 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Footer with Navbar</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-    .navbar {
-      background-color: #f8f9fa;
-      padding: 10px;
-    }
-    .navbar-brand {
-      font-weight: bold;
-      color: #6c757d;
-      margin-right: 15px;
-      font-size: 14px;
-    }
-    .navbar-brand:hover {
-      color: #212529;
-    }
-    .navbar-nav {
-      margin: 0 auto;
-    }
-    .navbar-nav .nav-link {
-      color: #6c757d;
-      font-weight: bold;
-      margin-right: 15px;
-      font-size: 14px;
-    }
-    .navbar-nav .nav-link:hover {
-      color: #212529;
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-dark bg-dark fixed-bottom">
-    <div class="container">
-      <a class="navbar-brand" href="/pricacyStatement">Privacy Statement</a>
-      <a class="navbar-brand" href="/TermsAndConditions">Terms &amp; Conditions</a>
-      <a class="navbar-brand" href="/ProtectYourselfOnline">Protect Yourself Online</a>
-      <a class="navbar-brand" href="#">© CorpU. All rights reserved</a>
-    </div>
-  </nav>
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <p class="col-md-4 mb-0 text-muted">© 2023 CorpU Company, Inc</p>
+
+  <a href="/" class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+  </a>
+
+  <ul class="nav col-md-6 justify-content-end">
+    <li class="nav-item"><a class="navbar-brand" href="/pricacyStatement">Privacy Statement </a></li> | 
+    <li class="nav-item"><a class="navbar-brand" href="/TermsAndConditions">Terms &amp; Conditions </a></li> | 
+    <li class="nav-item"><a class="navbar-brand" href="/ProtectYourselfOnline">Protect Yourself Online </a></li> 
+  </ul>
+</footer>
+
   
-</body>
-</html>
