@@ -44,32 +44,15 @@ user : user;
     if (_user) {
       this.user = JSON.parse(_user);
       if(this.user.userId){
-        this.applicantService.getApplicantByUserId(this.user.userId).subscribe({
-          next: (result: operationResult) => {
-            if (result.data) {
 
-              this.applicantDetails = result.data;
-              console.log(this.applicantDetails);
+        let _applicant = localStorage.getItem('applicant');
+            if (_applicant) {
+              this.applicantDetails = JSON.parse(_applicant);
+          this.getQualificationList();
 
-        // this.applicantQualificationService.getApplicantQualificationByApplicantId(this.applicantDetails.applicantId).subscribe({
-        //   next: (result: operationResult) => {
-        //     if (result.data) {
-        //       this.applicantAcademic = result.data;
-        //     }
-        //   },
-        // });
-
-        this.getQualificationList();
-
-            }
-          },
-          error: (error) => {
-            console.error('There was an error fetching applicant details!', error);
-          }
-        });
+        }
       }
     }
-
     
     }  
 
