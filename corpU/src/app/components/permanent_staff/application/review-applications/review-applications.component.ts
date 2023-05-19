@@ -13,12 +13,13 @@ export class ReviewApplicationsComponent {
   unitId: number = 0;
   applicantId: number = 0;
 
-  application: application;
-  classType: classType;
-  unit: unit;
-  vacancyType : vacancyType;
-  applicantQualification: applicantQualification;
-  
+  application: application = new application();
+  classType: classType = new classType();
+  unit: unit = new unit();
+  vacancyType : vacancyType = new vacancyType();
+  applicantQualificationList: applicantQualification[] =[];
+  dataLoaded : Promise<boolean>;
+
   constructor(private route: ActivatedRoute, 
     private applicationService : ApplicationService,
     private applicantQualificationService: ApplicantQualificationService,
@@ -37,7 +38,11 @@ export class ReviewApplicationsComponent {
     this.applicationService.getApplicationByApplicationId(this.applicationId).subscribe({
       next: (result: operationResult) => {
       this.application = result.data;
-      this.getReferanceData();
+      this.getQualificationData();
+      this.getClassType();
+      this.getVacancyType();
+
+      this.dataLoaded = Promise.resolve(true);
       console.log(this.application);
       },
       error: (error) => {
@@ -50,12 +55,12 @@ export class ReviewApplicationsComponent {
     });
   }
 
-  getReferanceData(){
+  getQualificationData(){
     this.applicantQualificationService.getApplicantQualificationByApplicantId(this.application.applicantId).subscribe({
       next: (result: operationResult) => {
-      this.applicantQualification = result.data;
-      console.log(this.applicantQualification);
-      this.getClassType();
+      this.applicantQualificationList = result.data;
+      console.log(this.applicantQualificationList);
+      
       },
       error: (error) => {
         if (error.status == 400) {
@@ -71,7 +76,6 @@ export class ReviewApplicationsComponent {
     this.classTypeService.getClassTypeById(this.application.vacancy.classTypeId).subscribe({
       next: (result: operationResult) => {
       this.classType = result.data;
-      this.getVacancyType();
       console.log(this.classType);
       },
       error: (error) => {
