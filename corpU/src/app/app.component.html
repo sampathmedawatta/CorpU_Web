@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
-    <app-permanent-nav *ngIf="isEmployee"></app-permanent-nav>
 
+    <app-permanent-nav *ngIf="isEmployee"></app-permanent-nav>
     <applicant-header *ngIf="isApplicant"></applicant-header>
     <applicant-nav-shared *ngIf="isApplicant"></applicant-nav-shared>
     <router-outlet></router-outlet>
