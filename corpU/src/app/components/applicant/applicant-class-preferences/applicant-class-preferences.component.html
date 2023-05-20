@@ -18,36 +18,12 @@
         </nav>
         <form (ngSubmit)="onSubmit()" *ngIf="applicantClassPrefrance">
             <h3>Class Preferences</h3>
-            <div class="form-group">
+            <div class="form-group" *ngFor="let preference of classPreferences let  i = index">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="morning" name="class" value="Morning">
-                    <label class="custom-control-label" for="morning" [(ngModel)]="applicantClassPrefrance.selectedclassPreferance" >Morning</label>
+                    <input type="checkbox" class="custom-control-input" (change)="getcheckbox(i)" [id]="preference.id" [name]="preference.name" [value]="preference.value" [(ngModel)]="preference.selected">
+                    <label class="custom-control-label" [for]="preference.id">{{ preference.label }}</label>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="afternoon" name="class[]" value="Afternoon">
-                    <label class="custom-control-label" for="afternoon" [(ngModel)]="applicantClassPrefrance.selectedclassPreferance">Afternoon</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="evening" name="class[]" value="Evening">
-                    <label class="custom-control-label" for="evening" [(ngModel)]="applicantClassPrefrance.selectedclassPreferance">Evening</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="introductory" name="class[]" value="Introductory">
-                    <label class="custom-control-label" for="introductory" [(ngModel)]="applicantClassPrefrance.selectedclassPreferance">Introductory</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="advanced" name="class[]" value="Advanced">
-                    <label class="custom-control-label" for="advanced" [(ngModel)]="applicantClassPrefrance.selectedclassPreferance">Advanced</label>
-                </div>
-            </div>
+            </div>            
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
