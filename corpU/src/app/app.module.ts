@@ -30,7 +30,7 @@ import { ApplicantAvailabilityDetailsComponent } from './components/applicant/ap
 import { AuthGuard } from './core/guards/auth.guard';
 import { RegisterComponent } from './components/shared/register/register.component';
 import { DashboardComponent } from './components/permanent_staff/dashboard/dashboard.component';
-import { AboutUniversityComponent } from './components/about-university/about-university.component';
+import { AboutUniversityComponent } from './components/shared/about-university/about-university.component';
 import { HomePageComponent } from './components/shared/home-page/home-page.component';
 import { UserListComponent } from './components/permanent_staff/user/user-list/user-list.component';
 import { UserDetailsComponent } from './components/permanent_staff/user/user-details/user-details.component';
