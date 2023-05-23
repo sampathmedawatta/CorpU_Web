@@ -27,7 +27,9 @@
           <td>{{ application.vacancy.closingDate | date }}</td>
           <td>{{ application.status }}</td>
           <td>
-            <a routerLink="/Application/ReView/{{ application.applicationId }}" *ngIf="application.status =='Pending' ">Review</a>
+            <a routerLink="/Application/ReView/{{ application.applicationId }}" >Review</a> 
+            <!-- *ngIf="application.status =='Pending' " -->
+            <a routerLink="/Application/Schedule/{{ application.applicationId }}" *ngIf="application.status =='Shortlisted' ">Schedule</a>
           </td>
         </tr>
       </tbody>

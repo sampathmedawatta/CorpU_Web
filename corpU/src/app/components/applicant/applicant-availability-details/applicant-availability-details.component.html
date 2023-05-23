@@ -1,5 +1,8 @@
 
-    <div class="container">
+    <div class="container my-4">
+      <div class="card">
+        <div class="card-header"><h4>Applicant Availability</h4>
+        </div>
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <div class="container-fluid">
                 <ul class="navbar-nav mx-auto">
@@ -18,8 +21,8 @@
                 </ul>
             </div>
         </nav>
-    </div>
-
+    
+        <div class="card-body">
         <form #availabilityForm="ngForm" (ngSubmit)="onSubmit()">
             <div formGroupName="availability">
               <div class="form-group row">
@@ -70,4 +73,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+        </div>
+    </div>
+</div>
           

@@ -31,6 +31,7 @@ import { EmployeeEditComponent } from './components/permanent_staff/employee/emp
 import { ApplyComponent } from './components/applicant/jobs/apply/apply.component';
 import { ApplicantListComponent } from './components/permanent_staff/applicant/applicant-list/applicant-list.component';
 import { ApplicantViewComponent } from './components/permanent_staff/applicant/applicant-view/applicant-view.component';
+import { ScheduleInterviewComponent } from './components/permanent_staff/application/schedule-interview/schedule-interview.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -46,6 +47,9 @@ const routes: Routes = [
   {path: 'Applicant/ClassPreferences', component:ApplicantClassPreferencesComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
+  {path: 'Applicant/Availability',component:ApplicantAvailabilityDetailsComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Applicant']}}, 
   {path: 'Application/History', component:ApplicantUnitHistoryComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
@@ -55,8 +59,8 @@ const routes: Routes = [
   {path: 'Job/Apply/:id',component:ApplyComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-
-
+ 
+  
   {path: 'Dashboard', component:DashboardComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},  
@@ -74,15 +78,14 @@ const routes: Routes = [
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin']}},  
 
-
   {path: 'Applicants', component:ApplicantListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},    
   {path: 'Applicant/View/:id', component:ApplicantViewComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}}, 
-  
 
+  
   {path: 'Vacancy', component:VacancyListComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},  
@@ -99,6 +102,9 @@ const routes: Routes = [
   {path: 'Application/ReView/:id', component:ReviewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},
+  {path: 'Application/Schedule/:id', component:ScheduleInterviewComponent, 
+  canActivate: [AuthGuard, RoleGuardGuard],
+  data:{expectedRoles:['Admin','Manager', 'Staff']}}, 
 
   {path: 'aboutUniversity',component:AboutUniversityComponent},
   {path: 'pricacyStatement',component:PrivacyStatementComponent},

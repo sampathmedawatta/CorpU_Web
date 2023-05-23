@@ -1,5 +1,9 @@
 
-    <div class="container">
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-header"><h4>Class Preferences</h4>
+          </div>
+
         <nav class="navbar navbar-expand-md bg-dark navbar-dark justify-content-center">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -12,18 +16,13 @@
                     <a class="nav-link" href="/Applicant/ClassPreferences">Class Preferences</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Applicant/AvailabilityDetails">Applicant Availability</a>
+                    <a class="nav-link" href="/Applicant/Availability">Applicant Availability</a>
                 </li>
             </ul>
         </nav>
+
+        <div class="card-body">
         <form (ngSubmit)="onSubmit()" *ngIf="applicantClassPrefrance">
-
-            <div class="row header-bar">
-                <div class="col-10"><h2>Class Preferences</h2></div>
-                <div class="col-2">
-                </div>
-              </div>
-
             <div class="form-group" *ngFor="let preference of classPreferences let  i = index">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" (change)="getcheckbox(i)" [id]="preference.id" [name]="preference.name" [value]="preference.value" [(ngModel)]="preference.selected">
@@ -33,3 +32,4 @@
             <button type="submit" class="btn btn-primary mb-3">Save</button>
         </form>
     </div>
+</div>
