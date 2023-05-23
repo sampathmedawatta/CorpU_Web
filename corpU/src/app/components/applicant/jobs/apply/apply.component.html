@@ -9,7 +9,7 @@
           <h5 class="card-title">Requirements:</h5>
           <div [innerHTML]="vacancy.description"></div>
 
-          <p>Application cloasing date: {{ vacancy.closingDate }} </p>
+          <p>Application cloasing date: {{ vacancy.closingDate | date }} </p>
 
           <h5 class="card-title">Job Type:</h5>
           <p class="card-text">{{ vacancy.vacancyType.vacancyName }} </p>
