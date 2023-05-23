@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-jobs',
@@ -7,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class SearchJobsComponent {
 
+  searchText : string;
+  constructor(private route: Router){}
+
+  ngOnInit(): void {
+
+  }
+
+  search(searchForm: NgForm){
+    if(searchForm.invalid){
+       
+    }
+    else{
+
+     this.route.navigateByUrl('/Applicant/'+ searchForm.value._searchText);
+    }
+
+  }
 }

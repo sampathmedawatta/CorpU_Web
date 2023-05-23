@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { VacancyService, operationResult, vacancy } from 'src/app/core';
 
 @Component({
@@ -8,10 +9,22 @@ import { VacancyService, operationResult, vacancy } from 'src/app/core';
 })
 export class JobListComponent {
   vacancies: vacancy[] = [];
-  constructor(private vacancyService:VacancyService){}
-  ngOnInit(): void {
+  txt : string;
+  constructor(private vacancyService:VacancyService,
+    private route: ActivatedRoute){}
+  
+    ngOnInit(): void {
     
-    this.getVacancyList();
+    this.txt  = this.route.snapshot.paramMap.get('txt') || '';
+    console.log('dfdfdfd');
+    console.log(this.txt);
+    if(this.txt != null || this.txt != ''){
+
+    }
+    else{
+      this.getVacancyList();
+    }
+    
   }
 
   getVacancyList() {

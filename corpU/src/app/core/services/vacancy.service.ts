@@ -11,6 +11,7 @@ export class VacancyService {
 
   constructor(private api:ApiService) { }
 
+  
 
   getVacancyById(id : number): Observable<operationResult> {
     console.log( id);
@@ -32,6 +33,16 @@ export class VacancyService {
       .pipe(map((response) => response));
   }
 
+  getVacancyListByText(txt : string): Observable<operationResult> {
+    console.log( txt);
+    const params = new HttpParams()
+      .set('text', txt);
+
+    return this.api
+      .get<operationResult>('vacancy/Search',params)
+      .pipe(map((response) => response));
+  }
+  
   geAllVacancyList(): Observable<operationResult> {
     return this.api
       .get<operationResult>('vacancy/All')
