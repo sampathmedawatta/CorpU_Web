@@ -17,13 +17,6 @@ export class SearchJobsComponent {
   }
 
   search(searchForm: NgForm){
-    if(searchForm.invalid){
-       
-    }
-    else{
-
-     this.route.navigateByUrl('/Applicant/'+ searchForm.value._searchText);
-    }
-
+    this.route.navigate(['/Applicant/Search'],{ queryParams: { txt: searchForm.value._searchText}});
   }
 }

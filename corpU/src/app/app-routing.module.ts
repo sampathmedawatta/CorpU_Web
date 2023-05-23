@@ -41,7 +41,7 @@ const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-  {path: 'Applicant/:txt',component: ApplicantComponent, 
+  {path: 'Applicant/Search',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
   {path: 'Applicant/AcademicDetails', component:ApplicantAcademicDetailsComponent, 
