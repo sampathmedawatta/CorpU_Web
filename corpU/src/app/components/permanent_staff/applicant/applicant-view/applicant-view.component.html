@@ -1,10 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row header-bar">
+<div class="container my-4">
+  <div class="card">
         <div class="card-header"><h4>Applicant Contact Details</h4></div>
-      </div>
-
+    <div class="card-body">
       <table class="table">
         <tbody>
           <tr>
@@ -31,7 +28,7 @@
         </tbody>
       </table>
       <div>
-        <div class="row header-bar">
+        <div class="row card-header">
           <div class="col-10"><h4>Qualifications</h4></div>
           <div class="col-2">
           </div>
@@ -48,7 +45,7 @@
             <tbody>
               <tr *ngFor="let qualification of applicantQualificationList">
                 <td>{{ qualification.institute }}</td>
-                <td>{{ qualification.qualificationType }}</td>
+                <td>{{ qualification.qualificationType.description }}</td>
                 <td>{{ qualification.awardedYear }}</td>
                 <!-- <td><button class="btn btn-secondary">Edit</button></td> -->
               </tr>
@@ -56,11 +53,9 @@
           </table>
       </div>
 
-      <div class="row header-bar">
-        <div class="col-6">
-          
-          <h4>Availability</h4>
-        
+      <div class="row">
+        <div class="col-6 ">
+          <div class="card-header"><h4>Availability</h4></div>
           <table class="table">
             <tbody>
               <tr>
@@ -75,7 +70,7 @@
           </table>
         </div>
         <div class="col-6">
-          <h4>Class Preferance</h4>
+          <div class="card-header"><h4>Class Preferance</h4></div>
           <table class="table">
             <tbody>
               <tr>

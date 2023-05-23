@@ -1,8 +1,10 @@
-<div class="row">
-    <div class="container">
-      <div class="row header-bar">
-        <div class="col-10"><h2>Employee - Manage</h2></div>
-        </div>
+
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">
+      <h4>Employee - Manage</h4>
+    </div>
+  <div class="card-body">
 
         <div
           class="alert alert-success alert-dismissible fade show"
@@ -20,12 +22,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
-
-        <div class="row">
             <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
 
-                  <div class="form-group">
+                  <div class="mb-3">
                     <label for="empName">Name:</label>
                     <input 
                     type="text" 
@@ -40,7 +39,7 @@
                         <div *ngIf="f['empName'].errors['required']">Employee Name is required</div>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="mb-3">
                     <label for="email">Email:</label>
                     <input type="text" 
                     class="form-control" 
@@ -56,7 +55,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
+                <div class="mb-3">
                 <label for="phone">Phone Number:</label>
                   <input type="tel" 
                   class="form-control" 
@@ -72,7 +71,7 @@
                 </div>
                 </div>
 
-                  <div class="form-group">
+                  <div class="mb-3">
                 <label for="empRoleId">Empolyee Role </label>
                   <select class="form-select" id="empRoleId" formControlName="empRoleId">
                       <option value="0" disabled selected>---- Select Empolyee Role ----</option>
@@ -83,7 +82,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="mb-3">
                     <label for="faculty">Faculty </label>
                       <select class="form-select" id="faculty" formControlName="facultyId">
                           <option value="0" disabled selected>---- Select Faculty -----</option>
@@ -101,5 +100,5 @@
                 </button>
             </form>
         </div>
-    </div>
+      </div>
 </div>

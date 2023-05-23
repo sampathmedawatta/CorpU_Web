@@ -1,9 +1,14 @@
-<div class="row">
-    <div class="container">
-      <div class="row header-bar">
-        <div class="col-10"><h2>Vacancy - Add</h2></div>
-        </div>
 
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10"><h4>Vacancy - Add</h4></div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+  <div class="card-body">
         <div
           class="alert alert-success alert-dismissible fade show"
           role="alert"
@@ -20,9 +25,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
-
-        <div class="row">
             <form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()">
 
                   <div class="mb-3">
@@ -128,5 +130,4 @@
                 </button>
             </form>
         </div>
-    </div>
 </div>
