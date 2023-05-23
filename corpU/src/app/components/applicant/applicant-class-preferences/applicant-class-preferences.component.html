@@ -17,13 +17,19 @@
             </ul>
         </nav>
         <form (ngSubmit)="onSubmit()" *ngIf="applicantClassPrefrance">
-            <h3>Class Preferences</h3>
+
+            <div class="row header-bar">
+                <div class="col-10"><h2>Class Preferences</h2></div>
+                <div class="col-2">
+                </div>
+              </div>
+
             <div class="form-group" *ngFor="let preference of classPreferences let  i = index">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" (change)="getcheckbox(i)" [id]="preference.id" [name]="preference.name" [value]="preference.value" [(ngModel)]="preference.selected">
                     <label class="custom-control-label" [for]="preference.id">{{ preference.label }}</label>
                 </div>
             </div>            
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary mb-3">Save</button>
         </form>
     </div>
