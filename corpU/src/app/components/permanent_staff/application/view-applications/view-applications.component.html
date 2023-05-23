@@ -1,13 +1,14 @@
-
-<div class="row">
-  <div class="container">
-    <div class="row header-bar">
-      <div class="col-10"><h2>Application List</h2></div>
-      <div class="col-2">
+  <div class="container my-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-10"><h4>Application List</h4></div>
+          <div class="col-2">
+           
+          </div>
+        </div>
       </div>
-    </div>
-  <div class="row">
-    
+    <div class="card-body">
     <table class="table">
       <thead>
         <tr>
@@ -27,11 +28,12 @@
           <td>{{ application.vacancy.closingDate | date }}</td>
           <td>{{ application.status }}</td>
           <td>
-            <a routerLink="/Application/ReView/{{ application.applicationId }}" *ngIf="application.status =='Pending' ">Review</a>
+            <a routerLink="/Application/ReView/{{ application.applicationId }}" >Review</a> 
+            <!-- *ngIf="application.status =='Pending' " -->
+            <a routerLink="/Application/Schedule/{{ application.applicationId }}" *ngIf="application.status =='Shortlisted' ">Schedule</a>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div> 
-</div>

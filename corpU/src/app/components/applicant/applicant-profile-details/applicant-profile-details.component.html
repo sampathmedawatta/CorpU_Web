@@ -1,5 +1,10 @@
 
-    <div class="container">
+    <div class="container my-4">
+      <div class="card">
+          <div class="card-header"><h4>Personal Details</h4>
+        </div>
+
+
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav justify-content-center w-100">
@@ -13,19 +18,16 @@
                         <a class="nav-link" href="/Applicant/ClassPreferences">Class Preferences</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/Applicant/AvailabilityDetails">Applicant Availability</a>
+                      <a class="nav-link" href="/Applicant/Availability">Applicant Availability</a>
                   </li>
                 </ul>
             </div>
         </nav>
+
+        <div class="card-body">
           <form (ngSubmit)="onSubmit()" *ngIf="hasFilledForm">
            
-            <div class="row header-bar">
-              <div class="col-10"><h2>Personal Details</h2></div>
-              <div class="col-2">
-              </div>
-            </div>
-
+            
             <div
                 class="alert alert-success alert-dismissible fade show"
                 role="alert"
@@ -81,3 +83,6 @@
             </div>
             <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
             </form>
+          </div>
+      </div>
+    </div>

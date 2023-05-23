@@ -71,7 +71,7 @@ export class ReviewApplicationsComponent {
     this.applicantQualificationService.geAllApplicantQualificationList(this.application.applicantId).subscribe({
       next: (result: operationResult) => {
       this.applicantQualificationList = result.data;
-      
+      console.log(this.applicantQualificationList);
       },
       error: (error) => {
         if (error.status == 400) {

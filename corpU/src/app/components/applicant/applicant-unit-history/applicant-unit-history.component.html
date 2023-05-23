@@ -1,19 +1,25 @@
 <div class="container my-4">
-  <h1 class="mb-4">Application History</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Vacancy Title</th>
-        <th scope="col">Colsing Date</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let application of applicationList">
-        <td>{{ application.vacancy.title }}</td>
-        <td>{{ application.vacancy.closingDate | date }}</td>
-        <td>{{ application.status }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="card">
+    <div class="card-header">
+      <h4>Application History</h4>
+    </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Vacancy Title</th>
+          <th scope="col">Colsing Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of applicationList">
+          <td>{{ application.vacancy.title }}</td>
+          <td>{{ application.vacancy.closingDate | date }}</td>
+          <td>{{ application.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>

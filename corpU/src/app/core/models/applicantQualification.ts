@@ -1,3 +1,5 @@
+import { qualificationType } from "./qualificationType";
+
 export class applicantQualification{
     appQualificationId: number;
     applicantId: number;
@@ -5,7 +7,7 @@ export class applicantQualification{
     description: string
     awardedYear: number;
     institute:string;
-    qualificationType:number;
+    qualificationType: qualificationType;
 
       
 }
