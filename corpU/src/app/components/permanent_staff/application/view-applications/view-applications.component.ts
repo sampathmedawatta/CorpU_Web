@@ -12,11 +12,11 @@ export class ViewApplicationsComponent {
   constructor(private applicationService : ApplicationService){
   
   }
-    ngOnInit(): void {
-      this.getUserList();
-    }
-  
-  getUserList() {
+  ngOnInit(): void {
+    this.getApplicationList();
+  }
+
+  getApplicationList() {
     this.applicationService.geAllApplicationList().subscribe({
       next: (result: operationResult) => {
       this.applications = result.data;

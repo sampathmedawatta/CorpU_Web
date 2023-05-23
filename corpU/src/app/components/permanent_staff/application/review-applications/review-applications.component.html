@@ -1,96 +1,107 @@
+
 <div class="row">
     <div class="row header-bar">
-        <div class="col-10"><h2>Application Details</h2></div>
+        <div class="col-10"><h2>Review Application</h2></div>
         <div class="col-2">
         </div>
       </div>
-    
 </div>
     <div class="container" *ngIf="dataLoaded | async">
-        <h4>Unit Details</h4>
-       
         <div class="row">
-            <div class="col-sm-4">
-                <h4>Unit Title:</h4>
-                <p>Software Engineer</p>
-            </div>
-            <div class="col-sm-4">
-                <h4>Class:</h4>
-                <p>{{classType.classDescription}}</p>
-            </div>
-            <div class="col-sm-4">
-                <h4>Job Type:</h4>
-                <p>{{vacancyType.vacancyName}}</p>
-            </div>
-        </div>
-        <hr>
-      
-        <h4>Applicant Details</h4>
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>Name:</h4>
-                <p>{{application.applicant.name}}</p>
-            </div>
-            <div class="col-sm-6">
-                <h4>Email:</h4>
-                <p>{{application.applicant.email}}</p>
-            </div>
-        </div>
-        <hr>
-        <!-- Applicant Academic Details -->
-        <div class="table-responsive my-3">
+        <div class="col-6">
+            <h4>Applicant Details</h4>
             <div class="row">
-                <div class="col-10"><h2>Academic Details</h2></div>
-                <div class="col-2">
-                    <a href="#" class="btn btn-primary">Download Resume</a>
-                 </div>
+                <table>
+                    <tr>
+                        <td><strong>Name:</strong> {{application.applicant.name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong> {{application.applicant.email}}</td>
+                    </tr>
+                </table>
             </div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th>Institution Name</th>
-                    <th>Qualification Type</th>
-                    <th>Year of Award</th>
-                    <!-- <th>Edit</th> -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let qualification of applicantQualificationList">
-                    <td>{{ qualification.institute }}</td>
-                    <td>{{ qualification.qualificationType }}</td>
-                    <td>{{ qualification.awardedYear }}</td>
-                    <!-- <td><button class="btn btn-secondary">Edit</button></td> -->
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-    
-        <hr>
-        <!-- Accept/Reject Options -->
-        <h4>Accept/Reject:</h4>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="acceptRejectRadio" id="acceptRadio" value="accept">
-                <label class="form-check-label" for="acceptRadio">
-                    Accept
-                </label>
+            <br>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-8"><h4>Academic Details</h4></div>
+                        <div class="col-4">
+                            <a href="#" >Download Resume</a>
+                         </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Institution Name</th>
+                            <th>Qualification Type</th>
+                            <th>Year of Award</th>
+                            <!-- <th>Edit</th> -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let qualification of applicantQualificationList">
+                            <td>{{ qualification.institute }}</td>
+                            <td>{{ qualification.qualificationType }}</td>
+                            <td>{{ qualification.awardedYear }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+                <div>
+                    <br>
+                    <!-- Accept/Reject Options -->
+                    <h4>Shortlist:</h4>
+                    <form #shortListForm="ngForm" (ngSubmit)="save(shortListForm)">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="acceptRejectRadio" checked id="acceptRadio" [ngModel]="shortListOptions" #acceptRejectRadio="ngModel" required value="accept">
+                                <label class="form-check-label" for="acceptRadio">
+                                    Accept
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="acceptRejectRadio" id="rejectRadio" [ngModel]="shortListOptions" #acceptRejectRadio="ngModel" required value="reject">
+                                <label class="form-check-label" for="rejectRadio">
+                                    Reject
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Comment and Save Button -->
+                        <div class="mb-3">
+                            <label for="comments">Comments:</label>
+                            <textarea class="form-control" id="comments" name="comments" [ngModel]="shortlist.comments" #comments="ngModel" required rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" *ngIf="employee.empRoleId == 1 || employee.empRoleId == 2">Save</button>
+                        </div>
+
+                        <div
+                        class="alert alert-danger alert-dismissible fade show"
+                        role="alert"
+                        *ngIf="!isFormValid && shortListForm.invalid">
+                            Please select shortlist option and add a comment.
+                        </div>
+                    </form>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="acceptRejectRadio" id="rejectRadio" value="reject">
-                <label class="form-check-label" for="rejectRadio">
-                    Reject
-                </label>
-            </div>
         </div>
-        <!-- Comment and Save Button -->
-        <div class="form-group">
-            <label for="commentTextArea">Comments:</label>
-            <textarea class="form-control" id="commentTextArea" rows="3"></textarea>
-        </div>
-        <div class="text-center">
-            <button class="btn btn-primary">Save</button>
-        </div>
+        <div class="col-6">
+        <h4>Vacancy Details</h4>
+        <table>
+            <tr>
+                <td> <strong>Title:</strong> {{application.vacancy.title}}</td>
+            </tr>
+            <tr>
+                <td> <strong>Description:</strong> {{application.vacancy.description}}</td>
+            </tr>
+            <tr>
+                <td><strong>Class:</strong> {{classType.classDescription}}</td>
+            </tr>
+            <tr>
+                <td> <strong>Type:</strong> {{vacancyType.vacancyName}}</td>
+            </tr>
+        </table>
+        <div>
     </div>
-
-
+</div>
 

@@ -18,3 +18,4 @@ export * from "./userRole";
 export * from "./vacancy";
 export * from "./vacancyType";
 export * from "./operationResult";
+export * from "./shortlist";

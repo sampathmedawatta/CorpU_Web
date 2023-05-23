@@ -13,6 +13,8 @@ export class ApplyComponent {
   application : application = new application();
   applicantDetails: applicant = new applicant();
   agreeCheckbox : boolean = false;
+  isErrored : boolean = false;
+
   constructor(private vacancyService:VacancyService,private route: ActivatedRoute, private applicationService:ApplicationService){}
   ngOnInit(): void {
 
@@ -42,7 +44,7 @@ export class ApplyComponent {
     saveApplication(){
      
       if(this.agreeCheckbox){
-        console.log('Agreed');
+        this.isErrored = false;
       
       let _applicant = localStorage.getItem('applicant');
           if (_applicant) {
@@ -73,9 +75,14 @@ export class ApplyComponent {
       }
     }
     else{
-      console.log('asasaasa');
+      this.isErrored = true;
     }
      
     }
+
+    handlerCloseAllert() {
+      this.isErrored = false;
+    }
+    
 }
 

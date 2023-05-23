@@ -1,51 +1,19 @@
-
-    <div class="container my-4">
-  
-      <h1 class="mb-4">Application History</h1>
-  
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Unit Title</th>
-            <th scope="col">Closing Date</th>
-            <th scope="col">Applied Date</th>
-            <th scope="col">Unit</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Unit 1</td>
-            <td>2023-05-31</td>
-            <td>2023-05-15</td>
-            <td>Department A</td>
-            <td>Submitted</td>
-            <td><a href="#">View Application</a></td>
-          </tr>
-          <tr>
-            <td>Unit 2</td>
-            <td>2023-06-15</td>
-            <td>2023-06-01</td>
-            <td>Department B</td>
-            <td>Under Review</td>
-            <td><a href="#">View Application</a></td>
-          </tr>
-          <tr>
-            <td>Unit 3</td>
-            <td>2023-06-30</td>
-            <td>2023-06-10</td>
-            <td>Department C</td>
-            <td>Rejected</td>
-            <td><a href="#">View Application</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </div>
+<div class="container my-4">
+  <h1 class="mb-4">Application History</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Vacancy Title</th>
+        <th scope="col">Colsing Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of applicationList">
+        <td>{{ application.vacancy.title }}</td>
+        <td>{{ application.vacancy.closingDate | date }}</td>
+        <td>{{ application.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
