@@ -15,6 +15,7 @@ export class ApplicantAvailabilityDetailsComponent {
   availabilityForm: FormGroup;
   options = ['All Day','Morning','Afternoon','Evening'];
   dataLoaded : boolean = false;
+  isSaved : boolean = false;
 
   constructor(private builder: FormBuilder, private applicantAvailabilityService: ApplicantAvailabilityService){
     
@@ -96,6 +97,7 @@ export class ApplicantAvailabilityDetailsComponent {
     this.applicantAvailabilityService.updateApplicantAvailability(this.applicantAvailability).subscribe({
       next: (result: operationResult) => {
         let app = result.data;
+        this.isSaved = true;
     },
     error: (error) => {
       if (error.status == 400) {
@@ -109,7 +111,6 @@ export class ApplicantAvailabilityDetailsComponent {
 
 
   save(){
-    console.log(this.applicantAvailability);
 
     this.applicantAvailability.applicantId = this.applicantDetails.applicantId;
     this.applicantAvailability.monday = this.availabilityForm.value.monday;
@@ -121,6 +122,7 @@ export class ApplicantAvailabilityDetailsComponent {
     this.applicantAvailabilityService.postApplicantAvailability(this.applicantAvailability).subscribe({
       next: (result: operationResult) => {
         let appli = result.data;
+        this.isSaved = true;
     },
     error: (error) => {
       if (error.status == 400) {

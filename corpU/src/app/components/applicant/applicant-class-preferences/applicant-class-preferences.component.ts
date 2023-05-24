@@ -10,7 +10,7 @@ import { applicantClassPreferance } from 'src/app/core/models/applicantClassPref
 export class ApplicantClassPreferencesComponent {
 
   applicantDetails: applicant = new applicant();
-
+  isSaved : boolean = false;
   classPreferences = [
     { id: 'morning', name: 'Morning', value: 'Morning', label: 'Morning', selected: false },
     { id: 'afternoon', name: 'Afternoon', value: 'Afternoon', label: 'Afternoon', selected: false },
@@ -33,7 +33,8 @@ export class ApplicantClassPreferencesComponent {
         this.applicantClassPrefrance.applicantId = this.applicantDetails.applicantId;
         this.applicantClassPrefrance.classPreferanceId = 0;
         this.applicantClassPrefrance.classTypeId = 20;
-    
+        
+        this.isSaved = true;
         // Update the selected class preference status to true
        
     

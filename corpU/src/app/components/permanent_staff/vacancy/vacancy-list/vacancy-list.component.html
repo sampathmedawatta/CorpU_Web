@@ -2,9 +2,9 @@
   <div class="card">
     <div class="card-header">
       <div class="row">
-        <div class="col-10"><h4>Vacancy List</h4></div>
-        <div class="col-2">
-          <a routerLink="/Vacancy/Add" class="btn btn-sm btn-outline-primary">Add New Vacancy</a>
+        <div class="col-9"><h4>Vacancy List</h4></div>
+        <div class="col-3 align-content">
+          <a routerLink="/Vacancy/Add" class="btn btn-sm btn-outline-primary">Add Vacancy</a>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
           <td>{{ vacancy.title }}</td>
           <td>{{ vacancy.closingDate | date }}</td>
           <td>
-            <a routerLink="/Vacancy/View/{{ vacancy.vacancyId }}">View Vacancy</a>
+            <a routerLink="/Vacancy/View/{{ vacancy.vacancyId }}">View</a>
           </td>
         </tr>
       </tbody>

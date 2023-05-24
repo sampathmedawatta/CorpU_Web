@@ -4,7 +4,12 @@
     </div>
     <div class="card-body">
       <form [formGroup]="availabilityForm" (ngSubmit)="onSubmit()">
-
+        <div
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+        *ngIf="isSaved">
+        Applicant availability details has been succesfully.
+      </div>
         <div class="mb-3">
           <label for="monday">Monday </label>
             <select class="form-select" id="monday" formControlName="monday">
