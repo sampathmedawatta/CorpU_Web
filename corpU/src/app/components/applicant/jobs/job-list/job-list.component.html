@@ -1,8 +1,18 @@
 
-<div class="container my-4">
-    <h1 class="mb-4">Available Jobs</h1>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10"><h4>Available Vacancies</h4></div>
+        <div class="col-2">
+          <a routerLink="/Search" class="btn btn-sm btn-outline-primary">List All vacancies</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
 
-    <table class="table">
+      <label *ngIf="txt"> <h5>Search Text: {{txt}} </h5> </label>
+      <table class="table">
         <thead>
           <tr>
             <th>Unit Name</th>
@@ -15,9 +25,11 @@
             <td>{{ vacancy.title }}</td>
             <td>{{ vacancy.closingDate | date }}</td>
             <td>
-              <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View Vacancy</a>
+              <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View Vacancy</a>  
             </td>
           </tr>
         </tbody>
       </table>
   </div>
+</div>
+
