@@ -1,4 +1,7 @@
+
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApplicantAvailabilityService, applicant, operationResult } from 'src/app/core';
 import { applicantAvailability } from 'src/app/core/models/applicantAvailability';
 
 @Component({
@@ -8,85 +11,125 @@ import { applicantAvailability } from 'src/app/core/models/applicantAvailability
 })
 export class ApplicantAvailabilityDetailsComponent {
   applicantAvailability: applicantAvailability = new applicantAvailability();
+  applicantDetails: applicant = new applicant();
+  availabilityForm: FormGroup;
+  options = ['All Day','Morning','Afternoon','Evening'];
+  dataLoaded : boolean = false;
 
-  getAvailabilityDetails(): any {
-    const details = {
-      appAvailabilityId: this.applicantAvailability.appAvailabilityId,
-      applicantId: this.applicantAvailability.applicantId,
-      availability: {
-        monday: {
-          allDay: this.applicantAvailability.availability.monday.allDay,
-          morning: this.applicantAvailability.availability.monday.morning,
-          afternoon: this.applicantAvailability.availability.monday.afternoon,
-          evening: this.applicantAvailability.availability.monday.evening
-        },
-        tuesday: {
-          allDay: this.applicantAvailability.availability.tuesday.allDay,
-          morning: this.applicantAvailability.availability.tuesday.morning,
-          afternoon: this.applicantAvailability.availability.tuesday.afternoon,
-          evening: this.applicantAvailability.availability.tuesday.evening
-        },
-        wednesday: {
-          allDay: this.applicantAvailability.availability.wednesday.allDay,
-          morning: this.applicantAvailability.availability.wednesday.morning,
-          afternoon: this.applicantAvailability.availability.wednesday.afternoon,
-          evening: this.applicantAvailability.availability.wednesday.evening
-        },
-        thursday: {
-          allDay: this.applicantAvailability.availability.thursday.allDay,
-          morning: this.applicantAvailability.availability.thursday.morning,
-          afternoon: this.applicantAvailability.availability.thursday.afternoon,
-          evening: this.applicantAvailability.availability.thursday.evening
-        },
-        friday: {
-          allDay: this.applicantAvailability.availability.friday.allDay,
-          morning: this.applicantAvailability.availability.friday.morning,
-          afternoon: this.applicantAvailability.availability.friday.afternoon,
-          evening: this.applicantAvailability.availability.friday.evening
-        }
-      }
-    };
-    return details;    
+  constructor(private builder: FormBuilder, private applicantAvailabilityService: ApplicantAvailabilityService){
+    
+    this.loadAvailability();
   }
-  
-  onSubmit() {
-    const details = {
-      appAvailabilityId: this.applicantAvailability.appAvailabilityId,
-      applicantId: this.applicantAvailability.applicantId,
-      availability: {
-        monday: {
-          allDay: this.applicantAvailability.availability.monday.allDay,
-          morning: this.applicantAvailability.availability.monday.morning,
-          afternoon: this.applicantAvailability.availability.monday.afternoon,
-          evening: this.applicantAvailability.availability.monday.evening
-        },
-        tuesday: {
-          allDay: this.applicantAvailability.availability.tuesday.allDay,
-          morning: this.applicantAvailability.availability.tuesday.morning,
-          afternoon: this.applicantAvailability.availability.tuesday.afternoon,
-          evening: this.applicantAvailability.availability.tuesday.evening
-        },
-        wednesday: {
-          allDay: this.applicantAvailability.availability.wednesday.allDay,
-          morning: this.applicantAvailability.availability.wednesday.morning,
-          afternoon: this.applicantAvailability.availability.wednesday.afternoon,
-          evening: this.applicantAvailability.availability.wednesday.evening
-        },
-        thursday: {
-          allDay: this.applicantAvailability.availability.thursday.allDay,
-          morning: this.applicantAvailability.availability.thursday.morning,
-          afternoon: this.applicantAvailability.availability.thursday.afternoon,
-          evening: this.applicantAvailability.availability.thursday.evening
-        },
-        friday: {
-          allDay: this.applicantAvailability.availability.friday.allDay,
-          morning: this.applicantAvailability.availability.friday.morning,
-          afternoon: this.applicantAvailability.availability.friday.afternoon,
-          evening: this.applicantAvailability.availability.friday.evening
-        }
+
+
+  loadAvailability(){
+    let _applicant = localStorage.getItem('applicant');
+        if (_applicant) {
+          this.applicantDetails = JSON.parse(_applicant);
+        this.applicantAvailabilityService.getApplicantAvailabilityByApplicantId(this.applicantDetails.applicantId).subscribe({
+          next: (result: operationResult) => {
+            if (result.data) {
+              this.dataLoaded = true;
+              this.applicantAvailability = result.data;
+              this.buildForm();
+            }
+          },
+        });
       }
-    };
-    console.log(details);
+  }
+
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
+  buildForm() {
+
+     if(this.dataLoaded){
+      this.availabilityForm = this.builder.group(
+        {
+          monday: [this.applicantAvailability.monday, [Validators.required]],
+          tuesday: [this.applicantAvailability.tuesday, [Validators.required]],
+          wednesday: [this.applicantAvailability.wednesday, [Validators.required]],
+          thursday: [this.applicantAvailability.thursday, [Validators.required]],
+          friday: [this.applicantAvailability.friday, [Validators.required]],
+        }
+      );
+     }
+     else{
+      this.availabilityForm = this.builder.group(
+        {
+           monday: ['0', [Validators.required]],
+           tuesday: ['0', [Validators.required]],
+           wednesday: ['0', [Validators.required]],
+           thursday: ['0', [Validators.required]],
+           friday: ['0', [Validators.required]],
+        }
+      );
+     }
+  }
+
+  get f() { return this.availabilityForm.controls; }
+
+  onSubmit() {
+    if (this.availabilityForm.invalid) {
+      return;
+    }
+
+    if(this.applicantAvailability.appAvailabilityId){
+      this.applicantAvailability.appAvailabilityId = this.applicantAvailability.appAvailabilityId;
+      this.update();
+    }else{
+      this.save();
+    }
+      
+  }
+
+  update(){
+
+    this.applicantAvailability.applicantId = this.applicantDetails.applicantId;
+    this.applicantAvailability.monday = this.availabilityForm.value.monday;
+    this.applicantAvailability.tuesday = this.availabilityForm.value.tuesday;
+    this.applicantAvailability.wednesday = this.availabilityForm.value.wednesday;
+    this.applicantAvailability.thursday = this.availabilityForm.value.thursday;
+    this.applicantAvailability.friday = this.availabilityForm.value.friday;
+
+    this.applicantAvailabilityService.updateApplicantAvailability(this.applicantAvailability).subscribe({
+      next: (result: operationResult) => {
+        let app = result.data;
+    },
+    error: (error) => {
+      if (error.status == 400) {
+        console.error('Incorrect contact details');
+      } else {
+        console.error('There was an error!', error);
+      }
+    }
+  });
+  }
+
+
+  save(){
+    console.log(this.applicantAvailability);
+
+    this.applicantAvailability.applicantId = this.applicantDetails.applicantId;
+    this.applicantAvailability.monday = this.availabilityForm.value.monday;
+    this.applicantAvailability.tuesday = this.availabilityForm.value.tuesday;
+    this.applicantAvailability.wednesday = this.availabilityForm.value.wednesday;
+    this.applicantAvailability.thursday = this.availabilityForm.value.thursday;
+    this.applicantAvailability.friday = this.availabilityForm.value.friday;
+
+    this.applicantAvailabilityService.postApplicantAvailability(this.applicantAvailability).subscribe({
+      next: (result: operationResult) => {
+        let appli = result.data;
+    },
+    error: (error) => {
+      if (error.status == 400) {
+        console.error('Incorrect contact details');
+      } else {
+        console.error('There was an error!', error);
+      }
+    }
+  });
   }
   
   
