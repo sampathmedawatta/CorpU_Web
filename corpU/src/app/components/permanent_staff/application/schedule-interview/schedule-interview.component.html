@@ -1,1 +1,160 @@
-<p>schedule-interview works!</p>
+<div class="container my-4">
+    <div class="card">
+      <div class="card-header"><h4>Schedule Interview</h4>
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+            <div class="col-6">
+                
+                <form [formGroup]="availabilityForm" (ngSubmit)="onSubmit()" *ngIf="!isScheduled">
+                    <div class="card-header"><h4>Schedule</h4></div>
+
+                    <div
+                            class="alert alert-success alert-dismissible fade show"
+                            role="alert"
+                            *ngIf="isSaved"
+                            >
+                            Intervice scheduled succesfully.
+                            </div>
+
+                    <div class="mb-3">
+                        <label for="location">Location:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="location" 
+                        name="location" 
+                        formControlName="location"
+                        required
+                        [ngClass]="{ 'is-invalid': f['location'].touched && f['location'].invalid }"
+                        >
+                        <div *ngIf="f['location'].errors" class="invalid-feedback">
+                            <div *ngIf="f['location'].errors['required']">Inerview location is required</div>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="interviewDate">Date:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="interviewDate" 
+                        name="interviewDate" 
+                        formControlName="interviewDate"
+                        required
+                        [ngClass]="{ 'is-invalid': f['interviewDate'].touched && f['interviewDate'].invalid }"
+                        >
+                        <div *ngIf="f['interviewDate'].errors" class="invalid-feedback">
+                            <div *ngIf="f['interviewDate'].errors['required']">Inerview date is required</div>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="timeslot">Select Available Time Slot</label>
+                          <select class="form-select" id="timeslot" formControlName="timeslot">
+                              <option value="0" disabled selected>---- Pick a Time Slot ----</option>
+                              <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+                            </select>
+                            <div *ngIf="f['timeslot'].errors" class="invalid-feedback">
+                                <div *ngIf="f['timeslot'].errors['required']">Empolyee Role is required</div>
+                            </div>
+                      </div>
+        
+                    <div class="mb-3">
+                        <label for="interviewTime">Time:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="interviewTime" 
+                        name="interviewTime" 
+                        formControlName="interviewTime"
+                        required
+                        [ngClass]="{ 'is-invalid': f['interviewTime'].touched && f['interviewTime'].invalid }"
+                        >
+                        <div *ngIf="f['interviewTime'].errors" class="invalid-feedback">
+                            <div *ngIf="f['interviewTime'].errors['required']">Inerview time is required</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="comment">Comment:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="comment" 
+                        name="comment" 
+                        formControlName="comment"
+                        required
+                        [ngClass]="{ 'is-invalid': f['comment'].touched && f['comment'].invalid }"
+                        >
+                        <div *ngIf="f['comment'].errors" class="invalid-feedback">
+                            <div *ngIf="f['comment'].errors['required']">Comment is required</div>
+                        </div>
+                    </div>
+
+                      <button
+                      class="btn btn-sm btn-outline-primary btn-block"
+                      [disabled]="availabilityForm.invalid" >
+                      Save
+                    </button>
+                </form>
+
+                <div *ngIf="isScheduled">
+                    <div class="card-header"><h4>Interview Scheduled</h4></div>
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <td><strong>Location: </strong> {{shortlist.location}}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Date:</strong> {{shortlist.interviewDate}}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Time:</strong> {{shortlist.interviewTime}}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Time Slot:</strong> {{shortlist.timeslot}}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Comments:</strong> {{shortlist.comments}}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Status:</strong> {{shortlist.status}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card-header"><h4>Applicant Contact Details</h4></div>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <td><strong>Name: </strong> {{applicantDetails.name}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Email:</strong> {{applicantDetails.name}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Phone Number:</strong> {{applicantContactDetails.phone}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Address Line 1:</strong> {{applicantContactDetails.addressLine1}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Address Line 2:</strong> {{applicantContactDetails.addressLine2}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>State:</strong> {{applicantContactDetails.state}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Postcode:</strong> {{applicantContactDetails.postcode}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      

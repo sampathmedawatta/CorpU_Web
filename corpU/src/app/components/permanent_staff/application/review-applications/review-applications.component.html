@@ -37,6 +37,14 @@
         </table>
 
         <div *ngIf="application.status =='Pending' ">
+
+            <div
+                            class="alert alert-success alert-dismissible fade show"
+                            role="alert"
+                            *ngIf="isSaved"
+                            >
+                            Intervice scheduled succesfully.
+                            </div>
             <br>
             <!-- Accept/Reject Options -->
             <h4>Shortlist:</h4>

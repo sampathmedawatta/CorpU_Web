@@ -5,7 +5,10 @@ export class shortlist{
     shortlistId: number;
     applicationId: number;
     empId: number;
-    interviewDate: Date;
+    location: string;
+    timeslot: string;
+    interviewDate: string;
+    interviewTime: string
     status: string;
     comments: string;
     application : application;
