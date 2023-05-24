@@ -39,6 +39,8 @@ const routes: Routes = [
   {path: 'Login',component: LoginComponent}, 
   {path: 'Register',component: RegisterComponent}, 
 
+  {path: 'Search',component: HomePageComponent}, 
+  
   {path: 'Applicant',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
