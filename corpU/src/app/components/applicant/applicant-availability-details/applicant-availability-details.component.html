@@ -1,143 +1,69 @@
-
-    <div class="container my-4">
-      <div class="card">
-        <div class="card-header"><h4>Availability</h4>
-        </div>
-        <div class="card-body">
-        <form #availabilityForm="ngForm" (ngSubmit)="onSubmit()">
-            <div formGroupName="availability">
-              <div class="row">
-                <div class="col-2">
-                  <label class="my-2">Monday:</label>
-                </div>
-                <div class="col-10 my-2 form-check">
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="monday.allDay"/>
-                      <label class="form-check-label">All Day</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="monday.morning">
-                      <label class="form-check-label">Morning</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="monday.afternoon">
-                      <label class="form-check-label">Afternoon</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="monday.evening">
-                      <label class="form-check-label">Evening</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class="col-2">
-                  <label class="my-2">Tuesday:</label>
-                </div>
-                <div class="col-10 my-2 form-check">
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="tuesday.allDay"/>
-                      <label class="form-check-label">All Day</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="tuesday.morning">
-                      <label class="form-check-label">Morning</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="tuesday.afternoon">
-                      <label class="form-check-label">Afternoon</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="tuesday.evening">
-                      <label class="form-check-label">Evening</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-2">
-                  <label class="my-2">Wednesday:</label>
-                </div>
-                <div class="col-10 my-2 form-check">
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="wednesday.allDay"/>
-                      <label class="form-check-label">All Day</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="wednesday.morning">
-                      <label class="form-check-label">Morning</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="wednesday.afternoon">
-                      <label class="form-check-label">Afternoon</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="wednesday.evening">
-                      <label class="form-check-label">Evening</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <label class="my-2">Thursday:</label>
-                </div>
-                <div class="col-10 my-2 form-check">
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="thursday.allDay"/>
-                      <label class="form-check-label">All Day</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="thursday.morning">
-                      <label class="form-check-label">Morning</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="thursday.afternoon">
-                      <label class="form-check-label">Afternoon</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="thursday.evening">
-                      <label class="form-check-label">Evening</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <label class="my-2">Friday:</label>
-                </div>
-                <div class="col-10 my-2 form-check">
-                  <div class="row">
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="friday.allDay"/>
-                      <label class="form-check-label">All Day</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="friday.morning">
-                      <label class="form-check-label">Morning</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="friday.afternoon">
-                      <label class="form-check-label">Afternoon</label>
-                    </div>
-                    <div class="col-3">
-                      <input type="checkbox" class="form-check-input" formControlName="friday.evening">
-                      <label class="form-check-label">Evening</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-        </div>
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header"><h4>Availability</h4>
     </div>
-</div>
-          
+    <div class="card-body">
+      <form [formGroup]="availabilityForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+          <label for="monday">Monday </label>
+            <select class="form-select" id="monday" formControlName="monday">
+                <option value="0" disabled selected>---- Select Availability Option----</option>
+                <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+              </select>
+              <div *ngIf="f['monday'].errors" class="invalid-feedback">
+                  <div *ngIf="f['monday'].errors['required']">Empolyee Role is required</div>
+              </div>
+        </div>
+
+       
+        <div class="mb-3">
+          <label for="tuesday">Tuesday </label>
+            <select class="form-select" id="tuesday" formControlName="tuesday">
+                <option value="0" disabled selected>---- Select Availability Option----</option>
+                <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+              </select>
+              <div *ngIf="f['tuesday'].errors" class="invalid-feedback">
+                  <div *ngIf="f['tuesday'].errors['required']">Empolyee Role is required</div>
+              </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="wednesday">Wednesday </label>
+            <select class="form-select" id="wednesday" formControlName="wednesday">
+                <option value="0" disabled selected>---- Select Availability Option----</option>
+                <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+              </select>
+              <div *ngIf="f['wednesday'].errors" class="invalid-feedback">
+                  <div *ngIf="f['wednesday'].errors['required']">Empolyee Role is required</div>
+              </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="thursday">Thursday </label>
+            <select class="form-select" id="thursday" formControlName="thursday">
+                <option value="0" disabled selected>---- Select Availability Option----</option>
+                <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+              </select>
+              <div *ngIf="f['thursday'].errors" class="invalid-feedback">
+                  <div *ngIf="f['thursday'].errors['required']">Empolyee Role is required</div>
+              </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="friday">Friday </label>
+            <select class="form-select" id="friday" formControlName="friday">
+                <option value="0" disabled selected>---- Select Availability Option----</option>
+                <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+              </select>
+              <div *ngIf="f['friday'].errors" class="invalid-feedback">
+                  <div *ngIf="f['friday'].errors['required']">Empolyee Role is required</div>
+              </div>
+        </div>
+
+            <button
+            class="btn btn-sm btn-outline-primary btn-block"
+            [disabled]="availabilityForm.invalid" >
+            Save
+          </button>
