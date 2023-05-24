@@ -22,7 +22,7 @@ export class ReviewApplicationsComponent {
   vacancyType : vacancyType = new vacancyType();
   applicantQualificationList: applicantQualification[] =[];
   dataLoaded : Promise<boolean>;
-
+  isSaved : boolean = false;
   shortListOptions : string[] = ["accept","reject"];
 
   shortlist : shortlist = new shortlist();
@@ -135,8 +135,7 @@ export class ReviewApplicationsComponent {
       
       this.shortListService.postShortList(this.shortlist).subscribe({
         next: (result: operationResult) => {
-
-          console.log(result.data);
+          this.isSaved = true;
   
         },
         error: (error) => {

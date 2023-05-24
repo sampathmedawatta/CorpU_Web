@@ -25,23 +25,7 @@ export class ApplicantClassPreferencesComponent {
 
   applicantClassPrefrance: applicantClassPreferance = new applicantClassPreferance();
   
-    
-    // Function to get class preferanceID, applicantID, classTypeID, ClassPrefernace
-    getContactDetails(): any {
-      const details = {
-        classPreferanceId: this.applicantClassPrefrance.classPreferanceId,
-        applicantId: this.applicantClassPrefrance.applicantId,
-        classTypeId: this.applicantClassPrefrance.classTypeId,
-        classPreferance: this.applicantClassPrefrance.selectedclassPreferance
-      };
-      return details;
-    }
-    getcheckbox(i: any) {
-      console.log(i)
-      console.log(this.classPreferences[i])
 
-    }
-  
     onSubmit() {
       let _applicant = localStorage.getItem('applicant');
       if (_applicant) {

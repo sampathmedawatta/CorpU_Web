@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApplicantContactDetailService, ApplicantQualificationService, ApplicantService, applicant, applicantContactDetail, applicantQualification, operationResult } from 'src/app/core';
+import { ApplicantAvailabilityService, ApplicantContactDetailService, ApplicantQualificationService, ApplicantService, applicant, applicantAvailability, applicantContactDetail, applicantQualification, operationResult } from 'src/app/core';
 
 @Component({
   selector: 'app-applicant-view',
@@ -8,7 +8,7 @@ import { ApplicantContactDetailService, ApplicantQualificationService, Applicant
   styleUrls: ['./applicant-view.component.css']
 })
 export class ApplicantViewComponent {
-  
+  applicantAvailability: applicantAvailability = new applicantAvailability();
   applicantContactDetails: applicantContactDetail = new applicantContactDetail();
   applicantQualificationList: applicantQualification[] =[];
   applicantId : number = 0;
@@ -17,6 +17,7 @@ export class ApplicantViewComponent {
   constructor(private applicantQualificationService: ApplicantQualificationService,
     private applicantService: ApplicantService,
     private applicantContactDetailService: ApplicantContactDetailService,
+    private applicantAvailabilityService: ApplicantAvailabilityService,
     private route: ActivatedRoute){
 
   }
@@ -36,12 +37,23 @@ getApplicant(){
 
         this.getContactDetails();
         this.getQualificationList();
+        this.getAvailability();
       
     }
     },
     error: (error) => {
       console.error('There was an error fetching applicant details!', error);
     }
+  });
+}
+
+getAvailability(){
+  this.applicantAvailabilityService.getApplicantAvailabilityByApplicantId(this.applicantDetails.applicantId).subscribe({
+    next: (result: operationResult) => {
+      if (result.data) {
+        this.applicantAvailability = result.data;
+      }
+    },
   });
 }
 

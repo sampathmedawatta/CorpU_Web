@@ -7,7 +7,7 @@
         <form (ngSubmit)="onSubmit()" *ngIf="applicantClassPrefrance">
             <div class="mb-3" *ngFor="let preference of classPreferences let  i = index">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" (change)="getcheckbox(i)" [id]="preference.id" [name]="preference.name" [value]="preference.value" [(ngModel)]="preference.selected">
+                    <input type="checkbox" class="form-check-input" [id]="preference.id" [name]="preference.name" [value]="preference.value" [(ngModel)]="preference.selected">
                     <label class="form-check-label" [for]="preference.id">{{ preference.label }}</label>
                 </div>
             </div>            
