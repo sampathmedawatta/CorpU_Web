@@ -120,9 +120,8 @@ export class ReviewApplicationsComponent {
     }
     else{
       this.isFormValid = true;
-      console.log(shortListForm.value);
 
-      this.shortlist.applicationId = this.application.applicantId;
+      this.shortlist.applicationId = this.application.applicationId;
       this.shortlist.empId = this.employee.empId;
       this.shortlist.comments = shortListForm.value.comments;
 
