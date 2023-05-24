@@ -47,22 +47,26 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     }
 
   onSubmit() {
-    this.applicantContact.applicant_id = this.applicantDetails.applicantId;
-    if(this.applicantContact.appContactId > 0){
-      this.updateContactDetails();
-      this.isSaved = true;
+
+    if(this.applicantDetails){
+      this.applicantContact.applicantId = this.applicantDetails.applicantId;
+      if(this.applicantContact.appContactId > 0){
+        this.updateContactDetails();
+        this.isSaved = true;
+      }
+      else{
+        this.saveContactDetails();
+        this.isSaved = true;
+      }
     }
-    else{
-      this.saveContactDetails();
-      this.isSaved = true;
-    }
+    
   }
   
   updateContactDetails(){
     this.applicantContactDetailService.updateApplicantContactDetail(this.applicantContact).subscribe({
       next: (result: operationResult) => {
         // Handle success
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantContact.applicant_id).subscribe({
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantContact.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;
@@ -90,7 +94,8 @@ export class ApplicantProfileDetailsComponent implements OnInit {
     this.applicantContactDetailService.postApplicantContactDetail(this.applicantContact).subscribe({
       next: (result: operationResult) => {
         // Handle success
-        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(3).subscribe({
+        this.applicantContact =result.data;
+        this.applicantContactDetailService.getApplicantContactDetailByApplicantId(this.applicantContact.applicantId).subscribe({
           next: (result: operationResult) => {
             if (result.data) {
               this.applicantContact = result.data;

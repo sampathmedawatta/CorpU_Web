@@ -1,6 +1,6 @@
 export class applicantContactDetail{
     appContactId: number;
-    applicant_id: number;
+    applicantId: number;
     phone: number;
     addressLine1: string
     addressLine2: string;

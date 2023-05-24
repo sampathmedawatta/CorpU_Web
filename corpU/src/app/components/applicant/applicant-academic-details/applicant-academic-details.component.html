@@ -2,96 +2,80 @@
     <div class="container my-4">
       <div class="card">
         <div class="card-header"><h4>Academic Details</h4></div>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark justify-content-center">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/Applicant/PersonalDetails">Personal Details</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Applicant/AcademicDetails">Academic Details</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Applicant/ClassPreferences">Class Preferences</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Applicant/Availability">Applicant Availability</a>
-                </li>
-            </ul>
-        </nav>
+        <app-applicant-nav></app-applicant-nav>
         
         <div class="card-body">
-        <form (ngSubmit)="onSubmit()" *ngIf="applicantAcademic" #academicForm="ngForm">
-
-             
-
-            <div
-                class="alert alert-success alert-dismissible fade show"
-                role="alert"
-                *ngIf="isSaved">
-                Applicant account details has been succesfully.
-            </div>
-            
-            <div class="mb-3">
-                <label for="institute">Institution Name:</label>
-                <input type="text" class="form-control" id="institute" name="institute" required [(ngModel)]="applicantAcademic.institute" #institute="ngModel">
-                <div *ngIf="institute.invalid && (institute.dirty || institute.touched)" class="alert alert-danger">
-                    <div *ngIf="institute.errors">Institution Name is required.</div>
+          <div class="row">
+            <div class="col-6">
+              <form (ngSubmit)="onSubmit()" *ngIf="applicantAcademic" #academicForm="ngForm">
+                <div
+                    class="alert alert-success alert-dismissible fade show"
+                    role="alert"
+                    *ngIf="isSaved">
+                    Applicant account details has been succesfully.
                 </div>
-            </div>
-              <div class="mb-3">
-                <label for="quacontactType">Qualification Type </label>
-                  <select class="form-select" id="quacontactType" name="quacontactType" >
-                      <option value="0" disabled selected>---- Select Qualification Type ----</option>
-                      <option *ngFor="let qualificationType of qualificationTypeList" value="{{qualificationType.qualificationTypeId}}">{{qualificationType.description}}</option>
-                    </select>
-                  </div>
-
-              <div class="mb-3">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" id="description" name="description" required [(ngModel)]="applicantAcademic.description" #description="ngModel">
-                <div *ngIf="institute.invalid && (description.dirty || description.touched)" class="alert alert-danger">
-                    <div *ngIf="description.errors">Description is required.</div>
+                
+                <div class="mb-3">
+                    <label for="institute">Institution Name:</label>
+                    <input type="text" class="form-control" id="institute" name="institute" required [(ngModel)]="applicantAcademic.institute" #institute="ngModel">
+                    <div *ngIf="institute.invalid && (institute.dirty || institute.touched)" class="alert alert-danger">
+                        <div *ngIf="institute.errors">Institution Name is required.</div>
+                    </div>
                 </div>
+                  <div class="mb-3">
+                    <label for="quacontactType">Qualification Type </label>
+                      <select class="form-select" id="quacontactType" name="quacontactType" >
+                          <option value="0" disabled selected>---- Select Qualification Type ----</option>
+                          <option *ngFor="let qualificationType of qualificationTypeList" value="{{qualificationType.qualificationTypeId}}">{{qualificationType.description}}</option>
+                        </select>
+                      </div>
+    
+                  <div class="mb-3">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description" required [(ngModel)]="applicantAcademic.description" #description="ngModel">
+                    <div *ngIf="institute.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                        <div *ngIf="description.errors">Description is required.</div>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="awardedyear">Year of Award:</label>
+                    <input type="text" class="form-control" id="awardedyear" name="awardedyear" required maxlength="4" minlength="4"
+                           [(ngModel)]="applicantAcademic.awardedYear" #awardedyear="ngModel"
+                           >
+                            <div *ngIf="awardedyear.invalid && (awardedyear.dirty || awardedyear.touched)" class="alert alert-danger">
+                            <div *ngIf="awardedyear.errors?.['required']">Year of Award is required.</div>
+                            <div *ngIf="awardedyear.errors?.['pattern']">Year of Award must be a valid 4-digit number.</div>
+                            <div *ngIf="awardedyear.errors?.['min']">Year of Award must be at least 1900.</div>
+                        </div> 
+                </div>
+                
+                <button type="submit" class="btn btn-primary mb-3" [disabled]="academicForm.invalid">Add</button>
+            </form>
             </div>
-
-            <div class="mb-3">
-                <label for="awardedyear">Year of Award:</label>
-                <input type="text" class="form-control" id="awardedyear" name="awardedyear" required maxlength="4" minlength="4"
-                       [(ngModel)]="applicantAcademic.awardedYear" #awardedyear="ngModel"
-                       >
-                        <div *ngIf="awardedyear.invalid && (awardedyear.dirty || awardedyear.touched)" class="alert alert-danger">
-                        <div *ngIf="awardedyear.errors?.['required']">Year of Award is required.</div>
-                        <div *ngIf="awardedyear.errors?.['pattern']">Year of Award must be a valid 4-digit number.</div>
-                        <div *ngIf="awardedyear.errors?.['min']">Year of Award must be at least 1900.</div>
-                    </div> 
+            <div class="col-6">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Institution</th>
+                      <th>Description</th>
+                      <th>Qualification</th>
+                      <th>Year </th>
+                      <!-- <th>Edit</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let qualification of applicantQualificationList">
+                      <td>{{ qualification.institute }}</td>
+                      <td>{{ qualification.description }}</td>
+                      <td>{{ qualification.qualificationType.description }}</td>
+                      <td>{{ qualification.awardedYear }}</td>
+                      <!-- <td><button class="btn btn-secondary">Edit</button></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            
-            <button type="submit" class="btn btn-primary mb-3" [disabled]="academicForm.invalid">Add</button>
-        </form>
-
-        <div class="row header-bar">
-          <div class="col-10"><h2></h2></div>
-          <div class="col-2">
-          </div>
-        </div>
-        <table class="table">
-            <thead>
-              <tr>
-                <th>Institution Name</th>
-                <th>Qualification Type</th>
-                <th>Year of Award</th>
-                <!-- <th>Edit</th> -->
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let qualification of applicantQualificationList">
-                <td>{{ qualification.institute }}</td>
-                <td>{{ qualification.qualificationType.description }}</td>
-                <td>{{ qualification.awardedYear }}</td>
-                <!-- <td><button class="btn btn-secondary">Edit</button></td> -->
-              </tr>
-            </tbody>
-          </table>
         </div>
     </div>
   </div>
