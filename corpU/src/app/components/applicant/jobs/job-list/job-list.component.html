@@ -15,7 +15,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Unit Name</th>
+            <th>Description</th>
             <th>Closing Date</th>
             <th>Options</th>
           </tr>
@@ -25,7 +25,7 @@
             <td>{{ vacancy.title }}</td>
             <td>{{ vacancy.closingDate | date }}</td>
             <td>
-              <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View Vacancy</a>  
+              <a routerLink="/Job/Apply/{{ vacancy.vacancyId }}">View</a>  
             </td>
           </tr>
         </tbody>

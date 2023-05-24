@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApplicationService, VacancyService, applicant, application, operationResult, vacancy } from 'src/app/core';
 
 @Component({
@@ -14,8 +14,8 @@ export class ApplyComponent {
   applicantDetails: applicant = new applicant();
   agreeCheckbox : boolean = false;
   isErrored : boolean = false;
-
-  constructor(private vacancyService:VacancyService,private route: ActivatedRoute, private applicationService:ApplicationService){}
+  isSaved: boolean = false;
+  constructor(private vacancyService:VacancyService,private route: ActivatedRoute,private router: Router, private applicationService:ApplicationService){}
   ngOnInit(): void {
 
     this.vacancyId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
@@ -60,6 +60,8 @@ export class ApplyComponent {
 
           next: (result: operationResult) => {
             this.application = result.data;   
+            this.isSaved = true;
+            
             },
             error: (error) => {
               if (error.status == 400) {
@@ -78,6 +80,7 @@ export class ApplyComponent {
     }
 
     handlerCloseAllert() {
+      this.router.navigate(['/Application/History']);
       this.isErrored = false;
     }
     
