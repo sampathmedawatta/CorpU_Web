@@ -2,11 +2,16 @@
   <div class="container mt-4">
     <div class="card">
       <div class="card-header">
-        <h4>Available Units</h4>
+        <div class="row">
+          <div class="col-10"><h4>Available Vacancies</h4></div>
+          <div class="col-2">
+            <a routerLink="/Applicant/Search" class="btn btn-sm btn-outline-primary">List All vacancies</a>
+          </div>
+        </div>
       </div>
       <div class="card-body">
 
-        <label *ngIf="txt">Search Text: {{txt}}</label>
+        <label *ngIf="txt"> <h5>Search Text: {{txt}} </h5> </label>
         <table class="table">
           <thead>
             <tr>

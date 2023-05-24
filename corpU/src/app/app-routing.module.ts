@@ -32,6 +32,7 @@ import { ApplyComponent } from './components/applicant/jobs/apply/apply.componen
 import { ApplicantListComponent } from './components/permanent_staff/applicant/applicant-list/applicant-list.component';
 import { ApplicantViewComponent } from './components/permanent_staff/applicant/applicant-view/applicant-view.component';
 import { ScheduleInterviewComponent } from './components/permanent_staff/application/schedule-interview/schedule-interview.component';
+import { ClassAvailabilityComponent } from './components/applicant/class-availability/class-availability.component';
 
 const routes: Routes = [
 {path: '',component: HomePageComponent},
@@ -41,16 +42,13 @@ const routes: Routes = [
   {path: 'Applicant',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-  {path: 'Applicant/:txt',component: ApplicantComponent, 
+  {path: 'Applicant/Search',component: ApplicantComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
   {path: 'Applicant/AcademicDetails', component:ApplicantAcademicDetailsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
-  {path: 'Applicant/ClassPreferences', component:ApplicantClassPreferencesComponent, 
-  canActivate: [AuthGuard, RoleGuardGuard],
-  data:{expectedRoles:['Applicant']}}, 
-  {path: 'Applicant/Availability',component:ApplicantAvailabilityDetailsComponent, 
+  {path: 'Applicant/Availability',component:ClassAvailabilityComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Applicant']}}, 
   {path: 'Application/History', component:ApplicantUnitHistoryComponent, 

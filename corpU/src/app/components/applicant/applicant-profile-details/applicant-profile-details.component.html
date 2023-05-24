@@ -3,85 +3,103 @@
       <div class="card">
           <div class="card-header"><h4>Personal Details</h4>
         </div>
-
-
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav justify-content-center w-100">
-                    <li class="nav-item active">
-                        <a class="nav-link active" href="/Applicant/PersonalDetails">Personal Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Applicant/AcademicDetails">Academic Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Applicant/ClassPreferences">Class Preferences</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/Applicant/Availability">Applicant Availability</a>
-                  </li>
-                </ul>
-            </div>
-        </nav>
-
+        <app-applicant-nav></app-applicant-nav>
         <div class="card-body">
           <form (ngSubmit)="onSubmit()" *ngIf="hasFilledForm">
-           
             
             <div
                 class="alert alert-success alert-dismissible fade show"
                 role="alert"
                 *ngIf="isSaved">
-                Applicant account details has been succesfully.
+                Applicant account details has been saved succesfully.
             </div>
 
-            <div class="mb-3">
-              <label for="name">Name:</label>
-              <input type="text" readonly class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name" #name="ngModel">
-              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-                <div *ngIf="name.errors">Applicant Name is required.</div>
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="name">Name:</label>
+                  <input type="text" readonly class="form-control" id="name" name="name" required [(ngModel)]="applicantDetails.name" #name="ngModel">
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors">Applicant Name is required.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="email">Email:</label>
+                <div class="mb-3">
+                  <input type="text" readonly class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email" #email="ngModel">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors">Email ID is required.</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <label for="email">Email:</label>
-            <div class="mb-3">
-              <input type="text" readonly class="form-control" id="email" name="email" required [(ngModel)]="applicantDetails.email" #email="ngModel">
-              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                <div *ngIf="email.errors">Email ID is required.</div>
-              </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="phone">Phone Number:</label>
+                <div class="mb-3">
+                  <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="applicantContact.phone" #phone="ngModel">
+                  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                    <div *ngIf="phone.errors">Phone number is required.</div>
+                  </div>
+                </div>
+                </div>
+              <div class="col-6">
+                </div>
             </div>
-            <label for="phone">Phone Number:</label>
-            <div class="mb-3">
-              <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="applicantContact.phone" #phone="ngModel">
-              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
-                <div *ngIf="phone.errors">Phone number is required.</div>
-              </div>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="address1">Address Line 1:</label>
+                  <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.addressLine1" #addressLine1="ngModel">
+                  <div *ngIf="addressLine1.invalid && (addressLine1.dirty || addressLine1.touched)" class="alert alert-danger">
+                    <div *ngIf="addressLine1.errors">Address Line 1 is required.</div>
+                  </div>
+                </div>
+                </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="address1">Address Line 2:</label>
+                  <input type="text" class="form-control" id="address2" name="address2" required [(ngModel)]="applicantContact.addressLine2">
+                </div>
+                </div>
             </div>
-            <div class="mb-3">
-              <label for="address1">Address Line 1:</label>
-              <input type="text" class="form-control" id="address1" name="address1" required [(ngModel)]="applicantContact.addressLine1" #addressLine1="ngModel">
-              <div *ngIf="addressLine1.invalid && (addressLine1.dirty || addressLine1.touched)" class="alert alert-danger">
-                <div *ngIf="addressLine1.errors">Address Line 1 is required.</div>
-              </div>
+
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="state">State:</label>
+                  <input type="text" class="form-control" id="state" name="state" required [(ngModel)]="applicantContact.state" #state="ngModel">
+                  <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                    <div *ngIf="state.errors">State is required.</div>
+                  </div>
+                </div>
+                </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="postcode">Postcode:</label>
+                  <input type="text" class="form-control" id="postcode" name="postcode" required [(ngModel)]="applicantContact.postcode" #postcode="ngModel">
+                  <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger">
+                    <div *ngIf="postcode.errors">Postcode is required.</div>
+                  </div>
+                </div>
+                </div>
             </div>
-            <div class="mb-3">
-              <label for="address1">Address Line 2:</label>
-              <input type="text" class="form-control" id="address2" name="address2" required [(ngModel)]="applicantContact.addressLine2">
+
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+                </div>
+              <div class="col-6">
+                </div>
             </div>
-            <div class="mb-3">
-              <label for="state">State:</label>
-              <input type="text" class="form-control" id="state" name="state" required [(ngModel)]="applicantContact.state" #state="ngModel">
-              <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
-                <div *ngIf="state.errors">State is required.</div>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="postcode">Postcode:</label>
-              <input type="text" class="form-control" id="postcode" name="postcode" required [(ngModel)]="applicantContact.postcode" #postcode="ngModel">
-              <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger">
-                <div *ngIf="postcode.errors">Postcode is required.</div>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+            
+            
+            
+            
+            
+           
             </form>
           </div>
       </div>

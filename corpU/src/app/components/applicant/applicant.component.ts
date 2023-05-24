@@ -15,9 +15,17 @@ export class ApplicantComponent {
     private route: ActivatedRoute){}
   ngOnInit(): void {
 
-    this.txt  = this.route.snapshot.paramMap.get('txt') || '';
-    
-    if(this.txt != ''){
+    this.route.queryParams
+    .subscribe(params => {
+      this.txt = params['txt'];
+      this.checkSearchText();
+    }
+    );
+  }
+
+
+  checkSearchText(){
+    if(this.txt != '' && this.txt != undefined){
       this.getVacancyListByText();
     }
     else{

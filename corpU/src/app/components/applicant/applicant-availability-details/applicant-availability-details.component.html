@@ -1,77 +1,141 @@
 
     <div class="container my-4">
       <div class="card">
-        <div class="card-header"><h4>Applicant Availability</h4>
+        <div class="card-header"><h4>Availability</h4>
         </div>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-            <div class="container-fluid">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Applicant/PersonalDetails">Personal Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Applicant/AcademicDetails">Academic Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Applicant/ClassPreferences">Class Preferences</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Applicant/AvailabilityDetails">Applicant Availability</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    
         <div class="card-body">
         <form #availabilityForm="ngForm" (ngSubmit)="onSubmit()">
             <div formGroupName="availability">
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Monday:</label>
-                <div class="col-sm-10">
-                  <label><input type="checkbox" formControlName="monday.allDay">All Day</label>
-                  <label><input type="checkbox" formControlName="monday.morning">Morning</label>
-                  <label><input type="checkbox" formControlName="monday.afternoon">Afternoon</label>
-                  <label><input type="checkbox" formControlName="monday.evening">Evening</label>
+              <div class="row">
+                <div class="col-2">
+                  <label class="my-2">Monday:</label>
+                </div>
+                <div class="col-10 my-2 form-check">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="monday.allDay"/>
+                      <label class="form-check-label">All Day</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="monday.morning">
+                      <label class="form-check-label">Morning</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="monday.afternoon">
+                      <label class="form-check-label">Afternoon</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="monday.evening">
+                      <label class="form-check-label">Evening</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Tuesday:</label>
-                <div class="col-sm-10">
-                  <label><input type="checkbox" formControlName="tuesday.allDay">All Day</label>
-                  <label><input type="checkbox" formControlName="tuesday.morning">Morning</label>
-                  <label><input type="checkbox" formControlName="tuesday.afternoon">Afternoon</label>
-                  <label><input type="checkbox" formControlName="tuesday.evening">Evening</label>
+
+
+              <div class="row">
+                <div class="col-2">
+                  <label class="my-2">Tuesday:</label>
+                </div>
+                <div class="col-10 my-2 form-check">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="tuesday.allDay"/>
+                      <label class="form-check-label">All Day</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="tuesday.morning">
+                      <label class="form-check-label">Morning</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="tuesday.afternoon">
+                      <label class="form-check-label">Afternoon</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="tuesday.evening">
+                      <label class="form-check-label">Evening</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Wednesday:</label>
-                <div class="col-sm-10">
-                  <label><input type="checkbox" formControlName="wednesday.allDay">All Day</label>
-                  <label><input type="checkbox" formControlName="wednesday.morning">Morning</label>
-                  <label><input type="checkbox" formControlName="wednesday.afternoon">Afternoon</label>
-                  <label><input type="checkbox" formControlName="wednesday.evening">Evening</label>
+
+              <div class="row">
+                <div class="col-2">
+                  <label class="my-2">Wednesday:</label>
+                </div>
+                <div class="col-10 my-2 form-check">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="wednesday.allDay"/>
+                      <label class="form-check-label">All Day</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="wednesday.morning">
+                      <label class="form-check-label">Morning</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="wednesday.afternoon">
+                      <label class="form-check-label">Afternoon</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="wednesday.evening">
+                      <label class="form-check-label">Evening</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Thursday:</label>
-                <div class="col-sm-10">
-                  <label><input type="checkbox" formControlName="thursday.allDay">All Day</label>
-                  <label><input type="checkbox" formControlName="thursday.morning">Morning</label>
-                  <label><input type="checkbox" formControlName="thursday.afternoon">Afternoon</label>
-                  <label><input type="checkbox" formControlName="thursday.evening">Evening</label>
+              <div class="row">
+                <div class="col-2">
+                  <label class="my-2">Thursday:</label>
+                </div>
+                <div class="col-10 my-2 form-check">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="thursday.allDay"/>
+                      <label class="form-check-label">All Day</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="thursday.morning">
+                      <label class="form-check-label">Morning</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="thursday.afternoon">
+                      <label class="form-check-label">Afternoon</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="thursday.evening">
+                      <label class="form-check-label">Evening</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Friday:</label>
-                <div class="col-sm-10">
-                  <label><input type="checkbox" formControlName="friday.allDay">All Day</label>
-                  <label><input type="checkbox" formControlName="friday.morning">Morning</label>
-                  <label><input type="checkbox" formControlName="friday.afternoon">Afternoon</label>
-                  <label><input type="checkbox" formControlName="friday.evening">Evening</label>
+              <div class="row">
+                <div class="col-2">
+                  <label class="my-2">Friday:</label>
+                </div>
+                <div class="col-10 my-2 form-check">
+                  <div class="row">
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="friday.allDay"/>
+                      <label class="form-check-label">All Day</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="friday.morning">
+                      <label class="form-check-label">Morning</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="friday.afternoon">
+                      <label class="form-check-label">Afternoon</label>
+                    </div>
+                    <div class="col-3">
+                      <input type="checkbox" class="form-check-input" formControlName="friday.evening">
+                      <label class="form-check-label">Evening</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
           </form>
         </div>
     </div>

@@ -49,6 +49,8 @@ import { ApplyComponent } from './components/applicant/jobs/apply/apply.componen
 import { ApplicantListComponent } from './components/permanent_staff/applicant/applicant-list/applicant-list.component';
 import { ApplicantViewComponent } from './components/permanent_staff/applicant/applicant-view/applicant-view.component';
 import { ScheduleInterviewComponent } from './components/permanent_staff/application/schedule-interview/schedule-interview.component';
+import { ApplicantNavComponent } from './components/applicant/shared/applicant-nav/applicant-nav.component';
+import { ClassAvailabilityComponent } from './components/applicant/class-availability/class-availability.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +99,8 @@ import { ScheduleInterviewComponent } from './components/permanent_staff/applica
     ApplicantListComponent,
     ApplicantViewComponent,
     ScheduleInterviewComponent,
+    ApplicantNavComponent,
+    ClassAvailabilityComponent,
   ],
   imports: [
     BrowserModule,

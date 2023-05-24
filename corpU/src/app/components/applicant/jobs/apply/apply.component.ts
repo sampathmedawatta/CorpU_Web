@@ -19,7 +19,6 @@ export class ApplyComponent {
   ngOnInit(): void {
 
     this.vacancyId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
-
     this.getVacancyById(this.vacancyId);
   }
 
@@ -29,7 +28,6 @@ export class ApplyComponent {
       
       next: (result: operationResult) => {
       this.vacancy = result.data;   
-      console.log( this.vacancy);
       },
       error: (error) => {
         if (error.status == 400) {
@@ -62,7 +60,6 @@ export class ApplyComponent {
 
           next: (result: operationResult) => {
             this.application = result.data;   
-            console.log( this.application);
             },
             error: (error) => {
               if (error.status == 400) {

@@ -34,7 +34,6 @@ export class VacancyService {
   }
 
   getVacancyListByText(txt : string): Observable<operationResult> {
-    console.log( txt);
     const params = new HttpParams()
       .set('text', txt);
 
