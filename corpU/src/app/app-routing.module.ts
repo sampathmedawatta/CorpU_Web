@@ -102,7 +102,7 @@ const routes: Routes = [
   {path: 'Applications', component:ViewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},
-  {path: 'Application/ReView/:id', component:ReviewApplicationsComponent, 
+  {path: 'Application/ReView/:id/:applicantId', component:ReviewApplicationsComponent, 
   canActivate: [AuthGuard, RoleGuardGuard],
   data:{expectedRoles:['Admin','Manager', 'Staff']}},
   {path: 'Application/Schedule/:applicationId/:applicantId', component:ScheduleInterviewComponent, 
