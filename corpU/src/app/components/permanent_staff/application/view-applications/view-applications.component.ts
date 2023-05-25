@@ -8,11 +8,15 @@ import { ApplicationService, application, operationResult } from 'src/app/core';
 })
 export class ViewApplicationsComponent {
   applications: application[] = [];
-
+  role : string;
   constructor(private applicationService : ApplicationService){
   
   }
   ngOnInit(): void {
+    let userRole = localStorage.getItem('userRole');
+    if (userRole) {
+    this.role = userRole;
+    }
     this.getApplicationList();
   }
 

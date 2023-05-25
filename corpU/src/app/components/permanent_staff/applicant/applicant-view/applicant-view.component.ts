@@ -23,7 +23,7 @@ export class ApplicantViewComponent {
   }
   
   ngOnInit(): void {
-    this.applicantId  = parseInt(this.route.snapshot.paramMap.get('applicantId') || '0');
+    this.applicantId  = parseInt(this.route.snapshot.paramMap.get('applicantId') || '1');
       this.getApplicant();
 }
 

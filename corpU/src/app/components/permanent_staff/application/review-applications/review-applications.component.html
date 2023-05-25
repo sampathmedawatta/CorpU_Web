@@ -46,6 +46,9 @@
                             Application details updated succesfully.
                             </div>
             <br>
+            <div *ngIf="employee.empRoleId == 1 || employee.empRoleId == 2 ">
+
+           
             <!-- Accept/Reject Options -->
             <h4>Shortlist:</h4>
             <form #shortListForm="ngForm" (ngSubmit)="save(shortListForm)">
@@ -81,6 +84,7 @@
                 </div>
             </form>
             </div>
+        </div>
         <div>
     </div>
 </div>
