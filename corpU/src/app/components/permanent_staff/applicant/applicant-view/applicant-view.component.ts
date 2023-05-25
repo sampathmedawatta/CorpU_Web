@@ -19,20 +19,18 @@ export class ApplicantViewComponent {
     private applicantContactDetailService: ApplicantContactDetailService,
     private applicantAvailabilityService: ApplicantAvailabilityService,
     private route: ActivatedRoute){
-
+      
   }
   
   ngOnInit(): void {
-    this.applicantId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
-    this.getApplicant();
-    
+    this.applicantId  = parseInt(this.route.snapshot.paramMap.get('applicantId') || '0');
+      this.getApplicant();
 }
 
 getApplicant(){
   this.applicantService.getApplicant(this.applicantId).subscribe({
     next: (result: operationResult) => {
       if (result.data) {
-
         this.applicantDetails = result.data;
 
         this.getContactDetails();

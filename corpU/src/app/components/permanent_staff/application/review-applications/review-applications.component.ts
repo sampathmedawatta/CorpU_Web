@@ -21,7 +21,7 @@ export class ReviewApplicationsComponent {
   unit: unit = new unit();
   vacancyType : vacancyType = new vacancyType();
   applicantQualificationList: applicantQualification[] =[];
-  dataLoaded : Promise<boolean>;
+  dataLoaded : boolean = false;
   isSaved : boolean = false;
   shortListOptions : string[] = ["accept","reject"];
 
@@ -34,7 +34,12 @@ export class ReviewApplicationsComponent {
     private classTypeService: ClassTypeService,
     private vacancyTypeService: VacancyTypeService,
     private shortListService: ShortListService
-    ){}
+    ){
+
+    
+     
+
+    }
 
   ngOnInit(): void {
     this.applicationId  = parseInt(this.route.snapshot.paramMap.get('id') || '0');
@@ -44,7 +49,6 @@ export class ReviewApplicationsComponent {
     }
 
     this.getApplicationData();
-   
   }
 
   getApplicationData(){
@@ -52,10 +56,6 @@ export class ReviewApplicationsComponent {
       next: (result: operationResult) => {
       this.application = result.data;
       this.getQualificationData();
-      this.getClassType();
-      this.getVacancyType();
-
-      this.dataLoaded = Promise.resolve(true);
       },
       error: (error) => {
         if (error.status == 400) {
@@ -72,6 +72,7 @@ export class ReviewApplicationsComponent {
       next: (result: operationResult) => {
       this.applicantQualificationList = result.data;
       console.log(this.applicantQualificationList);
+      this.getClassType();
       },
       error: (error) => {
         if (error.status == 400) {
@@ -87,6 +88,7 @@ export class ReviewApplicationsComponent {
     this.classTypeService.getClassTypeById(this.application.vacancy.classTypeId).subscribe({
       next: (result: operationResult) => {
       this.classType = result.data;
+      this.getVacancyType();
       },
       error: (error) => {
         if (error.status == 400) {
@@ -102,6 +104,7 @@ export class ReviewApplicationsComponent {
     this.vacancyTypeService.getVacancyTypeById(this.application.vacancy.vacancyTypeId).subscribe({
       next: (result: operationResult) => {
       this.vacancyType = result.data;
+      this.dataLoaded = true;
       },
       error: (error) => {
         if (error.status == 400) {
