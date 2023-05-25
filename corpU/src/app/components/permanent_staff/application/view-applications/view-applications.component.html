@@ -30,7 +30,7 @@
           <td>
             <a routerLink="/Application/ReView/{{ application.applicationId }}/{{ application.applicantId }}" >Review</a>  | 
             <!-- *ngIf="application.status =='Pending' " *ngIf="application.status =='Shortlisted' "-->
-            <a routerLink="/Application/Schedule/{{ application.applicationId }}/{{ application.applicantId }}" *ngIf="application.status !='Pending' && application.status !='Rejected' " >Schedule</a>
+            <a routerLink="/Application/Schedule/{{ application.applicationId }}/{{ application.applicantId }}" *ngIf="application.status !='Pending' && application.status !='Rejected' && role!='Staff' " >Schedule</a>
           </td>
         </tr>
       </tbody>
